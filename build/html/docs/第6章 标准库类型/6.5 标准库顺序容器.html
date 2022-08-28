@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6.5 标准库类型：顺序容器 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>6.5 标准库类型：顺序容器 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -93,7 +94,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -113,9 +114,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>6.5 标准库类型：顺序容器<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>6.5 标准库类型：顺序容器<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>概述<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>概述<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>除我们介绍过的string和vector这两种外，C++标准库还包含其他的顺序容器，他们在下述两种方面存在不同的性能折中：</p>
 <ul class="simple">
 <li><p>向容器添加或从容器中删除元素的代价</p></li>
@@ -156,7 +157,7 @@
 </tbody>
 </table></section>
 <section id="id3">
-<h2>选择顺序容器的基本原则<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>选择顺序容器的基本原则<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <ul class="simple">
 <li><p>除非你有很好的理由选择其他容器，否则优先用vector</p></li>
 <li><p>如果你的程序有很多小元素，且空间的额外开销很重要，那么不要使用list或者<code class="docutils literal notranslate"><span class="pre">forward_list</span></code></p></li>
@@ -171,10 +172,10 @@
 </ul>
 </section>
 <section id="id4">
-<h2>容器库概览<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<h2>容器库概览<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
 <p>以下列举所有容器（顺序容器和关联容器）都支持的操作。</p>
 <section id="id5">
-<h3>1. 容器类型别名<a class="headerlink" href="#id5" title="永久链接至标题"></a></h3>
+<h3>1. 容器类型别名<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
 <p>通过类型别名，我们可以在不了解容器汇总元素类型的情况下使用它：</p>
 <table border="1" class="docutils">
 <thead>
@@ -223,7 +224,7 @@
 </tbody>
 </table></section>
 <section id="beginend">
-<h3>2. 容器的begin和end成员<a class="headerlink" href="#beginend" title="永久链接至标题"></a></h3>
+<h3>2. 容器的begin和end成员<a class="headerlink" href="#beginend" title="此标题的永久链接"></a></h3>
 <p>begin和end操作生成指向容器中第一个元素和尾元素之后位置的迭代器，它们包含多个版本：</p>
 <ul class="simple">
 <li><p>带<code class="docutils literal notranslate"><span class="pre">r</span></code>的版本返回反向迭代器</p></li>
@@ -231,7 +232,7 @@
 </ul>
 </section>
 <section id="id6">
-<h3>3. 容器定义和初始化<a class="headerlink" href="#id6" title="永久链接至标题"></a></h3>
+<h3>3. 容器定义和初始化<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
 <p>容器定义和初始化的操作包括：</p>
 <table border="1" class="docutils">
 <thead>
@@ -275,7 +276,7 @@
 </tbody>
 </table></section>
 <section id="swap">
-<h3>4. 容器赋值和swap<a class="headerlink" href="#swap" title="永久链接至标题"></a></h3>
+<h3>4. 容器赋值和swap<a class="headerlink" href="#swap" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：assign操作不适用于关联容器和array</p>
 </div></blockquote>
@@ -326,7 +327,7 @@
 </ul>
 </section>
 <section id="id7">
-<h3>5. 容器大小操作<a class="headerlink" href="#id7" title="永久链接至标题"></a></h3>
+<h3>5. 容器大小操作<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -353,7 +354,7 @@
 </tr>
 </tbody>
 </table><section id="id8">
-<h4>6. 容器的关系运算符<a class="headerlink" href="#id8" title="永久链接至标题"></a></h4>
+<h4>6. 容器的关系运算符<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h4>
 <blockquote>
 <div><p>Tips：无序关联容器不支持关系运算符。</p>
 </div></blockquote>
@@ -370,9 +371,9 @@
 </section>
 </section>
 <section id="id9">
-<h2>顺序容器操作<a class="headerlink" href="#id9" title="永久链接至标题"></a></h2>
+<h2>顺序容器操作<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h2>
 <section id="id10">
-<h3>1. 向顺序容器添加元素<a class="headerlink" href="#id10" title="永久链接至标题"></a></h3>
+<h3>1. 向顺序容器添加元素<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：除array外，所有标准库容器都提供灵活的内存管理，运行时可以动态添加或者删除元素来改变容器大小。</p>
 </div></blockquote>
@@ -431,7 +432,7 @@
 </ul>
 </section>
 <section id="id11">
-<h3>2. 访问元素<a class="headerlink" href="#id11" title="永久链接至标题"></a></h3>
+<h3>2. 访问元素<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：at和下标操作只适用于string、vector、deque和array；back不适用于<code class="docutils literal notranslate"><span class="pre">forward_list</span></code></p>
 </div></blockquote>
@@ -473,7 +474,7 @@
 </tbody>
 </table></section>
 <section id="id12">
-<h3>3. 删除元素<a class="headerlink" href="#id12" title="永久链接至标题"></a></h3>
+<h3>3. 删除元素<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：删除deque除首尾元素之外的任何元素都会使所有迭代器、引用和指针失效；指向vector或string中删除点之后位置的迭代器、引用和指针都会失效。</p>
 </div></blockquote>
@@ -520,7 +521,7 @@
 </tbody>
 </table></section>
 <section id="id13">
-<h3>4. 改变容器大小<a class="headerlink" href="#id13" title="永久链接至标题"></a></h3>
+<h3>4. 改变容器大小<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：如果resize缩小元素，那么指向被删除元素的迭代器、引用和指针都会失效；对vector、string或者deque进行resize可能导致迭代器、指针和引用失效。</p>
 </div></blockquote>
@@ -546,7 +547,7 @@
 </tbody>
 </table></section>
 <section id="id14">
-<h3>5. 容器操作可能使得迭代器失效<a class="headerlink" href="#id14" title="永久链接至标题"></a></h3>
+<h3>5. 容器操作可能使得迭代器失效<a class="headerlink" href="#id14" title="此标题的永久链接"></a></h3>
 <p>向容器中添加元素和从容器中删除元素的操作可能使得指向容器元素的指针、引用或者迭代器失效。</p>
 <blockquote>
 <div><p>Tips：使用失效的指针、引用或者迭代器是一种严重的程序设计错误，很可能引用与使用未初始化指针一样的问题。</p>
@@ -582,7 +583,7 @@
 </section>
 </section>
 <section id="forward-list">
-<h2>特殊的forward_list操作<a class="headerlink" href="#forward-list" title="永久链接至标题"></a></h2>
+<h2>特殊的forward_list操作<a class="headerlink" href="#forward-list" title="此标题的永久链接"></a></h2>
 <p>从一个单向链表中添加或删除元素时，还会改变其前一个元素指向的下一个元素。由于这些操作与其他容器上的操作实现方式不同，因此<code class="docutils literal notranslate"><span class="pre">forward_list</span></code>并未定义<code class="docutils literal notranslate"><span class="pre">insert</span></code>、<code class="docutils literal notranslate"><span class="pre">emplace</span></code>和<code class="docutils literal notranslate"><span class="pre">erase</span></code>，而是定义了名为<code class="docutils literal notranslate"><span class="pre">insert_after</span></code>、<code class="docutils literal notranslate"><span class="pre">emplace_after</span></code>和<code class="docutils literal notranslate"><span class="pre">erase_after</span></code>的操作。&gt; Tips：为了支持这些操作，<code class="docutils literal notranslate"><span class="pre">forward_list</span></code>定义了<code class="docutils literal notranslate"><span class="pre">before_begin</span></code>首前迭代器。</p>
 <table border="1" class="docutils">
 <thead>

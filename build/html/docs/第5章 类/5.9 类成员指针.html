@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5.9 类成员指针 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>5.9 类成员指针 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -95,7 +96,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -115,15 +116,15 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>5.9 类成员指针<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>5.9 类成员指针<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>简介<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>成员指针是指可以指向类的非静态成员的指针。一般情况下，指针指向一个对象，但是成员指针指示的是类的成员，而非类的对象。类的静态成员不属于任何对象，因此无须特殊的指向静态成员的指针，指向静态成员的指针和普通指针没有任何区别。</p>
 <blockquote>
 <div><p>Tips：成员指针的类型囊括了类的类型以及成员的类型。当初始化一个这样的指针时，我们令其指向类的某个成员，但是不指定该成员所属的对象；直到使用成员指针时，才给提供成员所属的对象。</p>
 </div></blockquote>
 <p>为了解释成员指针的原理，我们使用该<code class="docutils literal notranslate"><span class="pre">Screen</span></code>类：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Screen</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Screen</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">::</span><span class="n">size_type</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="nf">get_cursor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">contents</span><span class="p">[</span><span class="n">cursor</span><span class="p">];</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
@@ -138,7 +139,7 @@
 </div>
 </section>
 <section id="id3">
-<h2>数据成员指针<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>数据成员指针<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <p>与普通指针不同的是，成员指针还必须包含成员所属的类。因此，我们必须在<code class="docutils literal notranslate"><span class="pre">*</span></code>之前添加<code class="docutils literal notranslate"><span class="pre">classname::</span></code>以表示当前定义的指针可以指向<code class="docutils literal notranslate"><span class="pre">classname</span></code>的成员，例如：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// pdata可以指向一个常量(非常量)Screen对象的string成员</span>
 <span class="c1">// 将pdata声明为&quot;一个指向Screen类的const string成员的指针&quot;</span>
@@ -156,7 +157,7 @@
 </pre></div>
 </div>
 <section id="id4">
-<h3>1. 使用数据成员指针<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<h3>1. 使用数据成员指针<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <p>当我们初始化一个成员指针或者为成员指针赋值时，该指针并没有指向任何数据。成员指针指定了成员而非该成员所属的对象，只有当解引用成员指针时我们才提供对象的信息。</p>
 <p>我们可以通过<code class="docutils literal notranslate"><span class="pre">.*</span></code>和<code class="docutils literal notranslate"><span class="pre">-&gt;*</span></code>两个运算符解引用指针以获得该对象的成员：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Screen</span><span class="w"> </span><span class="n">myScreen</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">pScreen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myScreen</span><span class="p">;</span><span class="w"></span>
@@ -168,9 +169,9 @@
 </div>
 </section>
 <section id="id5">
-<h3>2. 返回数据成员指针的函数<a class="headerlink" href="#id5" title="永久链接至标题"></a></h3>
+<h3>2. 返回数据成员指针的函数<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Screen</span></code>的<code class="docutils literal notranslate"><span class="pre">contents</span></code>成员是私有的，因此之前对于<code class="docutils literal notranslate"><span class="pre">pdata</span></code>的使用必须位于<code class="docutils literal notranslate"><span class="pre">Screen</span></code>类的成员或友元内部，否则程序将发生错误。如果像<code class="docutils literal notranslate"><span class="pre">Screen</span></code>这样的类希望我们可以访问它的<code class="docutils literal notranslate"><span class="pre">contents</span></code>成员，最好定义一个函数：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Screen</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Screen</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// data是一个静态成员, 返回一个成员指针</span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">Screen</span><span class="o">::*</span><span class="n">data</span><span class="p">()</span><span class="w"></span>
@@ -188,7 +189,7 @@
 </section>
 </section>
 <section id="id6">
-<h2>成员函数指针<a class="headerlink" href="#id6" title="永久链接至标题"></a></h2>
+<h2>成员函数指针<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h2>
 <p>我们也可以定义指向类的成员函数的指针：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// pmf是一个指针, 它可以指向Screenn的某个常量成员函数</span>
 <span class="c1">// 前提是该函数不接受任何实参, 并且返回一个char</span>
@@ -207,7 +208,7 @@
 </pre></div>
 </div>
 <section id="id7">
-<h3>1. 使用成员函数指针<a class="headerlink" href="#id7" title="永久链接至标题"></a></h3>
+<h3>1. 使用成员函数指针<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h3>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Screen</span><span class="w"> </span><span class="n">myScreen</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">pScreen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">myScreen</span><span class="p">;</span><span class="w"></span>
 <span class="c1">// 通过myScreen所指的对象调用pmf所指的函数</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">pScreen</span><span class="o">-&gt;*</span><span class="n">pmf</span><span class="p">)();</span><span class="w"></span>
@@ -217,7 +218,7 @@
 </div>
 </section>
 <section id="id8">
-<h3>2. 使用成员指针的类型别名<a class="headerlink" href="#id8" title="永久链接至标题"></a></h3>
+<h3>2. 使用成员指针的类型别名<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
 <p>使用类型别名或者<code class="docutils literal notranslate"><span class="pre">typedef</span></code>可以让成员指针更容易理解，例如下面的类型别名将<code class="docutils literal notranslate"><span class="pre">Action</span></code>定义为两个参数<code class="docutils literal notranslate"><span class="pre">get</span></code>函数的同义词：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Action是一种可以指向Screen成员函数的指针, 它接收两个pos实参, 返回一个char</span>
 <span class="k">using</span><span class="w"> </span><span class="n">Action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="p">(</span><span class="n">Screen</span><span class="o">::*</span><span class="p">)(</span><span class="n">Screen</span><span class="o">::</span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">Screen</span><span class="o">::</span><span class="n">pos</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
@@ -241,9 +242,9 @@
 </div>
 </section>
 <section id="id9">
-<h3>3. 成员指针函数表<a class="headerlink" href="#id9" title="永久链接至标题"></a></h3>
+<h3>3. 成员指针函数表<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
 <p>对于普通函数指针和指向成员函数的指针来说，一种常见的用法是将其存入一个函数表当中。如果一个类含有几个相同类型的成员，则这样一张表可以帮助我们从这些成员中选择一个。假定<code class="docutils literal notranslate"><span class="pre">Screen</span></code>类中含有几个成员，每个函数负责将光标向指定的方向移动：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Screen</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Screen</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 其他接口和实现成员与之前一致</span>
 <span class="w">    </span><span class="c1">// 这几个函数共同点: 不接受任何参数, 并且返回值是发生光标移动的Screen的引用</span>
@@ -256,12 +257,12 @@
 </pre></div>
 </div>
 <p>我们希望定义一个<code class="docutils literal notranslate"><span class="pre">move</span></code>函数，使其可以调用上面任意一个函数并执行对应的操作。为了支持这个新函数，我们将在<code class="docutils literal notranslate"><span class="pre">Screen</span></code>中添加一个静态成员，该成员是指向光标移动函数的指针的数组：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Screen</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Screen</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// Action是一个指针, 可以用任意一个光标移动函数对其赋值</span>
 <span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Screen</span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">Screen</span><span class="o">::*</span><span class="p">)();</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 指定具体要移动的方向</span>
-<span class="w">    </span><span class="k">enum</span> <span class="nc">Directions</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">HOME</span><span class="p">,</span><span class="w"> </span><span class="n">FORWARD</span><span class="p">,</span><span class="w"> </span><span class="n">BACK</span><span class="p">,</span><span class="w"> </span><span class="n">UP</span><span class="p">,</span><span class="w"> </span><span class="n">DOWN</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="nc">Directions</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">HOME</span><span class="p">,</span><span class="w"> </span><span class="n">FORWARD</span><span class="p">,</span><span class="w"> </span><span class="n">BACK</span><span class="p">,</span><span class="w"> </span><span class="n">UP</span><span class="p">,</span><span class="w"> </span><span class="n">DOWN</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 <span class="w">    </span><span class="n">Screen</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">Directions</span><span class="p">);</span><span class="w"></span>
 <span class="w"> </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">Action</span><span class="w"> </span><span class="n">Menu</span><span class="p">[];</span><span class="w">   </span><span class="c1">// 函数表</span>
@@ -291,7 +292,7 @@
 </section>
 </section>
 <section id="id10">
-<h2>将成员函数用作可调用对象<a class="headerlink" href="#id10" title="永久链接至标题"></a></h2>
+<h2>将成员函数用作可调用对象<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h2>
 <p>要想通过有一个指向成员函数的指针进行函数调用，必须首先利用<code class="docutils literal notranslate"><span class="pre">.*</span></code>或者<code class="docutils literal notranslate"><span class="pre">-&gt;*</span></code>运算符将该指针绑定到特定的对象上。因此与普通的函数指针不同，成员指针不是一个可调用对象，这样的指针不支持函数调用运算符。</p>
 <p>因为成员指针不是可调用对象，因此我们不能直接将一个指向成员函数的指针传递给算法。比如我们想在一个<code class="docutils literal notranslate"><span class="pre">string</span></code>的<code class="docutils literal notranslate"><span class="pre">vector</span></code>中找到第一个空<code class="docutils literal notranslate"><span class="pre">string</span></code>，显然不能这么写：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// fp指向string的empty函数</span>
@@ -304,7 +305,7 @@
 </pre></div>
 </div>
 <section id="fuction">
-<h3>1. 使用fuction生成一个可调用对象<a class="headerlink" href="#fuction" title="永久链接至标题"></a></h3>
+<h3>1. 使用fuction生成一个可调用对象<a class="headerlink" href="#fuction" title="此标题的永久链接"></a></h3>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">svec</span><span class="p">;</span><span class="w"></span>
 <span class="n">function</span><span class="o">&lt;</span><span class="kt">bool</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">string</span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fcn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">string</span><span class="o">::</span><span class="n">empty</span><span class="p">;</span><span class="w"></span>
 <span class="n">find_if</span><span class="p">(</span><span class="n">svec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">svec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">fcn</span><span class="p">);</span><span class="w"></span>
@@ -316,7 +317,7 @@
 </div>
 </section>
 <section id="mem-fn">
-<h3>2. 使用mem_fn生成一个可调用对象<a class="headerlink" href="#mem-fn" title="永久链接至标题"></a></h3>
+<h3>2. 使用mem_fn生成一个可调用对象<a class="headerlink" href="#mem-fn" title="此标题的永久链接"></a></h3>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">find_if</span><span class="p">(</span><span class="n">svec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">svec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">mem_fn</span><span class="p">(</span><span class="o">&amp;</span><span class="n">string</span><span class="o">::</span><span class="n">empty</span><span class="p">));</span><span class="w"></span>
 
 <span class="c1">// mem_fn生成的对象可以通过对象调用, 也可以通过指针调用</span>
@@ -327,7 +328,7 @@
 </div>
 </section>
 <section id="bind">
-<h3>3. 使用bind生成一个可调用对象<a class="headerlink" href="#bind" title="永久链接至标题"></a></h3>
+<h3>3. 使用bind生成一个可调用对象<a class="headerlink" href="#bind" title="此标题的永久链接"></a></h3>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_if</span><span class="p">(</span><span class="n">svec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">svec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">bing</span><span class="p">(</span><span class="o">&amp;</span><span class="n">string</span><span class="o">::</span><span class="n">empty</span><span class="p">,</span><span class="w"> </span><span class="n">_1</span><span class="p">));</span><span class="w"></span>
 
 <span class="c1">// bind生成的可调用对象第一个实参既可以是string的指针, 也可以是string的引用</span>

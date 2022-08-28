@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5.3 类的访问控制 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>5.3 类的访问控制 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -80,7 +81,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -100,9 +101,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>5.3 类的访问控制<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>5.3 类的访问控制<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>访问说明符<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>访问说明符<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>C++中我们用访问说明符来将强类的封装性：</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">public</span></code>：定义在<code class="docutils literal notranslate"><span class="pre">public</span></code>说明符之后的成员在整个程序内可被访问，<code class="docutils literal notranslate"><span class="pre">public</span></code>成员定义类的接口</p></li>
@@ -110,7 +111,7 @@
 </ul>
 </section>
 <section id="structclass">
-<h2>struct和class的区别<a class="headerlink" href="#structclass" title="永久链接至标题"></a></h2>
+<h2>struct和class的区别<a class="headerlink" href="#structclass" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>编码规范：仅当只有数据成员时使用<code class="docutils literal notranslate"><span class="pre">struct</span></code>，其他一概使用<code class="docutils literal notranslate"><span class="pre">class</span></code>。<code class="docutils literal notranslate"><span class="pre">struct</span></code>一般用于定义包含数据的被动式对象，也可以包含相关的常量，但除了存取数据成员外没有其他函数功能，并且存取功能时通过直接访问位域而非函数调用。除了构造函数、析构函数、<code class="docutils literal notranslate"><span class="pre">Initialize()</span></code>、<code class="docutils literal notranslate"><span class="pre">Reset()</span></code>和<code class="docutils literal notranslate"><span class="pre">Validate()</span></code>等类似的用于设定数据成员的函数外，不能提供其他功能的函数。</p>
 </div></blockquote>
@@ -121,12 +122,12 @@
 </ul>
 </section>
 <section id="id3">
-<h2>友元<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>友元<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Tips：为了使友元对类的用于可见，我们通常把友元的声明与类本身放置在同一个头文件中。</p>
 </div></blockquote>
 <p>类可以允许其他类或者函数访问它的非公有成员，方法是令其他类或者函数成为它的友元。</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">	</span><span class="c1">// 友元声明一般在类定义开始的位置集中声明</span>
 <span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Foo</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Foo</span><span class="o">&amp;</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// ...</span>

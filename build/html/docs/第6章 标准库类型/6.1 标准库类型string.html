@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6.1 标准库类型：string &mdash; C++语法笔记 v1.0 文档</title>
+  <title>6.1 标准库类型：string &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -93,7 +94,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -113,16 +114,16 @@
            <div itemprop="articleBody">
              
   <section id="string">
-<h1>6.1 标准库类型：string<a class="headerlink" href="#string" title="永久链接至标题"></a></h1>
+<h1>6.1 标准库类型：string<a class="headerlink" href="#string" title="此标题的永久链接"></a></h1>
 <section id="id1">
-<h2>头文件<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<h2>头文件<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="id2">
-<h2>定义与初始化<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>定义与初始化<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>初始化string对象的方法比较多，下面列出最常用的几种：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -176,9 +177,9 @@
 </tbody>
 </table></section>
 <section id="id3">
-<h2>string对象上的操作<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>string对象上的操作<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <section id="id4">
-<h3>1. 读写string<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<h3>1. 读写string<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <p>string对象提供了<code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>和<code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>操作符，可用于读写：</p>
 <blockquote>
 <div><p>Tips：注意这种写法在执行读取操作时，会自动忽略开头的空白（空格符、换行符和制表符等），从第一个真正的字符开始读起，直到遇到下一处空白停下。举个例子，如果用户输入<code class="docutils literal notranslate"><span class="pre">&quot;</span>&#160; <span class="pre">Tomo</span>&#160; <span class="pre">Cat</span> <span class="pre">&quot;</span></code>，那么最终将输出<code class="docutils literal notranslate"><span class="pre">&quot;Tomo&quot;</span></code>。</p>
@@ -227,7 +228,7 @@
 </div>
 </section>
 <section id="id5">
-<h3>2. 常用的成员函数<a class="headerlink" href="#id5" title="永久链接至标题"></a></h3>
+<h3>2. 常用的成员函数<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">;</span><span class="w"></span>
 <span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span><span class="w">  </span><span class="c1">// 字符串s为空时返回true, 否则返回false</span>
 <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w">   </span><span class="c1">// 返回字符串s中的字符个数</span>
@@ -256,7 +257,7 @@
 </div>
 </section>
 <section id="id6">
-<h3>3. 比较string对象<a class="headerlink" href="#id6" title="永久链接至标题"></a></h3>
+<h3>3. 比较string对象<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">;</span><span class="w"></span>
 <span class="n">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s2</span><span class="w">       </span><span class="c1">// 包含字符的内容和顺序都相同</span>
 <span class="n">s1</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">s2</span><span class="w">       </span><span class="c1">// 依赖于==的定义</span>
@@ -265,7 +266,7 @@
 </div>
 </section>
 <section id="id7">
-<h3>4. 字符串拼接<a class="headerlink" href="#id7" title="永久链接至标题"></a></h3>
+<h3>4. 字符串拼接<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：基于历史原因，C++语言中的字符串字面值并不是标准库类型string的对象。</p>
 </div></blockquote>
@@ -301,7 +302,7 @@
 </div>
 </section>
 <section id="substr">
-<h3>5. substr提取子串<a class="headerlink" href="#substr" title="永久链接至标题"></a></h3>
+<h3>5. substr提取子串<a class="headerlink" href="#substr" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：substr可以提取一个string的子串。</p>
 </div></blockquote>
@@ -322,7 +323,7 @@
 </tbody>
 </table></section>
 <section id="id8">
-<h3>6. 改变string的方法<a class="headerlink" href="#id8" title="永久链接至标题"></a></h3>
+<h3>6. 改变string的方法<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
 <p>string类型支持顺序容器的赋值运算符以及assign、insert和erase操作，除此之外还定义了额外的insert和erase版本。</p>
 <table border="1" class="docutils">
 <thead>
@@ -435,7 +436,7 @@
 </tbody>
 </table></section>
 <section id="id9">
-<h3>7. string搜索操作<a class="headerlink" href="#id9" title="永久链接至标题"></a></h3>
+<h3>7. string搜索操作<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：string搜索函数返回<code class="docutils literal notranslate"><span class="pre">string::size_type</span></code>值，该类型是一个<code class="docutils literal notranslate"><span class="pre">unsigned</span></code>类型，用一个int或其他带符号类型来保存这些函数的返回值不是一个好主意。</p>
 </div></blockquote>
@@ -489,7 +490,7 @@
 </ul>
 </section>
 <section id="id10">
-<h3>8. string比较操作<a class="headerlink" href="#id10" title="永久链接至标题"></a></h3>
+<h3>8. string比较操作<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h3>
 <p>除了关系运算符外，标准库string类型还提供了一组compare函数，根据s是等于、大于还是小于参数指定的字符串，<code class="docutils literal notranslate"><span class="pre">s.compare</span></code>返回0、正数或负数。</p>
 <p><code class="docutils literal notranslate"><span class="pre">s.compare</span></code>根据参数形式共有6个版本：</p>
 <table border="1" class="docutils">
@@ -534,7 +535,7 @@
 </tbody>
 </table></section>
 <section id="id11">
-<h3>9. 数值转换<a class="headerlink" href="#id11" title="永久链接至标题"></a></h3>
+<h3>9. 数值转换<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
 <p>新标准引入了多个函数可以实现数值数据与标准库string之间的转换，如果string不能转换为一个数组，则这些函数抛出一个<code class="docutils literal notranslate"><span class="pre">invalid_argument</span></code>的异常，如果转换的数值无法用任何类型表示，则抛出一个<code class="docutils literal notranslate"><span class="pre">out_of_range</span></code>异常：</p>
 <table border="1" class="docutils">
 <thead>
@@ -564,9 +565,9 @@
 </table></section>
 </section>
 <section id="id12">
-<h2>处理string对象的单个字符<a class="headerlink" href="#id12" title="永久链接至标题"></a></h2>
+<h2>处理string对象的单个字符<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h2>
 <section id="cctype">
-<h3>1. cctype头文件提供的字符操作函数<a class="headerlink" href="#cctype" title="永久链接至标题"></a></h3>
+<h3>1. cctype头文件提供的字符操作函数<a class="headerlink" href="#cctype" title="此标题的永久链接"></a></h3>
 <p>在<code class="docutils literal notranslate"><span class="pre">cctype</span></code>头文件中定义了一组标准库函数用于单个字符，下面是主要的函数名及其含义：</p>
 <table border="1" class="docutils">
 <thead>
@@ -627,7 +628,7 @@
 </tbody>
 </table></section>
 <section id="id13">
-<h3>2. 遍历string中的字符<a class="headerlink" href="#id13" title="永久链接至标题"></a></h3>
+<h3>2. 遍历string中的字符<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h3>
 <p>使用时注意：</p>
 <ul class="simple">
 <li><p>string对象的下标必须大于等于0而小于<code class="docutils literal notranslate"><span class="pre">s.size()</span></code>，使用超出此范围的下标将引发不可预知的错误（如果s为空string对象，那么s[0]的结果是未定义的）</p></li>
@@ -646,7 +647,7 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 
 <span class="w">    </span><span class="c1">// C++11新标准: 范围for循环</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="nl">c</span> <span class="p">:</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>

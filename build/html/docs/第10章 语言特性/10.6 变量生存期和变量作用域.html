@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10.6 变量生存期和变量作用域 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>10.6 变量生存期和变量作用域 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -104,7 +105,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -124,16 +125,16 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>10.6 变量生存期和变量作用域<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>10.6 变量生存期和变量作用域<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>作用域与生存期<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>作用域与生存期<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <ul class="simple">
 <li><p>作用域：一个变量可以被引用的范围，包括全局作用域、文件作用域和条件作用域</p></li>
 <li><p>生命周期：变量可以被引用的时间段，一个程序的内存分为代码区、全局数据区、堆区和栈区，不同的内存区域对应不同的生命周期</p></li>
 </ul>
 </section>
 <section id="id3">
-<h2>内存区域<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>内存区域<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <p>一个程序将操作系统分配给其运行的内存块分为四块区域：</p>
 <ul class="simple">
 <li><p>代码区：存放程序的代码</p></li>
@@ -143,7 +144,7 @@
 </ul>
 </section>
 <section id="id4">
-<h2>变量分类：作用域和生存期<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<h2>变量分类：作用域和生存期<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
 <p>从变量作用域（全局作用域、文件作用域和局部作用域）来分，可以分为：</p>
 <ul class="simple">
 <li><p>全局变量：函数外部定义，作用域是整个源程序（静态全局变量的作用域是该文件范围，即文件作用域）</p></li>
@@ -156,7 +157,7 @@
 </ul>
 </section>
 <section id="id5">
-<h2>变量的存储类别<a class="headerlink" href="#id5" title="永久链接至标题"></a></h2>
+<h2>变量的存储类别<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h2>
 <p>生存周期仅仅和变量存储的位置相关，变量的存储类别可以分为<strong>静态存储方式</strong>和<strong>动态存储方式</strong></p>
 <p>变量存储类型说明包括：</p>
 <ul class="simple">
@@ -167,9 +168,9 @@
 </ul>
 </section>
 <section id="id6">
-<h2>四种类型说明符<a class="headerlink" href="#id6" title="永久链接至标题"></a></h2>
+<h2>四种类型说明符<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h2>
 <section id="auto">
-<h3>1. 自动变量的类型说明符auto<a class="headerlink" href="#auto" title="永久链接至标题"></a></h3>
+<h3>1. 自动变量的类型说明符auto<a class="headerlink" href="#auto" title="此标题的永久链接"></a></h3>
 <p>C语言规定，<strong>函数内</strong>凡是未加存储类型说明的变量均视为自动变量，即自动变量可省去<code class="docutils literal notranslate"><span class="pre">auto</span></code>说明符。例如：</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
 <span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
@@ -185,7 +186,7 @@
 </ul>
 </section>
 <section id="extern">
-<h3>2. 外部变量的说明符extern<a class="headerlink" href="#extern" title="永久链接至标题"></a></h3>
+<h3>2. 外部变量的说明符extern<a class="headerlink" href="#extern" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>外部变量和全局变量是对同一类变量的两种角度的提法，全局变量是从它的作用域提出的，而外部变量是从它的存储方式提出的，表示了它的生存期。</p></li>
 <li><p>==当一个源程序由若干个源文件组成时，在一个源文件中定义的外部变量在其他的源文件中也有效==</p></li>
@@ -214,10 +215,10 @@
 </section>
 </section>
 <section id="static">
-<h2>静态变量static<a class="headerlink" href="#static" title="永久链接至标题"></a></h2>
+<h2>静态变量static<a class="headerlink" href="#static" title="此标题的永久链接"></a></h2>
 <p>静态变量的类型说明符是<code class="docutils literal notranslate"><span class="pre">static</span></code>，属于静态存储方式，但是静态存储方式的变量不一定就是静态变量，例如外部变量属于静态存储方式但不一定是静态变量，必须由static加以定义后才能成为静态外部变量，或称静态全局变量。对于自动变量，前面已经介绍它属于动态存储方式，但是也可以用<code class="docutils literal notranslate"><span class="pre">static</span></code>定义它为静态自动变量，或称静态局部变量，从而成为静态存储方式。</p>
 <section id="id7">
-<h3>1. 静态局部变量<a class="headerlink" href="#id7" title="永久链接至标题"></a></h3>
+<h3>1. 静态局部变量<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>在局部变量前面加上<code class="docutils literal notranslate"><span class="pre">static</span></code>说明符就构成静态局部变量</p>
 </div></blockquote>
@@ -262,19 +263,19 @@
 </div></blockquote>
 </section>
 <section id="id8">
-<h3>2. 静态全局变量<a class="headerlink" href="#id8" title="永久链接至标题"></a></h3>
+<h3>2. 静态全局变量<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
 <p>全局变量（外部变量）的说明之前加上<code class="docutils literal notranslate"><span class="pre">static</span></code>就构成了静态的全局变量，==全局变量本身就是静态存储变量，静态全局变量当然也是静态存储方式==。这两者在存储方式上并无不同，这两者的区别在于非静态全局变量的作用域是整个源程序，当一个源程序由多个源程序组成时，非静态的全局变量在各个源文件中都是有效的，而==静态全局变量则限制了其作用域，即只在定义该变量的源文件内有效==，在同一源程序的其他源文件中不能使用它。</p>
 <blockquote>
 <div><p>由于静态全局变量的作用域局限于一个源文件内，只能为该源文件内的函数使用，因此可以避免在其他源文件中不能使用它。</p>
 </div></blockquote>
 </section>
 <section id="id9">
-<h3>3. 总结<a class="headerlink" href="#id9" title="永久链接至标题"></a></h3>
+<h3>3. 总结<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">static</span></code>这个说明符在不同地方所起的作用域是不同的，比如把局部变量改变为静态变量后是改变了它的存储方式即改变了它的生存期，把全局变量改变为静态变量后是改变了它的作用域，限制了它的使用范围。</p>
 </section>
 </section>
 <section id="register">
-<h2>寄存器变量register<a class="headerlink" href="#register" title="永久链接至标题"></a></h2>
+<h2>寄存器变量register<a class="headerlink" href="#register" title="此标题的永久链接"></a></h2>
 <p>变量一般都存放在存储器内，因此对一个变量频繁读写时，必须要反复访问内存储器，从而花费大量的存取时间。</p>
 <p>为此，C语言提供了一种寄存器变量。这种变量存放在CPU的寄存器中，使用时不需求访问内存，而直接从寄存器中读写，这样可提高效率。寄存器变量的说明符是<code class="docutils literal notranslate"><span class="pre">register</span></code>，对于循环次数较多的循环控制变量及循环体内反复使用的变量均可定义为寄存器变量。</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">register</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
@@ -291,9 +292,9 @@
 </ul>
 </section>
 <section id="id10">
-<h2>四种变量的作用域、生命周期和内存分布<a class="headerlink" href="#id10" title="永久链接至标题"></a></h2>
+<h2>四种变量的作用域、生命周期和内存分布<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h2>
 <section id="id11">
-<h3>1. 全局变量<a class="headerlink" href="#id11" title="永久链接至标题"></a></h3>
+<h3>1. 全局变量<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>作用域：全局作用域（全局变量只需要在一个源文件中定义，就可以作用于所有的源文件）</p></li>
 <li><p>生命周期：程序运行期一直存在</p></li>
@@ -317,7 +318,7 @@
 </div>
 </section>
 <section id="id12">
-<h3>2. 全局静态变量<a class="headerlink" href="#id12" title="永久链接至标题"></a></h3>
+<h3>2. 全局静态变量<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>作用域：文件作用域（只在被定义的文件中可见）</p></li>
 <li><p>生命周期：程序运行期间一直存在</p></li>
@@ -338,7 +339,7 @@
 </div>
 </section>
 <section id="id13">
-<h3>3. 静态局部变量<a class="headerlink" href="#id13" title="永久链接至标题"></a></h3>
+<h3>3. 静态局部变量<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>作用域：局部作用域（只在局部作用域可见）</p></li>
 <li><p>生命周期：程序运行期一直存在</p></li>
@@ -355,7 +356,7 @@
 </div>
 </section>
 <section id="id14">
-<h3>4. 局部变量<a class="headerlink" href="#id14" title="永久链接至标题"></a></h3>
+<h3>4. 局部变量<a class="headerlink" href="#id14" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>作用域：局部作用域（只在局部作用域内可见）</p></li>
 <li><p>生命周期：程序运行出局部作用域既被销毁</p></li>
@@ -365,7 +366,7 @@
 </section>
 </section>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="永久链接至标题"></a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="此标题的永久链接"></a></h2>
 <p>[1] https://blog.csdn.net/u012679707/article/details/80188124</p>
 </section>
 </section>

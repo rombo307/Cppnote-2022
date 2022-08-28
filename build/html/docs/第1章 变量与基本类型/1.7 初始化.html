@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1.7 初始化 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>1.7 初始化 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -104,7 +105,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -124,9 +125,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>1.7 初始化<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>1.7 初始化<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>总结<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>总结<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <ul class="simple">
 <li><p>初始化的概念：创建变量时赋予它一个值（不同于赋值的概念）</p></li>
 <li><p>类的构造函数控制其对象的初始化过程，无论何时只要类的对象被创建就会执行构造函数</p></li>
@@ -137,30 +138,30 @@
 </ul>
 </section>
 <section id="id3">
-<h2>编码规范<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>编码规范<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <section id="id4">
-<h3>1. 初始化方式<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<h3>1. 初始化方式<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <p>变量和数组初始化时用<code class="docutils literal notranslate"><span class="pre">=</span></code>、<code class="docutils literal notranslate"><span class="pre">{}</span></code>和<code class="docutils literal notranslate"><span class="pre">()</span></code>都是可以的：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">{</span><span class="mi">3</span><span class="p">};</span><span class="w"></span>
 
 <span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tomocat&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="n">string</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="s">&quot;tomocat&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">(</span><span class="s">&quot;tomocat&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">{</span><span class="s">&quot;tomocat&quot;</span><span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 <p>非空列表初始化会优先调用<code class="docutils literal notranslate"><span class="pre">std::initializer_list</span></code>，不过空列表初始化除外，后者原则上会调用默认构造函数。为了强制禁用<code class="docutils literal notranslate"><span class="pre">std::initializer_list</span></code>，请使用括号。</p>
 </section>
 <section id="id5">
-<h3>2. 初始化习惯<a class="headerlink" href="#id5" title="永久链接至标题"></a></h3>
+<h3>2. 初始化习惯<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
 <p>尽管C++11将列表初始化应用于所有对象的初始化，但是内置类型习惯于用等号初始化，类类型习惯用构造函数圆括号显式初始化，vector、map和set等容器类习惯用列表初始化。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;map&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">Cat</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
@@ -195,7 +196,7 @@
 </div>
 </section>
 <section id="id6">
-<h3>3. 确保对象被使用前已被初始化<a class="headerlink" href="#id6" title="永久链接至标题"></a></h3>
+<h3>3. 确保对象被使用前已被初始化<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Effective C++：Make sure that objects are initialized before they’re used.</p>
 </div></blockquote>
@@ -216,7 +217,7 @@
 </section>
 </section>
 <section id="id7">
-<h2>初始化不等于赋值<a class="headerlink" href="#id7" title="永久链接至标题"></a></h2>
+<h2>初始化不等于赋值<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h2>
 <p>初始化的含义是创建变量时赋予其一个初始值，而赋值的含义是把对象的当前值擦去，并用一个新值替代它。</p>
 <p>C++定义了初始化的好几种不同形式，例如我们定义一个int变量并初始化为0，有如下4种方式：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
@@ -227,14 +228,14 @@
 </div>
 </section>
 <section id="id8">
-<h2>默认初始化与值初始化<a class="headerlink" href="#id8" title="永久链接至标题"></a></h2>
+<h2>默认初始化与值初始化<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Tips：C不允许用户自定义默认值从而提高性能（增加函数调用的代价），C++默认也不做初始化从而提高性能，但是C++提供了构造函数让用户显式设置默认初始值。有个例外是把全局变量初始化为0仅仅在程序启动时会有成本，因此定义在任何函数之外的变量会被初始化为0。</p>
 </div></blockquote>
 <p>如果定义变量时没有指定初始值，则变量会被默认初始化或值初始化，此时变量被赋予了默认值，这个默认值取决于变量类型和定义位置。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">Cat</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
@@ -247,7 +248,7 @@
 </pre></div>
 </div>
 <section id="id9">
-<h3>1. 内置类型的默认初始化<a class="headerlink" href="#id9" title="永久链接至标题"></a></h3>
+<h3>1. 内置类型的默认初始化<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：建议初始化每一个内置类型的变量，原因在于定义在函数内部的内置类型变量的值是未定义的，如果试图拷贝或者以其他形式访问此类值是一种错误的编程行为且很难调试。</p>
 </div></blockquote>
@@ -268,19 +269,19 @@
 </div>
 </section>
 <section id="id10">
-<h3>2. 类类型的默认初始化<a class="headerlink" href="#id10" title="永久链接至标题"></a></h3>
+<h3>2. 类类型的默认初始化<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h3>
 <p>定义一个类变量但是没有指定初始值时，会使用默认构造函数来初始化，所以没有默认构造函数的类不能执行默认初始化。定义于任何函数体之外的类变量会先进行零初始化再执行默认初始化，定义在函数体内部的类变量会直接执行默认初始化。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="c1">// Cat类使用合成的默认构造函数</span>
-<span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
 
 <span class="c1">// Dog类使用自定义的默认构造函数</span>
-<span class="k">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">Dog</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span><span class="c1">// 默认构造函数, 但是不会初始化age</span>
@@ -305,7 +306,7 @@
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="c1">// Cat类禁用默认构造函数, 无法默认初始化</span>
-<span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">Cat</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w"></span>
@@ -319,7 +320,7 @@
 </div>
 <p>从本质上讲，类的初始化取决于构造函数中对数据成员的初始化，如果没有在构造函数的初始值列表中显式地初始化数据成员，那么成员将在构造函数体之前执行默认初始化，例如：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 通过构造函数初始值列表初始化数据成员: 数据成员通过提供的初始值进行初始化</span>
-<span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Cat</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">age</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
@@ -327,7 +328,7 @@
 
 <span class="c1">// 数据成员先进行默认初始化, 再通过构造函数参数进行赋值操作</span>
 <span class="c1">// 这种方法虽然合法但是比较草率, 造成的影响依赖于数据成员的类型</span>
-<span class="k">class</span> <span class="nc">Dog</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Dog</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -338,12 +339,12 @@
 </div>
 </section>
 <section id="id11">
-<h3>3. 数组的默认初始化<a class="headerlink" href="#id11" title="永久链接至标题"></a></h3>
+<h3>3. 数组的默认初始化<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
 <ol class="simple">
 <li><p>如果定义数组时提供了初始值列表，那么未定义的元素若是内置类型或者有合成的默认构造则会先进行零初始化，如果元素是类类型，再执行默认构造函数</p></li>
 <li><p>如果定义数组时未提供初始化列表，则每个元素执行默认初始化</p></li>
 </ol>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
@@ -381,7 +382,7 @@
 </div>
 </section>
 <section id="id12">
-<h3>4. 内置类型的值初始化（不推荐）<a class="headerlink" href="#id12" title="永久链接至标题"></a></h3>
+<h3>4. 内置类型的值初始化（不推荐）<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h3>
 <p>对于类类型而言，不指定初始值下会调用它的默认构造函数，因此不存在默认初始化和值初始化的区别。但是对于内置类型值初始化和默认初始化不同，只不过实际开发中我们建议显式初始化内置类型来避免产生未定义值的代码：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pi1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span><span class="w">               </span><span class="c1">// 默认初始化: *pi1的值未定义</span>
 <span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pi2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">();</span><span class="w">             </span><span class="c1">// 值初始化: *pi2的值为0</span>
@@ -396,14 +397,14 @@
 </section>
 </section>
 <section id="id13">
-<h2>隐式初始化与显式初始化<a class="headerlink" href="#id13" title="永久链接至标题"></a></h2>
+<h2>隐式初始化与显式初始化<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h2>
 <section id="id14">
-<h3>1. 概念<a class="headerlink" href="#id14" title="永久链接至标题"></a></h3>
+<h3>1. 概念<a class="headerlink" href="#id14" title="此标题的永久链接"></a></h3>
 <p>无论何时只要类的对象被创建就会执行构造函数，通过显式调用构造函数进行初始化被称为显式初始化，否则叫做隐式初始化。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="c1">// Cat提供两个构造函数</span>
-<span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">Cat</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
@@ -435,7 +436,7 @@
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="c1">// Cat提供两个构造函数</span>
-<span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 接收一个参数的构造函数定义了从int型向类类型隐式转换的规则, explicit关键字可以组织这种转换</span>
@@ -460,11 +461,11 @@
 </div>
 </section>
 <section id="explicit">
-<h3>2. explicit禁用构造函数定义的类型转换<a class="headerlink" href="#explicit" title="永久链接至标题"></a></h3>
+<h3>2. explicit禁用构造函数定义的类型转换<a class="headerlink" href="#explicit" title="此标题的永久链接"></a></h3>
 <p>例如智能指针就把构造函数声明为<code class="docutils literal notranslate"><span class="pre">explict</span></code>，所以智能指针只能直接初始化。我们也可以通过explicit禁用掉上面提到的两种隐式转换规则：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">Cat</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
@@ -485,9 +486,9 @@
 </div>
 </section>
 <section id="id15">
-<h3>3. 只允许一步隐式类型转换<a class="headerlink" href="#id15" title="永久链接至标题"></a></h3>
+<h3>3. 只允许一步隐式类型转换<a class="headerlink" href="#id15" title="此标题的永久链接"></a></h3>
 <p>编译器只会自动执行一步隐式类型转换，如果隐式地使用两种转换规则，那么编译器便会报错：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">Cat</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">name</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w">  </span><span class="c1">// 允许string到Cat的隐式类型转换</span>
@@ -508,12 +509,12 @@
 </section>
 </section>
 <section id="id16">
-<h2>直接初始化与拷贝初始化<a class="headerlink" href="#id16" title="永久链接至标题"></a></h2>
+<h2>直接初始化与拷贝初始化<a class="headerlink" href="#id16" title="此标题的永久链接"></a></h2>
 <p>如果使用等号（=）初始化一个类变量，实际上执行的是拷贝初始化，编译器把等号右侧的值拷贝到新创建的对象中区；如果不使用等号，那么执行的是直接初始化。</p>
 <p>以string为例：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tomocat&quot;</span><span class="p">;</span><span class="w">    </span><span class="c1">// 拷贝初始化</span>
-<span class="n">string</span><span class="w"> </span><span class="nf">s2</span><span class="p">(</span><span class="s">&quot;tomocat&quot;</span><span class="p">);</span><span class="w">     </span><span class="c1">// 直接初始化</span>
-<span class="n">string</span><span class="w"> </span><span class="nf">s3</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">);</span><span class="w">       </span><span class="c1">// 直接初始化, s3内容为cccccccccc</span>
+<span class="n">string</span><span class="w"> </span><span class="n">s2</span><span class="p">(</span><span class="s">&quot;tomocat&quot;</span><span class="p">);</span><span class="w">     </span><span class="c1">// 直接初始化</span>
+<span class="n">string</span><span class="w"> </span><span class="n">s3</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">);</span><span class="w">       </span><span class="c1">// 直接初始化, s3内容为cccccccccc</span>
 
 <span class="c1">// s4拷贝初始化</span>
 <span class="n">string</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;c&#39;</span><span class="p">);</span><span class="w"></span>
@@ -524,9 +525,9 @@
 </div>
 </section>
 <section id="id17">
-<h2>列表初始化<a class="headerlink" href="#id17" title="永久链接至标题"></a></h2>
+<h2>列表初始化<a class="headerlink" href="#id17" title="此标题的永久链接"></a></h2>
 <section id="c-98-03c-11">
-<h3>1. C++98/03与C++11的列表初始化<a class="headerlink" href="#c-98-03c-11" title="永久链接至标题"></a></h3>
+<h3>1. C++98/03与C++11的列表初始化<a class="headerlink" href="#c-98-03c-11" title="此标题的永久链接"></a></h3>
 <p>在C++98/03中，普通数组和POD（Plain Old Data，即没有构造、析构和虚函数的类或结构体）类型可以使用花括号<code class="docutils literal notranslate"><span class="pre">{}</span></code>进行初始化，即列表初始化。但是这种初始化方式仅限于上述提到的两种数据类型：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 普通数组的列表初始化</span>
@@ -534,7 +535,7 @@
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">arr2</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// arr2被编译器自动推断为int[4]类型</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="c1">// POD类型的列表初始化</span>
-<span class="w">    </span><span class="k">struct</span> <span class="nc">data</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">data</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="n">my_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
@@ -545,7 +546,7 @@
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 默认构造函数</span>
@@ -601,20 +602,20 @@
 <span class="nl">a</span><span class="p">:</span><span class="mi">10</span><span class="w"></span>
 <span class="nl">b</span><span class="p">:</span><span class="mi">10</span><span class="w"></span>
 <span class="k">default</span><span class="w"> </span><span class="n">constructor</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Cat</span><span class="w"></span>
-<span class="n">cat1</span><span class="p">.</span><span class="nl">name</span><span class="p">:</span><span class="w"></span>
+<span class="n">cat1</span><span class="p">.</span><span class="n">name</span><span class="o">:</span><span class="w"></span>
 <span class="n">normal</span><span class="w"> </span><span class="n">constructor</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Cat</span><span class="w"></span>
-<span class="n">cat2</span><span class="p">.</span><span class="nl">name</span><span class="p">:</span><span class="n">tomocat</span><span class="w"></span>
+<span class="n">cat2</span><span class="p">.</span><span class="n">name</span><span class="o">:</span><span class="n">tomocat</span><span class="w"></span>
 <span class="n">normal</span><span class="w"> </span><span class="n">constructor</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Cat</span><span class="w"></span>
-<span class="n">cat3</span><span class="p">.</span><span class="nl">name</span><span class="p">:</span><span class="n">tomocat</span><span class="w"></span>
+<span class="n">cat3</span><span class="p">.</span><span class="n">name</span><span class="o">:</span><span class="n">tomocat</span><span class="w"></span>
 <span class="n">normal</span><span class="w"> </span><span class="n">constructor</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">Cat</span><span class="w"></span>
-<span class="n">cat4</span><span class="p">.</span><span class="nl">name</span><span class="p">:</span><span class="n">tomocat</span><span class="w"></span>
-<span class="o">*</span><span class="nl">pi</span><span class="p">:</span><span class="mi">100</span><span class="w"></span>
+<span class="n">cat4</span><span class="p">.</span><span class="n">name</span><span class="o">:</span><span class="n">tomocat</span><span class="w"></span>
+<span class="o">*</span><span class="n">pi</span><span class="o">:</span><span class="mi">100</span><span class="w"></span>
 <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">:</span><span class="mi">30</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="vector">
-<h3>2. vector中圆括号与花括号的初始化<a class="headerlink" href="#vector" title="永久链接至标题"></a></h3>
+<h3>2. vector中圆括号与花括号的初始化<a class="headerlink" href="#vector" title="此标题的永久链接"></a></h3>
 <p>总的来说，圆括号是通过调用vector的构造函数进行初始化的，如果使用了花括号那么初始化过程会尽可能会把花括号内的值当做元素初始值的列表来处理。如果初始化时使用了花括号但是提供的值又无法用来列表初始化，那么就考虑用这些值来调用vector的构造函数了。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -635,14 +636,14 @@
 </div>
 </section>
 <section id="id18">
-<h3>3. 初始化习惯<a class="headerlink" href="#id18" title="永久链接至标题"></a></h3>
+<h3>3. 初始化习惯<a class="headerlink" href="#id18" title="此标题的永久链接"></a></h3>
 <p>尽管C++11将列表初始化应用于所有对象的初始化，但是内置类型习惯于用等号初始化，类类型习惯用构造函数圆括号显式初始化，vector、map和set等容器类习惯用列表初始化。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;map&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">Cat</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
@@ -677,7 +678,7 @@
 </div>
 </section>
 <section id="id19">
-<h3>4. 列表初始化返回值<a class="headerlink" href="#id19" title="永久链接至标题"></a></h3>
+<h3>4. 列表初始化返回值<a class="headerlink" href="#id19" title="此标题的永久链接"></a></h3>
 <p>C++11新标准规定，函数可以通过列表初始化来对函数返回的临时量进行初始化：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -696,7 +697,7 @@
 </div>
 </section>
 <section id="initializer-list">
-<h3>5. initializer_list形参<a class="headerlink" href="#initializer-list" title="永久链接至标题"></a></h3>
+<h3>5. initializer_list形参<a class="headerlink" href="#initializer-list" title="此标题的永久链接"></a></h3>
 <p>前面提到C++11支持所有类型的列表初始化，对于类类型而言，虽然我们使用列表初始化它会自动调用匹配的构造函数，但是我们也能显式指定接受初始化列表的构造函数。C++11引入了<code class="docutils literal notranslate"><span class="pre">std::initializer_list</span></code>，允许构造函数或其他函数像参数一样使用初始化列表，这才真正意义上为类对象的初始化与普通数组和 POD 的初 始化方法提供了统一的桥梁。</p>
 <blockquote>
 <div><p>Tips：</p>
@@ -708,7 +709,7 @@
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;initializer_list&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Cat</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">Cat</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
@@ -745,7 +746,7 @@
 </section>
 </section>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="永久链接至标题"></a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="此标题的永久链接"></a></h2>
 <p>[1] https://blog.csdn.net/xiongya8888/article/details/89390440</p>
 <p>[2] https://my.oschina.net/u/920274/blog/3074998</p>
 <p>[3] https://blog.csdn.net/linda_ds/article/details/82807006</p>

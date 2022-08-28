@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2.6 switch语句 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>2.6 switch语句 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -82,7 +83,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -102,9 +103,9 @@
            <div itemprop="articleBody">
              
   <section id="switch">
-<h1>2.6 switch语句<a class="headerlink" href="#switch" title="永久链接至标题"></a></h1>
+<h1>2.6 switch语句<a class="headerlink" href="#switch" title="此标题的永久链接"></a></h1>
 <section id="id1">
-<h2>简介<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <p>C++语言提供了两种按照条件执行的语句：</p>
 <ul class="simple">
 <li><p>if语句：根据条件决定控制流</p></li>
@@ -112,26 +113,26 @@
 </ul>
 </section>
 <section id="id2">
-<h2>switch语句<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>switch语句<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <section id="id3">
-<h3>1. 例子：统计每个元音字母的数量<a class="headerlink" href="#id3" title="永久链接至标题"></a></h3>
+<h3>1. 例子：统计每个元音字母的数量<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h3>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="n">aCnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">eCnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">iCnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">oCnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">uCnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">;</span><span class="w"></span>
 <span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">:</span><span class="w"></span>
 <span class="w">            </span><span class="o">++</span><span class="n">aCnt</span><span class="p">;</span><span class="w"></span>
 <span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="p">:</span><span class="w"></span>
 <span class="w">            </span><span class="o">++</span><span class="n">eCnt</span><span class="p">;</span><span class="w"></span>
 <span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;i&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;i&#39;</span><span class="p">:</span><span class="w"></span>
 <span class="w">            </span><span class="o">++</span><span class="n">iCnt</span><span class="p">;</span><span class="w"></span>
 <span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="p">:</span><span class="w"></span>
 <span class="w">            </span><span class="o">++</span><span class="n">oCnt</span><span class="p">;</span><span class="w"></span>
 <span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;u&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;u&#39;</span><span class="p">:</span><span class="w"></span>
 <span class="w">            </span><span class="o">++</span><span class="n">uCnt</span><span class="p">;</span><span class="w"></span>
 <span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
@@ -140,7 +141,7 @@
 </div>
 </section>
 <section id="case">
-<h3>2. case标签<a class="headerlink" href="#case" title="永久链接至标题"></a></h3>
+<h3>2. case标签<a class="headerlink" href="#case" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>case标签必须是整型常量表达式</p></li>
 <li><p>任意两个case标签的值不能相同</p></li>
@@ -153,7 +154,7 @@
 
 <span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  	</span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    	</span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="o">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="o">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;i&#39;</span><span class="o">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="o">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;u&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">    	</span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;i&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;u&#39;</span><span class="p">:</span><span class="w"></span>
 <span class="w">        	</span><span class="o">++</span><span class="n">vowelCnt</span><span class="p">;</span><span class="w"></span>
 <span class="w">        	</span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 <span class="w">	</span><span class="p">}</span><span class="w">  </span>
@@ -162,11 +163,11 @@
 </div>
 </section>
 <section id="break">
-<h3>3. break<a class="headerlink" href="#break" title="永久链接至标题"></a></h3>
+<h3>3. break<a class="headerlink" href="#break" title="此标题的永久链接"></a></h3>
 <p>一般不要省略case分支最后的break语句，如果没写break语句，最好加一段注释说明程序的逻辑，否则可能带来非预期的结果。</p>
 </section>
 <section id="default">
-<h3>4. default标签<a class="headerlink" href="#default" title="永久链接至标题"></a></h3>
+<h3>4. default标签<a class="headerlink" href="#default" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：标签不应该孤零零存在，它后面必须跟上一条语句或者另外一个case标签。如果switch结构以一个空的default标签作为接受，则该default标签后面必须跟上一条空语句或者一个空块。</p>
 </div></blockquote>
@@ -178,7 +179,7 @@
 
 <span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  	</span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    	</span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="o">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="o">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;i&#39;</span><span class="o">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="o">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;u&#39;</span><span class="o">:</span><span class="w"></span>
+<span class="w">    	</span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;i&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="p">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="sc">&#39;u&#39;</span><span class="p">:</span><span class="w"></span>
 <span class="w">        	</span><span class="o">++</span><span class="n">vowelCnt</span><span class="p">;</span><span class="w"></span>
 <span class="w">        	</span><span class="k">break</span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
@@ -190,14 +191,14 @@
 </div>
 </section>
 <section id="id4">
-<h3>4. switch内部的变量定义<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<h3>4. switch内部的变量定义<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <p>switch的执行流程中可能会跨过某些case标签，如果需要为某个case分支定义并初始化一个变量，我们应该把变量定义在块内，从而保证后面所有case标签都在变量的作用域之外：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="nb">true</span><span class="o">:</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="no">true</span><span class="p">:</span><span class="w"></span>
 <span class="w">	</span><span class="p">{</span><span class="w"></span>
 <span class="w">    	</span><span class="n">string</span><span class="w"> </span><span class="n">file_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_file_name</span><span class="p">();</span><span class="w"></span>
 <span class="w">	</span><span class="p">}</span><span class="w"></span>
 <span class="w">	</span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="k">case</span><span class="w"> </span><span class="nb">false</span><span class="o">:</span><span class="w"></span>
+<span class="k">case</span><span class="w"> </span><span class="no">false</span><span class="p">:</span><span class="w"></span>
 <span class="w">	</span><span class="c1">// 编译报错: file_name不在作用域之内</span>
 <span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">file_name</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"></span>
 </pre></div>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10.12 异常处理 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>10.12 异常处理 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -97,7 +98,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -117,9 +118,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>10.12 异常处理<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>10.12 异常处理<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>简介<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Tips：异常是处理构造函数失败的唯一途径，虽然可以用“简单工厂模式”或者<code class="docutils literal notranslate"><span class="pre">Init()</span></code>方法代替异常，但是前者要求在堆栈分配内存，后者又会导致刚创建的实例处于“无效”状态。</p>
 </div></blockquote>
@@ -131,7 +132,7 @@
 </ul>
 </section>
 <section id="throw">
-<h2>throw表达式<a class="headerlink" href="#throw" title="永久链接至标题"></a></h2>
+<h2>throw表达式<a class="headerlink" href="#throw" title="此标题的永久链接"></a></h2>
 <p>C++语言中我们通过抛出（throwing）一条表达式来引发（raised）一个异常。被抛出的表达式的类型以及当前的调用链共同决定了哪段处理代码（handler）将用来处理该异常：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdexcept&gt;</span><span class="cp"></span>
 
@@ -145,7 +146,7 @@
 <p>上述过程被称为栈展开过程，栈展开过程沿着嵌套函数的调用链不断查找，直到找到了与异常匹配的<code class="docutils literal notranslate"><span class="pre">catch</span></code>子句为止，或者也可能一直没找到匹配的<code class="docutils literal notranslate"><span class="pre">catch</span></code>从而退出主函数。如果找到了一个匹配的<code class="docutils literal notranslate"><span class="pre">catch</span></code>子句，则程序进入该子句并执行其中的代码。</p>
 </section>
 <section id="trycatch">
-<h2>try语句块与catch子句<a class="headerlink" href="#trycatch" title="永久链接至标题"></a></h2>
+<h2>try语句块与catch子句<a class="headerlink" href="#trycatch" title="此标题的永久链接"></a></h2>
 <p>try语句块的语法是：</p>
 <blockquote>
 <div><p>Tips：try语句块内声明的变量在块外部无法访问，特别是在catch子句内也无法访问。</p>
@@ -182,9 +183,9 @@
 <p>如果一个程序没有try语句块且发生了异常，系统会调用terminate函数并终止当前程序的执行。当异常被抛出时，首先搜索该异常的函数，如果没能找到匹配的catch子句，那么终止该函数并在调用该函数的函数中继续寻找。如果还是没找到匹配的catch子句，这个新的函数也被终止，继续搜索调用它的函数。如果最终还是没能找到任何匹配的catch子句，系统会调用terminate函数并终止当前程序的执行。</p>
 </section>
 <section id="id3">
-<h2>构造函数与异常<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>构造函数与异常<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <p>构造函数再在进入其函数体之前首先执行初始值列表，由于在初始值列表抛出异常时构造函数体内的<code class="docutils literal notranslate"><span class="pre">try</span></code>语句块还未生效，所以构造函数体内的<code class="docutils literal notranslate"><span class="pre">catch</span></code>语句无法处理构造函数初始值列表抛出的异常。要想处理构造函数初始值抛出的异常，我们必须将构造函数写成函数<code class="docutils literal notranslate"><span class="pre">try</span></code>语句块的形式。函数<code class="docutils literal notranslate"><span class="pre">try</span></code>语句块使得一组<code class="docutils literal notranslate"><span class="pre">catch</span></code>语句既能处理构造函数体（或析构函数体），也能处理构造函数的初始化过程（或析构函数体）。</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
 <span class="n">Foo</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Foo</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">initializer_list</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">il</span><span class="p">)</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">data</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">il</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 空函数体</span>
 <span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bad_alloc</span><span class="w"> </span><span class="o">&amp;</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">handle_out_of_memory</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
@@ -195,13 +196,13 @@
 </div></blockquote>
 </section>
 <section id="id4">
-<h2>析构函数与异常<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<h2>析构函数与异常<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
 <p>如果析构函数需要执行某个可能抛出异常的操作，则该操作应该被放置在一个<code class="docutils literal notranslate"><span class="pre">try</span></code>语句块中，并在析构函数内部得到处理。在实际的编程过程中，因为析构函数仅仅是释放资源，所以它不太可能抛出异常，所以标准库类型都能确保它们的析构函数不会发生异常。</p>
 </section>
 <section id="id5">
-<h2>标准异常<a class="headerlink" href="#id5" title="永久链接至标题"></a></h2>
+<h2>标准异常<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h2>
 <section id="c">
-<h3>1. C++标准库异常<a class="headerlink" href="#c" title="永久链接至标题"></a></h3>
+<h3>1. C++标准库异常<a class="headerlink" href="#c" title="此标题的永久链接"></a></h3>
 <p>C++标准库定义了一组类用于报告标准库遇到的问题，它们分别定义在4个头文件中：</p>
 <ul class="simple">
 <li><p>exception头文件中定义了最通用的异常类exception，它只报告异常的发生，不提供任何额外信息</p></li>
@@ -211,7 +212,7 @@
 </ul>
 </section>
 <section id="stdexcept">
-<h3>2. stdexcept定义的异常<a class="headerlink" href="#stdexcept" title="永久链接至标题"></a></h3>
+<h3>2. stdexcept定义的异常<a class="headerlink" href="#stdexcept" title="此标题的永久链接"></a></h3>
 <p>stdexcept头文件中定义的异常类如下：</p>
 <table border="1" class="docutils">
 <thead>
@@ -264,7 +265,7 @@
 </tbody>
 </table></section>
 <section id="id6">
-<h3>3. 注意事项<a class="headerlink" href="#id6" title="永久链接至标题"></a></h3>
+<h3>3. 注意事项<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>我们只能以默认初始化的方式初始化exception、<code class="docutils literal notranslate"><span class="pre">bad_alloc</span></code>和<code class="docutils literal notranslate"><span class="pre">bad_cast</span></code></p></li>
 <li><p>对于除exception、<code class="docutils literal notranslate"><span class="pre">bad_alloc</span></code>和<code class="docutils literal notranslate"><span class="pre">bad_cast</span></code>的异常类，我们应该用string对象或者C风格字符串初始化这些类型的对象，不允许使用默认初始化的方式</p></li>
@@ -274,9 +275,9 @@
 </section>
 </section>
 <section id="id7">
-<h2>异常类层次<a class="headerlink" href="#id7" title="永久链接至标题"></a></h2>
+<h2>异常类层次<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h2>
 <section id="id8">
-<h3>1. 标准库异常类<a class="headerlink" href="#id8" title="永久链接至标题"></a></h3>
+<h3>1. 标准库异常类<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
 <p>标准库异常类构造了如下继承体系：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>exception
 ├── bad_cast
@@ -298,10 +299,10 @@
 </div></blockquote>
 </section>
 <section id="id9">
-<h3>2. 用户自定义异常类<a class="headerlink" href="#id9" title="永久链接至标题"></a></h3>
+<h3>2. 用户自定义异常类<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
 <p>我们也可以使用自己的异常类，需要继承自标准异常类：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 用户自设定的异常类</span>
-<span class="k">class</span> <span class="nc">out_of_stock</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">out_of_stock</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">  	</span><span class="k">explicit</span><span class="w"> </span><span class="n">out_of_stock</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">  </span>
 <span class="p">};</span><span class="w"></span>
@@ -310,7 +311,7 @@
 </section>
 </section>
 <section id="id10">
-<h2>异常安全<a class="headerlink" href="#id10" title="永久链接至标题"></a></h2>
+<h2>异常安全<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Effective C++：Strive for exception-safe code.</p>
 <ul class="simple">

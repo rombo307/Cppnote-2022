@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5.6 类的继承与多态 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>5.6 类的继承与多态 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -122,7 +123,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -142,9 +143,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>5.6 类的继承与多态<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>5.6 类的继承与多态<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>面向对象程序设计概述<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>面向对象程序设计概述<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>面向对象程序设计（object-oriented programming）的核心是数据抽象、继承和动态绑定。</p>
 <ul class="simple">
 <li><p>数据抽象：分离类的接口和实现</p></li>
@@ -152,7 +153,7 @@
 <li><p>动态绑定：在一定程序上忽略相似类型的区别，以统一的方式使用它们的对象</p></li>
 </ul>
 <section id="id3">
-<h3>1. 数据抽象<a class="headerlink" href="#id3" title="永久链接至标题"></a></h3>
+<h3>1. 数据抽象<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：封装（encapsulation）指的向用户隐藏类的实现细节，即类的用户只能使用接口而无法访问实现部分。</p>
 </div></blockquote>
@@ -163,31 +164,31 @@
 </ul>
 </section>
 <section id="id4">
-<h3>2. 继承<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<h3>2. 继承<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>编码规范：不要过度使用继承，组合常常更合适一些。尽量做到只在“是一个”（“is-a”）的情况下使用继承，在“has-a”的情况请使用组合。</p>
 </div></blockquote>
 <p>通过继承（inheritance）联系在一起的类构成一种层次关系。层次关系的根部一般被称为基类（base class），其他类直接或间接从基类继承而来，这些继承得到的类被称为派生类（derived class）。基类负责定义在层次关系中所有类共同拥有的成员，而每个派生类各自定义各自独有的成员。</p>
 <section id="id5">
-<h4>2.1 虚函数<a class="headerlink" href="#id5" title="永久链接至标题"></a></h4>
+<h4>2.1 虚函数<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h4>
 <blockquote>
 <div><p>Tips：任何构造函数之外的非静态函数都可以是虚函数，关键字<code class="docutils literal notranslate"><span class="pre">virtual</span></code>只能出现在类内部的声明语句之前而不能用于类外部的函数定义。</p>
 </div></blockquote>
 <p>在C++语言中，基类将类型相关的函数与派生类不做改变直接继承的函数区分对待。对于某些函数，基类希望它的派生类各自定义适合自身的版本，此时基类就将这些函数声明成虚函数（virtual function）。</p>
 </section>
 <section id="id6">
-<h4>2.2 类派生列表<a class="headerlink" href="#id6" title="永久链接至标题"></a></h4>
+<h4>2.2 类派生列表<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h4>
 <p>派生类必须通过使用类派生列表（class derivation list）明确指出它是从哪个（或哪些）基类继承而来的，每个基类前面还可以有访问说明符。</p>
 </section>
 </section>
 <section id="id7">
-<h3>3. 动态绑定<a class="headerlink" href="#id7" title="永久链接至标题"></a></h3>
+<h3>3. 动态绑定<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h3>
 <p>通过使用动态绑定（dynamic binding），我们可以用相同的代码处理基类和派生类对象。这意味着当使用基类的引用（或指针）时，实际上我们并不清楚该引用（或指针）所绑定对象的真实类型。该对象可能是基类的对象，也可能是派生类的对象。</p>
 <blockquote>
 <div><p>Tips：在C++语言中，当我们使用基类的引用（或指针）调用一个虚函数时将发生动态绑定。智能指针类也支持派生类向基类的类型转换，这意味着我们可以将一个派生类对象的指针存储在一个基类的智能指针中。</p>
 </div></blockquote>
 <section id="id8">
-<h4>3.1 静态类型与动态类型<a class="headerlink" href="#id8" title="永久链接至标题"></a></h4>
+<h4>3.1 静态类型与动态类型<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h4>
 <blockquote>
 <div><p>Tips：如果表达式既不是引用也不是指针，那么它的动态类型永远与静态类型一致。</p>
 </div></blockquote>
@@ -198,7 +199,7 @@
 </ul>
 </section>
 <section id="id9">
-<h4>3.2 动态类型的本质<a class="headerlink" href="#id9" title="永久链接至标题"></a></h4>
+<h4>3.2 动态类型的本质<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h4>
 <p>之所以存在派生类向基类的类型转换是因为每个派生类对象都包含一个基类部分，而基类的引用或指针可以绑定到该基类部分上。一个基类的对象既可以以独立的形式存在，也可以作为派生类对象的一部分存在。</p>
 <blockquote>
 <div><p>Tips：如果我们已知某个基类向派生类的转换是安全的，那么我们可以使用<code class="docutils literal notranslate"><span class="pre">static_cast</span></code>来强制覆盖掉编译器的检查工作。</p>
@@ -207,23 +208,23 @@
 </section>
 </section>
 <section id="id10">
-<h2>虚函数<a class="headerlink" href="#id10" title="永久链接至标题"></a></h2>
+<h2>虚函数<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h2>
 <p>在C++语言中，当我们使用基类的引用或者指针调用一个虚成员函数时会执行动态绑定。通常情况下如果我们不使用某个函数则无须为该函数提供定义，但是直到运行时我们才能知道到底调用了哪个版本的虚函数，因此所有的虚函数都必须有定义。</p>
 <section id="id11">
-<h3>1. 虚函数参数与返回值<a class="headerlink" href="#id11" title="永久链接至标题"></a></h3>
+<h3>1. 虚函数参数与返回值<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
 <p>一旦某个函数被声明为虚函数，则在所有派生类中它都是虚函数。一个派生类中的函数如果覆盖了某个继承而来的虚函数，则它的形参类型必须与被它覆盖的基类函数完全一致。同派生类中虚函数的返回类型也必须与基类虚函数匹配，除非：</p>
 <blockquote>
 <div><p>Tips：当类的虚函数返回类型是类本身的指针或引用时，返回类型可以不同。比如<code class="docutils literal notranslate"><span class="pre">D</span></code>由<code class="docutils literal notranslate"><span class="pre">B</span></code>派生得到，则基类的虚函数可以返回<code class="docutils literal notranslate"><span class="pre">B*</span></code>而派生类的对应函数可以返回<code class="docutils literal notranslate"><span class="pre">D*</span></code>，只不过这样的返回类型要求从<code class="docutils literal notranslate"><span class="pre">D</span></code>到<code class="docutils literal notranslate"><span class="pre">B</span></code>的类型转换是·可访问的。</p>
 </div></blockquote>
 </section>
 <section id="finaloverride">
-<h3>2. final和override说明符<a class="headerlink" href="#finaloverride" title="永久链接至标题"></a></h3>
+<h3>2. final和override说明符<a class="headerlink" href="#finaloverride" title="此标题的永久链接"></a></h3>
 <p>在传统C++中，经常容易发现意外重载虚函数的事情：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">();</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">SubClass</span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">SubClass</span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">();</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </pre></div>
@@ -235,7 +236,7 @@
 <li><p>当基类的虚函数<code class="docutils literal notranslate"><span class="pre">Base::foo</span></code>被删除后，<code class="docutils literal notranslate"><span class="pre">SubClass::foo</span></code>就不再重载该虚函数而摇身一变成为一个普通的成员函数</p></li>
 </ul>
 <section id="override">
-<h4>2.1 override<a class="headerlink" href="#override" title="永久链接至标题"></a></h4>
+<h4>2.1 override<a class="headerlink" href="#override" title="此标题的永久链接"></a></h4>
 <blockquote>
 <div><p>编码规范：对于重载的虚函数或虚析构函数，使用<code class="docutils literal notranslate"><span class="pre">override</span></code>关键字显式地进行标记，标记为<code class="docutils literal notranslate"><span class="pre">override</span></code>的函数如果不是对基类虚函数重载的话，编译会报错。</p>
 </div></blockquote>
@@ -244,11 +245,11 @@
 <div><p>派生类中如果定义了一个函数与基类中虚函数的名字相同但是形参列表不同，编译器会认为新定义的函数与基类中原有的函数是相互独立的。这会带来一个问题：如果我们本来希望派生类可以覆盖掉基类中的虚函数，但是一不小心把形参列表写错了，这可能与我们的本意不符。</p>
 </div></blockquote>
 <p>C++11新标准提供了<code class="docutils literal notranslate"><span class="pre">override</span></code>关键字来显式地告知虚拟器进行重载，编译器将检查基类是否存在这样的虚函数，否则将无法通过编译。这样的好处是使得程序员的意图更加清晰（覆盖基类中的虚函数），如果我们使用<code class="docutils literal notranslate"><span class="pre">override</span></code>关键字标记了某个函数但是该函数没有覆盖已有的虚函数，此时编译器会报错。</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">SubClass</span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">SubClass</span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w">    </span><span class="c1">// 合法</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span><span class="w">  </span><span class="c1">// 非法, 父类无此虚函数</span>
 <span class="p">};</span><span class="w"></span>
@@ -256,19 +257,19 @@
 </div>
 </section>
 <section id="final">
-<h4>2.2 final<a class="headerlink" href="#final" title="永久链接至标题"></a></h4>
+<h4>2.2 final<a class="headerlink" href="#final" title="此标题的永久链接"></a></h4>
 <p>我们可以把类中的某个函数指定为<code class="docutils literal notranslate"><span class="pre">final</span></code>，之后任何尝试覆盖该函数的操作都会引发错误，用于防止类被继续继承或者终止虚函数继续重载。</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="k">final</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">SubClass1</span><span class="w"> </span><span class="k">final</span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">SubClass1</span><span class="w"> </span><span class="k">final</span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
 <span class="p">};</span><span class="w">  </span><span class="c1">// 合法</span>
 
-<span class="k">struct</span> <span class="nc">SubClass2</span><span class="o">:</span><span class="w"> </span><span class="n">SubClass1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">SubClass2</span><span class="o">:</span><span class="w"> </span><span class="n">SubClass1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="p">};</span><span class="w">  </span><span class="c1">// 非法, SubClass1已final</span>
 
-<span class="k">struct</span> <span class="nc">SubClass3</span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">SubClass3</span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">();</span><span class="w">  </span><span class="c1">// 非法, foo已final</span>
 <span class="p">};</span><span class="w"></span>
 </pre></div>
@@ -276,17 +277,17 @@
 </section>
 </section>
 <section id="id12">
-<h3>3. 回避动态绑定<a class="headerlink" href="#id12" title="永久链接至标题"></a></h3>
+<h3>3. 回避动态绑定<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h3>
 <p>在某些情况下，我们希望对虚函数的调用不要进行动态绑定，而是强迫其执行虚函数的某个特定版本。使用作用域运算符可以达到这个目的：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="c1">// 基类</span>
-<span class="k">struct</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Base&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;SubClass&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
@@ -312,7 +313,7 @@
 </div></blockquote>
 </section>
 <section id="virtual">
-<h3>4. 编码规范：绝不在构造和析构过程中调用virtual函数<a class="headerlink" href="#virtual" title="永久链接至标题"></a></h3>
+<h3>4. 编码规范：绝不在构造和析构过程中调用virtual函数<a class="headerlink" href="#virtual" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Effective C++：Never call virtual functions during construction or destruction.</p>
 <ul class="simple">
@@ -322,7 +323,7 @@
 <p>在构造函数或者析构函数中调用virtual函数可能带来非预期的结果：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">Base</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">foo</span><span class="p">();</span><span class="w">  </span><span class="c1">// 在基类的构造函数中调用virtual函数</span>
@@ -332,7 +333,7 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Derived::foo()&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
@@ -358,22 +359,22 @@
 </section>
 </section>
 <section id="id13">
-<h2>抽象基类<a class="headerlink" href="#id13" title="永久链接至标题"></a></h2>
+<h2>抽象基类<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h2>
 <section id="id14">
-<h3>1. 纯虚函数<a class="headerlink" href="#id14" title="永久链接至标题"></a></h3>
+<h3>1. 纯虚函数<a class="headerlink" href="#id14" title="此标题的永久链接"></a></h3>
 <p>纯虚（pure virtual）函数用于告诉用户这个虚函数是没有实际意义的，和普通的虚函数不同，我们无须定义一个纯虚函数。纯虚函数的定义方式是在函数体的位置加上<code class="docutils literal notranslate"><span class="pre">=0</span></code>：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 纯虚函数</span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;SubClass&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="id15">
-<h3>2. 抽象基类<a class="headerlink" href="#id15" title="永久链接至标题"></a></h3>
+<h3>2. 抽象基类<a class="headerlink" href="#id15" title="此标题的永久链接"></a></h3>
 <p>含有（或者未经覆盖直接继承）纯虚函数的类是抽象基类（abstract base class）。抽象基类负责定义接口，而后续的其他类可以覆盖该接口。</p>
 <blockquote>
 <div><p>Tips：我们不能（直接）创建一个抽象基类的对象。</p>
@@ -381,10 +382,10 @@
 </section>
 </section>
 <section id="id16">
-<h2>访问控制<a class="headerlink" href="#id16" title="永久链接至标题"></a></h2>
+<h2>访问控制<a class="headerlink" href="#id16" title="此标题的永久链接"></a></h2>
 <p>每个类分别控制着其成员对于派生类来说是否可访问。</p>
 <section id="id17">
-<h3>1. 受保护的成员<a class="headerlink" href="#id17" title="永久链接至标题"></a></h3>
+<h3>1. 受保护的成员<a class="headerlink" href="#id17" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：派生类的成员和友元函数只能访问派生类对象中的基类部分的受保护成员，对于普通的基类对象中的成员不具有特殊的访问权限。</p>
 </div></blockquote>
@@ -394,12 +395,12 @@
 <li><p>受保护成员对于派生类的成员和友元是可访问的</p></li>
 </ul>
 <p>对于第二条规则，需要注意派生类的成员或友元只能通过派生类对象来访问基类的受保护成员，派生类对于基类对象中的受保护成员没有任何访问特权：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">protected</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">prot_mem</span><span class="p">;</span><span class="w">  </span><span class="c1">// protected成员</span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 正确: 能访问SubClass::prot_mem成员</span>
 <span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clobber</span><span class="p">(</span><span class="n">SubClass</span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">s</span><span class="p">.</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">prot_mem</span><span class="p">;</span><span class="w"></span>
@@ -415,7 +416,7 @@
 </div>
 </section>
 <section id="id18">
-<h3>2. 公有、私有和受保护继承<a class="headerlink" href="#id18" title="永久链接至标题"></a></h3>
+<h3>2. 公有、私有和受保护继承<a class="headerlink" href="#id18" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>编码规范：所有继承必须是<code class="docutils literal notranslate"><span class="pre">public</span></code>的，如果你想使用私有继承，你应该替换成把基类的实例作为成员对象的方式。</p>
 </div></blockquote>
@@ -425,7 +426,7 @@
 <li><p>在派生类的派生列表中的访问说明符</p></li>
 </ul>
 <p>举个例子：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">pub_mem</span><span class="p">();</span><span class="w">  </span><span class="c1">// public成员</span>
 <span class="w"> </span><span class="k">protected</span><span class="o">:</span><span class="w"></span>
@@ -435,7 +436,7 @@
 <span class="p">};</span><span class="w"></span>
 
 <span class="c1">// public继承</span>
-<span class="k">struct</span> <span class="nc">PubDerv</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">PubDerv</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 正确: 派生类可以访问受保护成员</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">prot_mem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 错误: 派生类不可访问private成员</span>
@@ -443,7 +444,7 @@
 <span class="p">};</span><span class="w"></span>
 
 <span class="c1">// 私有继承</span>
-<span class="k">struct</span> <span class="nc">PrivDerv</span><span class="o">:</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">PrivDerv</span><span class="o">:</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 正确: private继承不影响派生类的访问权限</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">prot_mem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
@@ -459,7 +460,7 @@
 </div></blockquote>
 </section>
 <section id="id19">
-<h3>3. 派生类向基类转换的可访问性<a class="headerlink" href="#id19" title="永久链接至标题"></a></h3>
+<h3>3. 派生类向基类转换的可访问性<a class="headerlink" href="#id19" title="此标题的永久链接"></a></h3>
 <p>派生类的派生访问说明符会影响派生类向基类转换的可访问性。假定D继承自B：</p>
 <ul class="simple">
 <li><p>只有当D公有地继承B时，用户代码才能使用派生类向基类的转换；如果D继承B的方式是受保护地或者私有地，则用户代码不能使用该转换</p></li>
@@ -471,9 +472,9 @@
 </div></blockquote>
 </section>
 <section id="id20">
-<h3>4. 改变个别成员的可访问性<a class="headerlink" href="#id20" title="永久链接至标题"></a></h3>
+<h3>4. 改变个别成员的可访问性<a class="headerlink" href="#id20" title="此标题的永久链接"></a></h3>
 <p>有时我们需要改变派生类继承的某个名字的访问级别，通过使用<code class="docutils literal notranslate"><span class="pre">using</span></code>声明可以实现这一目的：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w"> </span><span class="k">protected</span><span class="o">:</span><span class="w"></span>
@@ -481,7 +482,7 @@
 <span class="p">};</span><span class="w"></span>
 
 <span class="c1">// private继承: 继承而来的成员是私有成员</span>
-<span class="k">class</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Base</span><span class="o">::</span><span class="n">size</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="k">protected</span><span class="o">:</span><span class="w"></span>
@@ -495,32 +496,32 @@
 </div></blockquote>
 </section>
 <section id="id21">
-<h3>5. 默认的继承保护级别<a class="headerlink" href="#id21" title="永久链接至标题"></a></h3>
+<h3>5. 默认的继承保护级别<a class="headerlink" href="#id21" title="此标题的永久链接"></a></h3>
 <p>默认情况下，使用<code class="docutils literal notranslate"><span class="pre">class</span></code>关键字定义的派生类是私有继承的；而使用<code class="docutils literal notranslate"><span class="pre">struct</span></code>关键字定义的派生类是公有继承的：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 基类</span>
-<span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
 <span class="c1">// 默认public继承</span>
-<span class="k">struct</span> <span class="nc">D1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">D1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
 <span class="c1">// 默认private继承</span>
-<span class="k">class</span> <span class="nc">D2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">D2</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="id22">
-<h2>继承中的类作用域<a class="headerlink" href="#id22" title="永久链接至标题"></a></h2>
+<h2>继承中的类作用域<a class="headerlink" href="#id22" title="此标题的永久链接"></a></h2>
 <section id="id23">
-<h3>1. 简介<a class="headerlink" href="#id23" title="永久链接至标题"></a></h3>
+<h3>1. 简介<a class="headerlink" href="#id23" title="此标题的永久链接"></a></h3>
 <p>每个类定义自己的作用域，在这个作用域中我们定义类的成员。当存在继承关系时，派生类的作用域嵌套在其基类的作用域之中。如果一个名字在派生类的作用域内无法正确解析，则编译器将继续在外层的基类作用域中寻找该名字的定义。</p>
 </section>
 <section id="id24">
-<h3>2. 在编译时根据静态类型进行名字查找<a class="headerlink" href="#id24" title="永久链接至标题"></a></h3>
+<h3>2. 在编译时根据静态类型进行名字查找<a class="headerlink" href="#id24" title="此标题的永久链接"></a></h3>
 <p>一个对象、引用或指针的静态类型决定了对象的哪些成员是可见的:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;foo</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
@@ -543,21 +544,21 @@
 <p>尽管在<code class="docutils literal notranslate"><span class="pre">sub_class</span></code>中确实有一个<code class="docutils literal notranslate"><span class="pre">foo</span></code>成员，但是该成员对于<code class="docutils literal notranslate"><span class="pre">p1</span></code>却是不可见的。<code class="docutils literal notranslate"><span class="pre">p1</span></code>是<code class="docutils literal notranslate"><span class="pre">Base</span></code>的指针，这意味着对<code class="docutils literal notranslate"><span class="pre">foo</span></code>的搜索将从<code class="docutils literal notranslate"><span class="pre">Base</span></code>开始，因此无法通过<code class="docutils literal notranslate"><span class="pre">Base</span></code>的对象、引用或者指针调用<code class="docutils literal notranslate"><span class="pre">foo</span></code>成员。</p>
 </section>
 <section id="id25">
-<h3>3. 名字冲突与继承<a class="headerlink" href="#id25" title="永久链接至标题"></a></h3>
+<h3>3. 名字冲突与继承<a class="headerlink" href="#id25" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：派生类的成员将隐藏同名的基类成员，除了覆盖继承而来的虚函数之外，派生类最好不要重用其他定义在基类中的名字。</p>
 </div></blockquote>
 <p>和其他作用域一样，派生类也能重用定义在其直接基类或间接基类中的名字，此时定义在内层作用域（即派生类）的名字将隐藏在外层作用域（即基类）的名字：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">Base</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="n">mem</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w"> </span><span class="k">protected</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">mem</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">SubClass</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">mem</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// 用i初始化SubClass::mem, 基类Base执行默认初始化</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">get_mem</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
@@ -574,14 +575,14 @@
 <p>我们可以通过作用域运算符来使用隐藏的成员：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">Base</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="n">mem</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="w"> </span><span class="k">protected</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">mem</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">SubClass</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">mem</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w">     </span><span class="c1">// 用i初始化SubClass::mem, 基类Base执行默认初始化</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">get_mem</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">mem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
@@ -599,7 +600,7 @@
 </div>
 </section>
 <section id="id26">
-<h3>4. 继承中的名字查找规则<a class="headerlink" href="#id26" title="永久链接至标题"></a></h3>
+<h3>4. 继承中的名字查找规则<a class="headerlink" href="#id26" title="此标题的永久链接"></a></h3>
 <p>理解函数调用的解析过程对于理解C++的继承至关重要，假定我们调用<code class="docutils literal notranslate"><span class="pre">p-&gt;mem()</span></code>或者<code class="docutils literal notranslate"><span class="pre">obj.mem()</span></code>，依次执行如下4个步骤：</p>
 <ul class="simple">
 <li><p>首先确定<code class="docutils literal notranslate"><span class="pre">p</span></code>（或者<code class="docutils literal notranslate"><span class="pre">obj</span></code>）的静态类型，因为我们调用的是一个成员，所以该类型必然是类类型</p></li>
@@ -614,16 +615,16 @@
 </ul>
 </section>
 <section id="id27">
-<h3>5. 虚函数与作用域<a class="headerlink" href="#id27" title="永久链接至标题"></a></h3>
+<h3>5. 虚函数与作用域<a class="headerlink" href="#id27" title="此标题的永久链接"></a></h3>
 <p>根据前面我们讲到的继承中的名字查找规则，名字查找会优先于类型检查。类似于声明在内层作用域的函数并不会重载声明在外层作用域的函数，定义在派生类中的函数也不会重载其基类的成员。因此基类和派生类中的虚函数必须有相同的形参列表，否则相当于定义了一个接受不同实参的同名函数并隐藏了基类中的虚函数成员：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Base</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 隐藏基类中的foo虚函数而不是覆盖</span>
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;SubClass</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
@@ -648,7 +649,7 @@
 </section>
 </section>
 <section id="id28">
-<h2>继承与虚析构函数<a class="headerlink" href="#id28" title="永久链接至标题"></a></h2>
+<h2>继承与虚析构函数<a class="headerlink" href="#id28" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Tips：继承关系对基类拷贝构造控制最直接的影响就是基类通常应该定义一个虚析构函数，这样我们就可以动态分配继承体系中的对象了。一句话总结就是我们希望析构时执行的是指针动态类型的析构函数。</p>
 </div></blockquote>
@@ -660,9 +661,9 @@
 </ul>
 </section>
 <section id="id29">
-<h2>继承与合成拷贝控制<a class="headerlink" href="#id29" title="永久链接至标题"></a></h2>
+<h2>继承与合成拷贝控制<a class="headerlink" href="#id29" title="此标题的永久链接"></a></h2>
 <p>基类或派生类的合成拷贝控制成员与其他合成的构造函数、赋值运算符或析构函数类型：它们对类本身的成员依次进行初始化、赋值或销毁的操作。此外这些合成的成员还负责使用直接基类中对应的操作对一个对象的直接基类部分进行初始化、赋值或销毁操作。</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 合成的默认构造函数</span>
 <span class="w">    </span><span class="n">Base</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
@@ -679,7 +680,7 @@
 </div>
 </section>
 <section id="id30">
-<h2>派生类的拷贝控制成员<a class="headerlink" href="#id30" title="永久链接至标题"></a></h2>
+<h2>派生类的拷贝控制成员<a class="headerlink" href="#id30" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Tips：</p>
 <ul class="simple">
@@ -690,11 +691,11 @@
 </ul>
 </div></blockquote>
 <section id="id31">
-<h3>1. 派生类的拷贝和移动构造函数<a class="headerlink" href="#id31" title="永久链接至标题"></a></h3>
+<h3>1. 派生类的拷贝和移动构造函数<a class="headerlink" href="#id31" title="此标题的永久链接"></a></h3>
 <p>当为派生类定义拷贝或移动构造函数时，我们通常使用对应的基类构造函数来初始化对象的基类部分：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 拷贝构造函数:</span>
 <span class="w">    </span><span class="n">SubClass</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SubClass</span><span class="o">&amp;</span><span class="w"> </span><span class="n">sub_class</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="p">(</span><span class="n">sub_class</span><span class="p">)</span><span class="w"> </span><span class="cm">/* SubClass成员的初始值列表 */</span><span class="w">  </span><span class="p">{</span><span class="w"></span>
@@ -716,7 +717,7 @@
 </div>
 </section>
 <section id="id32">
-<h3>2. 派生类的赋值运算符<a class="headerlink" href="#id32" title="永久链接至标题"></a></h3>
+<h3>2. 派生类的赋值运算符<a class="headerlink" href="#id32" title="此标题的永久链接"></a></h3>
 <p>与拷贝和移动构造函数一样，派生类的赋值运算符也必须显式地为其基类部分赋值：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">SubClass</span><span class="w"> </span><span class="o">&amp;</span><span class="n">SubClass</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SubClass</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 为基类部分赋值</span>
@@ -729,12 +730,12 @@
 </div>
 </section>
 <section id="id33">
-<h3>3. 派生类的析构函数<a class="headerlink" href="#id33" title="永久链接至标题"></a></h3>
+<h3>3. 派生类的析构函数<a class="headerlink" href="#id33" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：对象销毁的顺序正好与其创建的顺序相反，即派生类析构函数首先执行，然后是基类的析构函数，以此类推沿着继承体系的反方向直到最后。</p>
 </div></blockquote>
 <p>和构造函数及赋值运算符不同的是，派生类析构函数只负责销毁由派生类自己分配的资源：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// Base::~Base被自动调用执行</span>
 <span class="w">    </span><span class="o">~</span><span class="n">SubClass</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 用户定义清除派生类成员的操作 */</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
@@ -744,18 +745,18 @@
 </section>
 </section>
 <section id="id34">
-<h2>继承的构造函数<a class="headerlink" href="#id34" title="永久链接至标题"></a></h2>
+<h2>继承的构造函数<a class="headerlink" href="#id34" title="此标题的永久链接"></a></h2>
 <p>在C++11新标准中，派生类能够通过<code class="docutils literal notranslate"><span class="pre">using</span></code>声明语句重用其直接基类定义的构造函数。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">Base</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Base</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">i_</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i_</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 继承了接受单个int参数的构造函数</span>
 <span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Base</span><span class="o">::</span><span class="n">Base</span><span class="p">;</span><span class="w"></span>
@@ -785,14 +786,14 @@
 </ul>
 </section>
 <section id="id35">
-<h2>继承与容器<a class="headerlink" href="#id35" title="永久链接至标题"></a></h2>
+<h2>继承与容器<a class="headerlink" href="#id35" title="此标题的永久链接"></a></h2>
 <p>由于不允许在容器中保存不同类型的元素，因此我们不能把具有继承关系的多种类型直接存放在对象中：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -816,9 +817,9 @@
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubClass</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Base</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">basket</span><span class="p">;</span><span class="w"></span>
@@ -829,7 +830,7 @@
 </div>
 </section>
 <section id="publicis-a">
-<h2>编码规范：确定你的public继承模拟出is-a关系<a class="headerlink" href="#publicis-a" title="永久链接至标题"></a></h2>
+<h2>编码规范：确定你的public继承模拟出is-a关系<a class="headerlink" href="#publicis-a" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Effective C++：Make sure public inheritance models “is-a”.</p>
 <ul class="simple">

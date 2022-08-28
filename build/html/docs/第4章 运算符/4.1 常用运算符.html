@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4.1 常用运算符 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>4.1 常用运算符 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -107,7 +108,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -127,9 +128,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>4.1 常用运算符<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>4.1 常用运算符<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>算术运算符<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>算术运算符<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -176,15 +177,15 @@
 </tr>
 </tbody>
 </table><section id="id3">
-<h3>1. 优先级和结合律<a class="headerlink" href="#id3" title="永久链接至标题"></a></h3>
+<h3>1. 优先级和结合律<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h3>
 <p>一元运算符的优先级最高，然后是乘法和除法，优先级最低的是加法和减法。上面所有的运算符都满足左结合律，意味着优先级相同时满足从左到右的顺序进行组合。</p>
 </section>
 <section id="id4">
-<h3>2. 溢出<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<h3>2. 溢出<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <p>当计算结果超出该类型所能表示的范围时可能产生溢出，比如最大的<code class="docutils literal notranslate"><span class="pre">short</span></code>型数值为<code class="docutils literal notranslate"><span class="pre">32767</span></code>，这时候<code class="docutils literal notranslate"><span class="pre">+1</span></code>可能输出<code class="docutils literal notranslate"><span class="pre">-32768</span></code>（这是因为符号位从<code class="docutils literal notranslate"><span class="pre">0</span></code>变为<code class="docutils literal notranslate"><span class="pre">1</span></code>，从而变成负值）。当然在别的系统程序的行为可能不同甚至崩溃。</p>
 </section>
 <section id="id5">
-<h3>3. 除法与负号<a class="headerlink" href="#id5" title="永久链接至标题"></a></h3>
+<h3>3. 除法与负号<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：C++语言的早期版本允许结果为负值的商向上或向下取整，C++11新标准规定商一律向0取整（即直接切除小数部分）。如果两个运算对象的符号相同则商为正，否则商为负。</p>
 </div></blockquote>
@@ -196,7 +197,7 @@
 </div>
 </section>
 <section id="id6">
-<h3>4. 取余与负号<a class="headerlink" href="#id6" title="永久链接至标题"></a></h3>
+<h3>4. 取余与负号<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：如果<code class="docutils literal notranslate"><span class="pre">m%n</span></code>不等于0，那么运算结果的符号和m相同。</p>
 </div></blockquote>
@@ -209,7 +210,7 @@
 </section>
 </section>
 <section id="id7">
-<h2>逻辑运算符<a class="headerlink" href="#id7" title="永久链接至标题"></a></h2>
+<h2>逻辑运算符<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h2>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -246,7 +247,7 @@
 </tr>
 <tr>
 <td>左</td>
-<td>>=</td>
+<td>&gt;=</td>
 <td>大于等于</td>
 <td>expr &gt;= expr</td>
 </tr>
@@ -276,7 +277,7 @@
 </tr>
 </tbody>
 </table><section id="id8">
-<h3>1. 逻辑与和逻辑或的短路求值<a class="headerlink" href="#id8" title="永久链接至标题"></a></h3>
+<h3>1. 逻辑与和逻辑或的短路求值<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
 <p>逻辑与<code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>和逻辑或<code class="docutils literal notranslate"><span class="pre">||</span></code>都是先求左侧对象的值再求右侧运算对象的值，<strong>当且仅当左侧运算对象无法确定表达式的结果才会计算右侧运算对象的值</strong>，这种策略被称为短路求值。基于短路求值的特点，我们可以通过左侧运算对象来确保右侧运算对象求值的正确性和安全性：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 只能左侧运算对象为真则右侧运算对象才安全</span>
 <span class="n">index</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">isspace</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">])</span><span class="w"></span>
@@ -284,7 +285,7 @@
 </div>
 </section>
 <section id="id9">
-<h3>2. 不要连写关系运算符<a class="headerlink" href="#id9" title="永久链接至标题"></a></h3>
+<h3>2. 不要连写关系运算符<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
 <p>因为关系运算符的求值结果是布尔值，所以将几个关系运算符连写在一起会产生意想不到的结果：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 错误写法: 用i &lt; j的布尔值结果与k比较</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"></span>
@@ -296,9 +297,9 @@
 </section>
 </section>
 <section id="id10">
-<h2>赋值运算符<a class="headerlink" href="#id10" title="永久链接至标题"></a></h2>
+<h2>赋值运算符<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h2>
 <section id="id11">
-<h3>1. 运算对象与返回结果<a class="headerlink" href="#id11" title="永久链接至标题"></a></h3>
+<h3>1. 运算对象与返回结果<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
 <p>赋值运算符的左侧运算对象必须是一个可修改的左值，返回的结果是它的左侧运算对象（仍然是左值）。</p>
 <blockquote>
 <div><p>Tips：注意赋值不等于初始化，初始化的含义是创建变量时赋予其一个初始值，而赋值的含义是把对象的当前值擦去，并用一个新值替代它。</p>
@@ -313,7 +314,7 @@
 </div>
 </section>
 <section id="id12">
-<h3>2. 初始化列表赋值<a class="headerlink" href="#id12" title="永久链接至标题"></a></h3>
+<h3>2. 初始化列表赋值<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h3>
 <p>C++11新标准允许使用初始化列表赋值：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 1) 编译器warning提示窄化转换: narrowing conversion of ‘3.1499999999999999e+0’ from ‘double’ to ‘int’ inside { }</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"></span>
@@ -325,7 +326,7 @@
 </div>
 </section>
 <section id="id13">
-<h3>3. 赋值运算符满足右结合律<a class="headerlink" href="#id13" title="永久链接至标题"></a></h3>
+<h3>3. 赋值运算符满足右结合律<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h3>
 <p>在下面的例子中，先执行<code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">=</span> <span class="pre">0</span></code>，返回左侧运算对象，再执行<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">j</span></code>，因此执行结束后两个变量都被赋值为0。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"></span>
 <span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
@@ -333,7 +334,7 @@
 </div>
 </section>
 <section id="id14">
-<h3>4. 赋值运算符优先级较低<a class="headerlink" href="#id14" title="永久链接至标题"></a></h3>
+<h3>4. 赋值运算符优先级较低<a class="headerlink" href="#id14" title="此标题的永久链接"></a></h3>
 <p>由于赋值运算符的优先级低于关系运算符的优先级，因此在条件语句中，赋值部分通常应该加上括号：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
 
@@ -346,12 +347,12 @@
 </section>
 </section>
 <section id="id15">
-<h2>递增和递减运算符<a class="headerlink" href="#id15" title="永久链接至标题"></a></h2>
+<h2>递增和递减运算符<a class="headerlink" href="#id15" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>编码规范：对于迭代器和其他模板对象使用前缀形式的自增（自减）运算符。不考虑返回值的情况下，前置自增<code class="docutils literal notranslate"><span class="pre">++i</span></code>通常比后置自增<code class="docutils literal notranslate"><span class="pre">i++</span></code>效率高，因为后置自增需要对表达式的值<code class="docutils literal notranslate"><span class="pre">i</span></code>进行一次拷贝，如果<code class="docutils literal notranslate"><span class="pre">i</span></code>是迭代器或其他非数值类型，拷贝的代价是比较大的。</p>
 </div></blockquote>
 <section id="id16">
-<h3>1. 前置版本和后置版本<a class="headerlink" href="#id16" title="永久链接至标题"></a></h3>
+<h3>1. 前置版本和后置版本<a class="headerlink" href="#id16" title="此标题的永久链接"></a></h3>
 <p>前置版本会将运算对象加1（或减1），然后将改变后的对象作为求值结果。后置版本也会将运算对象加1（或减1），但是求值结果是运算对象改变之前值的副本。这两种运算符必须作用于左侧运算对象，其中前置版本将对象本身作为左值返回，后置版本将对象原始值的副本的作为右值返回。</p>
 <blockquote>
 <div><p>Tips：除非必须，否则不用递增递减运算符的后置版本。前置版本的递增运算将值加1之后直接返回该运算对象，但是后置版本需要将原始值存储下来以便于返回这个未修改的内容，如果我们不需要修改前的值的话就是一种性能上的浪费。对于整数和指针类型而言，编译器可能对这种额外的工作进行优化，但是如果是对于相对复杂的迭代器类型，这种额外的工作就消耗巨大了。建议养成使用前置版本习惯，这样不仅不需要担心性能问题，而且不会引入非预期的错误。</p>
@@ -363,7 +364,7 @@
 </div>
 </section>
 <section id="id17">
-<h3>2. 后置版本的可能使用场景<a class="headerlink" href="#id17" title="永久链接至标题"></a></h3>
+<h3>2. 后置版本的可能使用场景<a class="headerlink" href="#id17" title="此标题的永久链接"></a></h3>
 <p>后置版本最常用的场景就是在一条语句中混用解引用和递增运算符的后置版本：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">pbeg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"></span>
 <span class="c1">// 输出元素直到遇到第一个负值</span>
@@ -375,11 +376,11 @@
 </section>
 </section>
 <section id="id18">
-<h2>成员访问运算符<a class="headerlink" href="#id18" title="永久链接至标题"></a></h2>
+<h2>成员访问运算符<a class="headerlink" href="#id18" title="此标题的永久链接"></a></h2>
 <p>点运算符和箭头运算符都可用于访问成员，<code class="docutils literal notranslate"><span class="pre">ptr-&gt;mem</span></code>等价于<code class="docutils literal notranslate"><span class="pre">(*ptr).mem</span></code>。需要注意的是解引用运算符优先级低于点运算符，所以必须加上括号。</p>
 </section>
 <section id="id19">
-<h2>条件运算符<a class="headerlink" href="#id19" title="永久链接至标题"></a></h2>
+<h2>条件运算符<a class="headerlink" href="#id19" title="此标题的永久链接"></a></h2>
 <p>条件运算符满足右结合律，意味着运算对象一般按照从右往左的顺序组合，因此我们使用嵌套条件运算符：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">finalgrade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">grade</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">90</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;high pass&quot;</span><span class="w"></span>
 <span class="w">                            </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">grade</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;fail&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;pass&quot;</span><span class="w"></span>
@@ -391,7 +392,7 @@
 </div>
 </section>
 <section id="id20">
-<h2>位运算符（左结合律）<a class="headerlink" href="#id20" title="永久链接至标题"></a></h2>
+<h2>位运算符（左结合律）<a class="headerlink" href="#id20" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Tips：如果运算对象是带符号的且它的值为负，那么位运算符如何处理运算对象的“符号位”依赖于机器，而且此时的左移操作可能会改变符号位的值，因此是一种未定义的行为。关于符号位如何处理没有明确的规定，所以强烈建议仅将位运算符用于处理无符号类型。</p>
 </div></blockquote>
@@ -415,7 +416,7 @@
 <td>expr1 &lt;&lt; expr2</td>
 </tr>
 <tr>
-<td>>></td>
+<td>&gt;&gt;</td>
 <td>右移</td>
 <td>expr1 &gt;&gt; expr2</td>
 </tr>
@@ -436,7 +437,7 @@
 </tr>
 </tbody>
 </table><section id="id21">
-<h3>1. 移位运算符<a class="headerlink" href="#id21" title="永久链接至标题"></a></h3>
+<h3>1. 移位运算符<a class="headerlink" href="#id21" title="此标题的永久链接"></a></h3>
 <p>左移运算符<code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code>在右侧插入值为<code class="docutils literal notranslate"><span class="pre">0</span></code>的二进制位，右移运算符<code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>的行为则依赖其左侧运算对象的类型，如果该运算对象是无符号类型，在左侧插入值为<code class="docutils literal notranslate"><span class="pre">0</span></code>的二进制位。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 假定char占8位, int占32位</span>
 <span class="c1">// 0233是八进制的字面值</span>
@@ -458,7 +459,7 @@
 </div>
 </section>
 <section id="id22">
-<h3>2. 位求反运算符<a class="headerlink" href="#id22" title="永久链接至标题"></a></h3>
+<h3>2. 位求反运算符<a class="headerlink" href="#id22" title="此标题的永久链接"></a></h3>
 <p>对于<code class="docutils literal notranslate"><span class="pre">char</span></code>类型的运算对象首先提升为<code class="docutils literal notranslate"><span class="pre">int</span></code>类型，提升时运算对象原来的位保持不变，往高位添加<code class="docutils literal notranslate"><span class="pre">0</span></code>即可。接下来将提升后的值逐位求反。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 假定char占8位, int占32位</span>
 <span class="c1">// 0227是八进制的字面值</span>
@@ -475,7 +476,7 @@
 </div>
 </section>
 <section id="id23">
-<h3>3. 位与、位或和位异或<a class="headerlink" href="#id23" title="永久链接至标题"></a></h3>
+<h3>3. 位与、位或和位异或<a class="headerlink" href="#id23" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>位与：两个都是<code class="docutils literal notranslate"><span class="pre">1</span></code>则返回<code class="docutils literal notranslate"><span class="pre">1</span></code>，否则为<code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
 <li><p>位或：两个至少有一个为<code class="docutils literal notranslate"><span class="pre">1</span></code>则返回<code class="docutils literal notranslate"><span class="pre">1</span></code>，否则为<code class="docutils literal notranslate"><span class="pre">0</span></code></p></li>
@@ -484,10 +485,10 @@
 </section>
 </section>
 <section id="sizeof">
-<h2>sizeof运算符<a class="headerlink" href="#sizeof" title="永久链接至标题"></a></h2>
+<h2>sizeof运算符<a class="headerlink" href="#sizeof" title="此标题的永久链接"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">sizeof</span></code>运算符返回一条表达式或者一个类型名字所占的字节数，所得的值是一个<code class="docutils literal notranslate"><span class="pre">size_t</span></code>类型（一种机器相关的无符号类型，它被设计得足够大以便能表示内存中任意对象的大小）。当传入一条表达式时，<code class="docutils literal notranslate"><span class="pre">sizeof</span></code>运算符并不实际计算其运算对象的值。</p>
 <section id="id24">
-<h3>1. 不同类型的sizeof运算结果<a class="headerlink" href="#id24" title="永久链接至标题"></a></h3>
+<h3>1. 不同类型的sizeof运算结果<a class="headerlink" href="#id24" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>对<code class="docutils literal notranslate"><span class="pre">char</span></code>或者类型为<code class="docutils literal notranslate"><span class="pre">char</span></code>的表达式执行<code class="docutils literal notranslate"><span class="pre">sizeof</span></code>，返回<code class="docutils literal notranslate"><span class="pre">1</span></code></p></li>
 <li><p>对引用类型执行<code class="docutils literal notranslate"><span class="pre">sizeof</span></code>运算得到被引用对象所占空间的大小</p></li>
@@ -498,16 +499,16 @@
 </ul>
 </section>
 <section id="id25">
-<h3>2. sizeof返回常量表达式<a class="headerlink" href="#id25" title="永久链接至标题"></a></h3>
+<h3>2. sizeof返回常量表达式<a class="headerlink" href="#id25" title="此标题的永久链接"></a></h3>
 <p>因为<code class="docutils literal notranslate"><span class="pre">sizeof</span></code>的返回值是一个常量表达式，因此我们可以用<code class="docutils literal notranslate"><span class="pre">sizeof</span></code>的结果声明数组的维度。</p>
 </section>
 <section id="id26">
-<h3>3. sizeof中解引用指针<a class="headerlink" href="#id26" title="永久链接至标题"></a></h3>
+<h3>3. sizeof中解引用指针<a class="headerlink" href="#id26" title="此标题的永久链接"></a></h3>
 <p>由于<code class="docutils literal notranslate"><span class="pre">sizeof</span></code>满足右结合律并且与<code class="docutils literal notranslate"><span class="pre">*</span></code>运算符的优先级一样，因此<code class="docutils literal notranslate"><span class="pre">sizeof</span> <span class="pre">*p</span></code>等价于<code class="docutils literal notranslate"><span class="pre">sizeof</span> <span class="pre">(*p)</span></code>。另外由于<code class="docutils literal notranslate"><span class="pre">sizeof</span></code>不会实际求运算对象的值，所以在<code class="docutils literal notranslate"><span class="pre">sizeof</span></code>的运算对象中解引用一个无效指针仍然是一种安全的行为，因为指针实际上并没有被真正地使用。</p>
 </section>
 </section>
 <section id="id27">
-<h2>逗号运算符<a class="headerlink" href="#id27" title="永久链接至标题"></a></h2>
+<h2>逗号运算符<a class="headerlink" href="#id27" title="此标题的永久链接"></a></h2>
 <p>逗号运算符含有两个运算对象，首先对左侧的表达式求值，然后将求值结果丢弃掉。逗号运算符真正的结果是右侧表达式的值，如果右侧运算对象是左值，那么最终的求值结果也是左值。</p>
 <p>逗号运算符通常被用在for循环中：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">size_type</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ivec</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"></span>

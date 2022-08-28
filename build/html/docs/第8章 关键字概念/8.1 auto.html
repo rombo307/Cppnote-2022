@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>8.1 关键字：auto &mdash; C++语法笔记 v1.0 文档</title>
+  <title>8.1 关键字：auto &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -77,7 +78,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -97,9 +98,9 @@
            <div itemprop="articleBody">
              
   <section id="auto">
-<h1>8.1 关键字：auto<a class="headerlink" href="#auto" title="永久链接至标题"></a></h1>
+<h1>8.1 关键字：auto<a class="headerlink" href="#auto" title="此标题的永久链接"></a></h1>
 <section id="c-98auto-c-11">
-<h2>C++98中auto用法（C++11已废弃）<a class="headerlink" href="#c-98auto-c-11" title="永久链接至标题"></a></h2>
+<h2>C++98中auto用法（C++11已废弃）<a class="headerlink" href="#c-98auto-c-11" title="此标题的永久链接"></a></h2>
 <p>C++98 <code class="docutils literal notranslate"><span class="pre">auto</span></code>用于声明变量为自动变量（拥有自动的生命周期），<code class="docutils literal notranslate"><span class="pre">C++11</span></code>已经删除了该用法，取而代之的是“变量的自动类型推断方法”。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// c++ 98:</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">         </span><span class="c1">// 拥有自动生命期</span>
@@ -115,7 +116,7 @@
 </div>
 </section>
 <section id="id1">
-<h2>auto会去除变量的引用语义<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<h2>auto会去除变量的引用语义<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <p>当引用对象作为初始值时，真正参与初始化的是引用对象的值，此时编译器会以引用对象的类型作为auto推算的类型：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
@@ -133,7 +134,7 @@
 </div>
 </section>
 <section id="autoconst">
-<h2>auto忽略顶层const<a class="headerlink" href="#autoconst" title="永久链接至标题"></a></h2>
+<h2>auto忽略顶层const<a class="headerlink" href="#autoconst" title="此标题的永久链接"></a></h2>
 <p>auto一般会忽略掉顶层const，同时底层const会被保留下来：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">    </span><span class="c1">// 常量int</span>

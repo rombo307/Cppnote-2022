@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5.8 类的类型转换 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>5.8 类的类型转换 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -91,7 +92,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -111,15 +112,15 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>5.8 类的类型转换<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>5.8 类的类型转换<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>简介<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>转换构造函数和类型转换运算符共同定义了类的类型转换<code class="docutils literal notranslate"><span class="pre">class-type</span> <span class="pre">conversions</span></code>，这样的转换有时也被称为用户定义的类型转换<code class="docutils literal notranslate"><span class="pre">user-defined</span> <span class="pre">conversion</span></code>。</p>
 </section>
 <section id="id3">
-<h2>类型转换运算符<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>类型转换运算符<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <section id="id4">
-<h3>1. 简介<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<h3>1. 简介<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <p>类型转换运算符<code class="docutils literal notranslate"><span class="pre">conversion</span> <span class="pre">operator</span></code>是类的一种特殊成员函数，它负责将一个类类型的值转换成其他类型。类型转换函数的一般形式如下所示：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">operator</span><span class="w"> </span><span class="n">type</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 </pre></div>
@@ -127,10 +128,10 @@
 <p>其中<code class="docutils literal notranslate"><span class="pre">type</span></code>表示某种类型，类型转换运算符可以面向任意类型（除了<code class="docutils literal notranslate"><span class="pre">void</span></code>之外）进行定义，只要该类型能作为函数的返回类型。因此，我们不允许转换成数组或者函数类型，但允许转换成指针（包括数组指针以及函数指针）或者引用类型。类型转换运算符既没有显式的返回类型，也没有形参，而且必须定义成类的成员函数。类型转换运算符通常不应该改变待转换对象的内容，所以一般被定义为<code class="docutils literal notranslate"><span class="pre">const</span></code>成员。</p>
 </section>
 <section id="id5">
-<h3>2. 例子<a class="headerlink" href="#id5" title="永久链接至标题"></a></h3>
+<h3>2. 例子<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
 <p>我们定义一个表示<code class="docutils literal notranslate"><span class="pre">0~255</span></code>之间一个整数的一个类：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 类型转换运算符支持将SmallInt对象转化成int</span>
-<span class="k">class</span> <span class="nc">SmallInt</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SmallInt</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">SmallInt</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">val_</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">255</span><span class="p">)</span><span class="w"></span>
@@ -149,7 +150,7 @@
 </div>
 </section>
 <section id="id6">
-<h3>3. 显式的类型转换运算符<a class="headerlink" href="#id6" title="永久链接至标题"></a></h3>
+<h3>3. 显式的类型转换运算符<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：实践中类很少提供类型转换运算符，所以类型转换运算符常被<code class="docutils literal notranslate"><span class="pre">explicit</span></code>修饰以阻止隐式转换。</p>
 </div></blockquote>
@@ -166,7 +167,7 @@
 </pre></div>
 </div>
 <p>为了防止这样的异常发生，<code class="docutils literal notranslate"><span class="pre">C++</span></code>新标准引入了显式的类型转换运算符：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SmallInt</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SmallInt</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 转换构造函数: 编译支持int到SmallInt的隐式转换</span>
 <span class="w">    </span><span class="n">SmallInt</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">val_</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -191,7 +192,7 @@
 </div>
 </section>
 <section id="id7">
-<h3>4. 避免有二义性的类型转换<a class="headerlink" href="#id7" title="永久链接至标题"></a></h3>
+<h3>4. 避免有二义性的类型转换<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h3>
 <p>如果类中包含一个或多个类型转换，则必须确保在类类型和目标类型之间只存在唯一一种转换方式。否则我们编写的代码将很可能会具有二义性。</p>
 <p>两种情况下可能存在多重转换路径：</p>
 <ul class="simple">
@@ -201,13 +202,13 @@
 <blockquote>
 <div><p>Tips：通常情况下，不要为类定义相同的类型转换，也不要在类中定义两个及两个以上转换源或转换目标是算术类型的转换</p>
 </div></blockquote>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">B</span><span class="p">;</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="p">;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">A</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">A</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">B</span><span class="o">&amp;</span><span class="p">);</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">struct</span> <span class="nc">B</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">operator</span><span class="w"> </span><span class="n">A</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 
@@ -224,15 +225,15 @@
 </section>
 </section>
 <section id="id8">
-<h2>转换构造函数：隐式的类类型转换<a class="headerlink" href="#id8" title="永久链接至标题"></a></h2>
+<h2>转换构造函数：隐式的类类型转换<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h2>
 <section id="id9">
-<h3>1. 简介<a class="headerlink" href="#id9" title="永久链接至标题"></a></h3>
+<h3>1. 简介<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：能通过一个实参调用的构造函数定义了从构造函数的参数类型向类类型隐式转换的规则。</p>
 </div></blockquote>
 <p>C++在不同的内置类型之间定义了几种自动转换规则，同样地我们也可以为类定义隐式转换规则。如果构造函数只接受一个实参，则它实际上定义了转换为此类类型的隐式转换机制，我们也将这种构造函数称为转换构造函数。</p>
 <p>举个简单的例子：如果一个类包含接受一个string类型的构造函数，那么它也就定义了从string类型到该类隐式转换的规则。</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 定义从std::string到Foo类型的隐式转换规则</span>
 <span class="w">    </span><span class="n">Foo</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
@@ -243,7 +244,7 @@
 </div>
 </section>
 <section id="id10">
-<h3>2. 只允许一步类类型转换<a class="headerlink" href="#id10" title="永久链接至标题"></a></h3>
+<h3>2. 只允许一步类类型转换<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h3>
 <p>编译器只会自动地执行一步类型转换，例如下面代码隐式地使用了两种转换规则，因此它是错误的：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 错误: 需要用户定义的两种转换:</span>
 <span class="c1">// 1) 把&quot;tomocat&quot;转换成string</span>
@@ -253,14 +254,14 @@
 </div>
 </section>
 <section id="id11">
-<h3>3. 抑制构造函数定义的隐式转换<a class="headerlink" href="#id11" title="永久链接至标题"></a></h3>
+<h3>3. 抑制构造函数定义的隐式转换<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
 <p>我们可以将构造函数声明为explicit来阻止构造函数定义的隐式类类型转换，需要注意如下几点：</p>
 <ul class="simple">
 <li><p>关键字explicit只对一个实参的构造函数有效：需要多个实参的构造函数不能用于执行隐式转换，因此无需将这些构造函数指定为explicit</p></li>
 <li><p>只能在类内声明构造函数时使用explicit关键字，在类外部定义时不应该重复</p></li>
 <li><p>explicit声明的构造函数只能以直接初始化的形式使用</p></li>
 </ul>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 阻止隐式类类型转换</span>
 <span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Foo</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>C++11关键字：noexcept &mdash; C++语法笔记 v1.0 文档</title>
+  <title>C++11关键字：noexcept &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/translations.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -82,7 +83,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">C++语法笔记</a>
+          <a href="../../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -103,9 +104,9 @@
            <div itemprop="articleBody">
              
   <section id="c-11-noexcept">
-<h1>C++11关键字：noexcept<a class="headerlink" href="#c-11-noexcept" title="永久链接至标题"></a></h1>
+<h1>C++11关键字：noexcept<a class="headerlink" href="#c-11-noexcept" title="此标题的永久链接"></a></h1>
 <section id="id1">
-<h2>简介<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Tips：<code class="docutils literal notranslate"><span class="pre">noexcept</span></code>说明要么出现在该函数的所有声明语句和定义语句中，要么一次也不出现。</p>
 </div></blockquote>
@@ -128,7 +129,7 @@
 </div>
 </section>
 <section id="id2">
-<h2>违反异常说明<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>违反异常说明<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>需要注意的是编译器不会再编译时检查<code class="docutils literal notranslate"><span class="pre">noexcept</span></code>说明：即使一个函数在说明<code class="docutils literal notranslate"><span class="pre">noexcept</span></code>同时又含有<code class="docutils literal notranslate"><span class="pre">throw</span></code>语句或者调用了可能抛出异常的其他函数，它也可能顺利编译通过。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 尽管该函数明显违反了noexcept说明, 它也可能顺利编译通过</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -143,7 +144,7 @@
 </ul>
 </section>
 <section id="noexcept">
-<h2>noexcept运算符<a class="headerlink" href="#noexcept" title="永久链接至标题"></a></h2>
+<h2>noexcept运算符<a class="headerlink" href="#noexcept" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Tips：与<code class="docutils literal notranslate"><span class="pre">sizeof()</span></code>类似，<code class="docutils literal notranslate"><span class="pre">noexcept()</span></code>也不会求其运算对象的值。</p>
 </div></blockquote>
@@ -183,7 +184,7 @@
 </div>
 </section>
 <section id="id3">
-<h2>noexcept与移动操作<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>noexcept与移动操作<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <p>由于移动操作通常是“窃取”资源而不分配资源，因此移动操作不会抛出任何异常。当编写不抛出异常的移动构造函数和移动赋值运算符时，我们必须在类头文件的声明和定义中都指定为<code class="docutils literal notranslate"><span class="pre">noexcept</span></code>来通知标准库我们的移动操作不会抛出异常，防止标准库为了处理抛出异常的可能性而做一些浪费性能的额外工作。</p>
 <p>比如标准库<code class="docutils literal notranslate"><span class="pre">vector</span></code>承诺如果我们调用<code class="docutils literal notranslate"><span class="pre">push_back()</span></code>时发生异常，则<code class="docutils literal notranslate"><span class="pre">vector</span></code>自身不会发生改变。假设<code class="docutils literal notranslate"><span class="pre">push_back()</span></code>时触发了<code class="docutils literal notranslate"><span class="pre">vector</span></code>扩容，此时<code class="docutils literal notranslate"><span class="pre">vector</span></code>会将元素从旧的堆空间复制到新申请的堆空间，考虑移动构造函数和拷贝构造函数：</p>
 <ul class="simple">

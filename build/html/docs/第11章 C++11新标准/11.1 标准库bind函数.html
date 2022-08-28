@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>11.1 标准库bind函数 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>11.1 标准库bind函数 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -75,7 +76,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -95,9 +96,9 @@
            <div itemprop="articleBody">
              
   <section id="bind">
-<h1>11.1 标准库bind函数<a class="headerlink" href="#bind" title="永久链接至标题"></a></h1>
+<h1>11.1 标准库bind函数<a class="headerlink" href="#bind" title="此标题的永久链接"></a></h1>
 <section id="id1">
-<h2>简介<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <p>标准库<code class="docutils literal notranslate"><span class="pre">bind</span></code>函数定义在头文件<code class="docutils literal notranslate"><span class="pre">functional</span></code>中，我们可以将<code class="docutils literal notranslate"><span class="pre">bind</span></code>看做是一个通用的函数适配器：它接受一个可调用对象，生成一个新的可调用对象来“适应”原对象的参数列表：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
 <span class="cm"> * 功能: 当我们调用newCallable时, 相当于调用callbale, 并传递给它arg_list指定的参数</span>
@@ -111,7 +112,7 @@
 </div>
 </section>
 <section id="id2">
-<h2>bind的参数<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>bind的参数<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>假设<code class="docutils literal notranslate"><span class="pre">f</span></code>是一个有<code class="docutils literal notranslate"><span class="pre">5</span></code>个参数的可调用对象，<code class="docutils literal notranslate"><span class="pre">g</span></code>是一个有<code class="docutils literal notranslate"><span class="pre">2</span></code>的参数的可调用对象，我们构造下述<code class="docutils literal notranslate"><span class="pre">bind</span></code>的调用：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">placeholders</span><span class="p">;</span><span class="w"></span>
 <span class="k">auto</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bind</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">_2</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">_1</span><span class="p">);</span><span class="w"></span>
@@ -125,7 +126,7 @@
 <p>总结一下：<code class="docutils literal notranslate"><span class="pre">bind</span></code>调用会将<code class="docutils literal notranslate"><span class="pre">g(_1,</span> <span class="pre">_2)</span></code>映射成<code class="docutils literal notranslate"><span class="pre">f(a,</span> <span class="pre">b,</span> <span class="pre">_2,</span> <span class="pre">c,</span> <span class="pre">_1)</span></code>，通过占位符我们也可以<strong>重排参数顺序</strong>。</p>
 </section>
 <section id="id3">
-<h2>绑定引用参数<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>绑定引用参数<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <p>默认情况下<code class="docutils literal notranslate"><span class="pre">bind</span></code>那些不是占位符的参数被拷贝到<code class="docutils literal notranslate"><span class="pre">bind</span></code>返回的可调用对象中。与<code class="docutils literal notranslate"><span class="pre">lambda</span></code>表达式类似，有时候我们希望以引用的方式传递绑定的参数，或是绑定的参数无法拷贝，比如构造一个以引用方式捕获<code class="docutils literal notranslate"><span class="pre">ostream</span></code>的<code class="docutils literal notranslate"><span class="pre">lambda</span></code>：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// os是一个局部变量, 引用一个输出流</span>
 <span class="c1">// c是一个局部变量, 类型为char</span>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1.2 数据类型 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>1.2 数据类型 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -93,7 +94,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -113,9 +114,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>1.2 数据类型<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>1.2 数据类型<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>简介<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>C++数据类型包括基本内置类型、复合类型和自定义数据结构。</p>
 <ul class="simple">
 <li><p>基本内置类型：编译器内置的基本类型，包括算数类型（字符、整型数、布尔值、浮点数）和空类型<code class="docutils literal notranslate"><span class="pre">void</span></code></p></li>
@@ -127,7 +128,7 @@
 </div></blockquote>
 </section>
 <section id="id3">
-<h2>内置类型<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>内置类型<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Tips：C++中整型大小因编译器和操作系统的不同而不同，通常人们假定short是16位，int是32位，long是32位，long long是64位。</p>
 <p>实际开发中我们仅使用C++内置整型中的int，如果程序中需要大小不同的整型，那么：</p>
@@ -273,9 +274,9 @@
 </div>
 </section>
 <section id="literal">
-<h2>字面值常量literal<a class="headerlink" href="#literal" title="永久链接至标题"></a></h2>
+<h2>字面值常量literal<a class="headerlink" href="#literal" title="此标题的永久链接"></a></h2>
 <section id="id4">
-<h3>1. 整形和浮点型字面量<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<h3>1. 整形和浮点型字面量<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <p>以0开头的整数表示八进制，以0x或者0X开头的整数表示十六进制，我们可以用下面三种方式表示20：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="mi">20</span><span class="w">    </span><span class="c1">// 十进制</span>
 <span class="mo">024</span><span class="w">   </span><span class="c1">// 八进制</span>
@@ -292,7 +293,7 @@
 </div>
 </section>
 <section id="id5">
-<h3>2. 字符和字符串字面量<a class="headerlink" href="#id5" title="永久链接至标题"></a></h3>
+<h3>2. 字符和字符串字面量<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">'a'</span></code>表示一个字符；<code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>字符串字面量包含字母<code class="docutils literal notranslate"><span class="pre">a</span></code>和空字符<code class="docutils literal notranslate"><span class="pre">\0</span></code>。当书写的字符串字面量比较长，我们可以采取分开书写的方式：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;line one&quot;</span><span class="w"></span>
 <span class="w">             </span><span class="s">&quot;line two&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
@@ -300,7 +301,7 @@
 </div>
 </section>
 <section id="id6">
-<h3>3. 布尔字面量与指针字面量<a class="headerlink" href="#id6" title="永久链接至标题"></a></h3>
+<h3>3. 布尔字面量与指针字面量<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">true</span></code>和<code class="docutils literal notranslate"><span class="pre">false</span></code>和布尔类型的字面量</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">nullptr</span></code>是指针类型的字面量</p></li>
@@ -308,12 +309,12 @@
 </section>
 </section>
 <section id="id7">
-<h2>引用<a class="headerlink" href="#id7" title="永久链接至标题"></a></h2>
+<h2>引用<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>C++11新增了右值引用的概念，我们这里只提及左值引用。</p>
 </div></blockquote>
 <section id="id8">
-<h3>1. 引用概念<a class="headerlink" href="#id8" title="永久链接至标题"></a></h3>
+<h3>1. 引用概念<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
 <p>引用为对象起了另一个名字，定义引用时程序把引用和它的初始值绑定在一起，一旦初始化完成引用将一直和它的初始值对象绑定在一起。</p>
 <ul class="simple">
 <li><p>因为无法令引用重新绑定到另一个对象，因此引用必须初始化</p></li>
@@ -321,7 +322,7 @@
 </ul>
 </section>
 <section id="id9">
-<h3>2. 使用引用的原因<a class="headerlink" href="#id9" title="永久链接至标题"></a></h3>
+<h3>2. 使用引用的原因<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>引用类型可以避免对元素拷贝</p></li>
 <li><p>引用类型可以修改元素（如果仅仅是为了避免拷贝可以使用常量引用）</p></li>
@@ -329,10 +330,10 @@
 </section>
 </section>
 <section id="id10">
-<h2>指针<a class="headerlink" href="#id10" title="永久链接至标题"></a></h2>
+<h2>指针<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h2>
 <p>指针是指向（point to）另外一种类型的复合类型。</p>
 <section id="id11">
-<h3>1. 操作符&amp;与*<a class="headerlink" href="#id11" title="永久链接至标题"></a></h3>
+<h3>1. 操作符&amp;与*<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
 <p>获取对象地址时可以用<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>取地址符，利用指针访问对象时可以用<code class="docutils literal notranslate"><span class="pre">*</span></code>解引用符。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">iVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">iVal</span><span class="p">;</span><span class="w">  </span><span class="c1">// p是指向iVal变量的指针</span>
@@ -341,7 +342,7 @@
 </div>
 </section>
 <section id="id12">
-<h3>2. 空指针<a class="headerlink" href="#id12" title="永久链接至标题"></a></h3>
+<h3>2. 空指针<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：建议初始化所有指针，不清楚指向何处时初始化为<code class="docutils literal notranslate"><span class="pre">nullptr</span></code>。</p>
 <p>使用未经初始化的指针是引发运行时错误的一大原因，如果使用了未经初始化的指针，那么指针所占空间的当前内容将被当成一个地址值，当这个地址值指向的内存空间中正好有内容时，就可能引发难以预料的后果。实际开发过程中，我们尽量等定义了对象之后再定义指向它的指针，如果实在不清楚指针应该指向何处，那么将它初始化为<code class="docutils literal notranslate"><span class="pre">nullptr</span></code>，这样程序就能检测并指导它有没有指向任何具体的对象了。</p>
@@ -349,7 +350,7 @@
 <p>C++11中我们可以用字面量<code class="docutils literal notranslate"><span class="pre">nullptr</span></code>初始化指针来得到空指针，它可以被转化成任意其他的指针类型。</p>
 </section>
 <section id="void">
-<h3>3. void*<a class="headerlink" href="#void" title="永久链接至标题"></a></h3>
+<h3>3. void*<a class="headerlink" href="#void" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：由于我们不知道<code class="docutils literal notranslate"><span class="pre">void*</span></code>指针指向什么类型的对象，因此不能直接操作它所指向的对象。</p>
 </div></blockquote>
@@ -362,10 +363,10 @@
 </section>
 </section>
 <section id="id13">
-<h2>自定义数据结构<a class="headerlink" href="#id13" title="永久链接至标题"></a></h2>
+<h2>自定义数据结构<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h2>
 <p>C++允许用户以类的形式自定义数据类型，关于类的知识我们主要在后面的面向对象编程中讲解，这里简单给出一个例子：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// C++11支持为数据成员提供一个类内初始值, 没有初始值的成员将被默认初始化</span>
-<span class="k">struct</span> <span class="nc">bar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">bar</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>

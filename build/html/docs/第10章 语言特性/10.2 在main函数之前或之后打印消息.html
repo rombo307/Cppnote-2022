@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10.2 在main函数之前或者之后打印消息 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>10.2 在main函数之前或者之后打印消息 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -84,7 +85,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -104,15 +105,15 @@
            <div itemprop="articleBody">
              
   <section id="main">
-<h1>10.2 在main函数之前或者之后打印消息<a class="headerlink" href="#main" title="永久链接至标题"></a></h1>
+<h1>10.2 在main函数之前或者之后打印消息<a class="headerlink" href="#main" title="此标题的永久链接"></a></h1>
 <section id="id1">
-<h2>全局对象的构造和析构函数<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<h2>全局对象的构造和析构函数<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>C++中全局对象的构造函数在main函数之前，析构函数执行在main函数之后。</p>
 </div></blockquote>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Foo constructor</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
@@ -139,7 +140,7 @@
 </div>
 </section>
 <section id="attribute">
-<h2><code class="docutils literal notranslate"><span class="pre">__attribute__</span></code>的使用<a class="headerlink" href="#attribute" title="永久链接至标题"></a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">__attribute__</span></code>的使用<a class="headerlink" href="#attribute" title="此标题的永久链接"></a></h2>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="kt">void</span><span class="w"> </span><span class="nf">before_main</span><span class="p">()</span><span class="w"> </span><span class="n">__attribute__</span><span class="p">((</span><span class="n">constructor</span><span class="p">));</span><span class="w"></span>
@@ -168,7 +169,7 @@
 </div>
 </section>
 <section id="atexit">
-<h2>使用atexit注册函数<a class="headerlink" href="#atexit" title="永久链接至标题"></a></h2>
+<h2>使用atexit注册函数<a class="headerlink" href="#atexit" title="此标题的永久链接"></a></h2>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
 
@@ -202,7 +203,7 @@
 </div>
 </section>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="永久链接至标题"></a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="此标题的永久链接"></a></h2>
 <p>[1] https://blog.csdn.net/qq_43313035/article/details/88735476</p>
 </section>
 </section>

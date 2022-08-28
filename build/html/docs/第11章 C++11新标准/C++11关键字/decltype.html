@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>C++11关键字：decltype &mdash; C++语法笔记 v1.0 文档</title>
+  <title>C++11关键字：decltype &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/translations.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -81,7 +82,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">C++语法笔记</a>
+          <a href="../../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -102,13 +103,13 @@
            <div itemprop="articleBody">
              
   <section id="c-11-decltype">
-<h1>C++11关键字：decltype<a class="headerlink" href="#c-11-decltype" title="永久链接至标题"></a></h1>
+<h1>C++11关键字：decltype<a class="headerlink" href="#c-11-decltype" title="此标题的永久链接"></a></h1>
 <section id="id1">
-<h2>简介<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <p>C++11引入的关键字decltype允许我们从表达式的类型推断出要定义的变量类型，编译器会分析表达式并得到的类型，却不实际计算该表达式的值。</p>
 </section>
 <section id="decltypeconst">
-<h2>decltype处理顶层const和引用<a class="headerlink" href="#decltypeconst" title="永久链接至标题"></a></h2>
+<h2>decltype处理顶层const和引用<a class="headerlink" href="#decltypeconst" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Tips：引用从来都是作为其所指对象的同义词出现的，只有用在decltype处是一个例外。</p>
 </div></blockquote>
@@ -133,7 +134,7 @@
 </div>
 </section>
 <section id="decltype">
-<h2>decltype与左值右值<a class="headerlink" href="#decltype" title="永久链接至标题"></a></h2>
+<h2>decltype与左值右值<a class="headerlink" href="#decltype" title="此标题的永久链接"></a></h2>
 <p>如果表达式的求值结果是左值，那么关键字decltype作用于该表达式（不是变量）会得到一个引用类型。举个例子：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pi</span><span class="p">;</span><span class="w"></span>
 

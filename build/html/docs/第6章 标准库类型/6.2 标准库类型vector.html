@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6.2 标准库类型：vector &mdash; C++语法笔记 v1.0 文档</title>
+  <title>6.2 标准库类型：vector &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -90,7 +91,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -110,16 +111,16 @@
            <div itemprop="articleBody">
              
   <section id="vector">
-<h1>6.2 标准库类型：vector<a class="headerlink" href="#vector" title="永久链接至标题"></a></h1>
+<h1>6.2 标准库类型：vector<a class="headerlink" href="#vector" title="此标题的永久链接"></a></h1>
 <section id="id1">
-<h2>头文件<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<h2>头文件<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 <span class="k">using</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="id2">
-<h2>定义和初始化<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>定义和初始化<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>vector常用的初始化方法为：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 默认初始化: v不含任何元素, 但是只能添加类型T的元素</span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">;</span><span class="w"></span>
@@ -157,7 +158,7 @@
 </div>
 </section>
 <section id="id3">
-<h2>添加元素<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>添加元素<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">push_back</span></code>负责把一个值加到vector对象的尾端：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 初始化一个空vector对象, 依次将0~99</span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vi</span><span class="p">;</span><span class="w"></span>
@@ -168,7 +169,7 @@
 </div>
 </section>
 <section id="id4">
-<h2>vector其他操作<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<h2>vector其他操作<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w">     </span><span class="c1">// v中不含有任何元素时返回true</span>
 <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w">      </span><span class="c1">// 返回v中元素数量</span>
 <span class="n">v</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w">          </span><span class="c1">// 返回v中第n个位置上元素的引用</span>
@@ -179,13 +180,13 @@
 </div>
 </section>
 <section id="id5">
-<h2>vector常见错误<a class="headerlink" href="#id5" title="永久链接至标题"></a></h2>
+<h2>vector常见错误<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h2>
 <section id="forvector">
-<h3>1. 范围for循环内给vector对象添加/删除元素<a class="headerlink" href="#forvector" title="永久链接至标题"></a></h3>
+<h3>1. 范围for循环内给vector对象添加/删除元素<a class="headerlink" href="#forvector" title="此标题的永久链接"></a></h3>
 <p>在范围for循环中预存了<code class="docutils literal notranslate"><span class="pre">end()</span></code>的值，一旦在序列中添加（删除）元素，那么<code class="docutils literal notranslate"><span class="pre">end()</span></code>函数的值就可能变得无效了。</p>
 </section>
 <section id="id6">
-<h3>2. 不能用下标添加元素，也不能访问不存在的元素<a class="headerlink" href="#id6" title="永久链接至标题"></a></h3>
+<h3>2. 不能用下标添加元素，也不能访问不存在的元素<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：vector与string等对象的下标运算符可用于访问已存在的元素，但不能用于添加元素。确保下标有效的一种有效手段就是尽可能地使用范围for语句。</p>
 </div></blockquote>
@@ -195,7 +196,7 @@
 </div>
 </section>
 <section id="id7">
-<h3>3. vector扩容导致引用或者指针失效<a class="headerlink" href="#id7" title="永久链接至标题"></a></h3>
+<h3>3. vector扩容导致引用或者指针失效<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">push_back()</span></code>函数在插入元素时可能导致vector扩容，进而导致引用或者指针绑定的地址失效，这时候访问垃圾地址就会触发运行时错误。</p>
 </div></blockquote>
@@ -216,16 +217,16 @@
 </section>
 </section>
 <section id="id8">
-<h2>vector对象增长<a class="headerlink" href="#id8" title="永久链接至标题"></a></h2>
+<h2>vector对象增长<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h2>
 <section id="id9">
-<h3>1. vector对象能高效增长<a class="headerlink" href="#id9" title="永久链接至标题"></a></h3>
+<h3>1. vector对象能高效增长<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：开始的时候创建空的vector对象，在运行时再动态添加元素，这一做法与C语言以及其他大多数语言中内置数组类型的用法不同。特别是如果习惯了C或者Java，可能预计在创建vector对象时顺便指定其容量是最好的，然而事实上恰恰相反。</p>
 </div></blockquote>
 <p>C++标准要求vector能在运行时高效快速地添加元素，既然vector对象能高效地增长，那么定义vector对象的时候设定其大小也就没什么必要了，事实上如果这么做性能可能更差。只有一种例外情况，就是所有元素的值都一样。一旦元素的值有所不同，更有效的方法是先定义一个空的vector对象，再在运行时向其中添加具体值。</p>
 </section>
 <section id="id10">
-<h3>2. vector对象增长机制<a class="headerlink" href="#id10" title="永久链接至标题"></a></h3>
+<h3>2. vector对象增长机制<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：这种分配策略比每次添加新元素时都重新分配容器内存空间的策略要高效得多。对比其他容器而言，虽然vector在每次重新分配内存空间时都要移动所有元素，但其扩张操作通常比list和deque还要快。</p>
 </div></blockquote>
@@ -233,7 +234,7 @@
 <p>为了避免这种操作，标准库采用了可以减少容器空间重新分配次数的策略，当不得不获取新的内存空间时，vector和string的实现通常会分配比新的空间需求更大的内存空间，容器预留这些空间作为备用来存储可能新增的元素。这样就不需要每次添加新元素都重新分配容器的内存空间了。</p>
 </section>
 <section id="sizecapacity">
-<h3>3. size和capacity<a class="headerlink" href="#sizecapacity" title="永久链接至标题"></a></h3>
+<h3>3. size和capacity<a class="headerlink" href="#sizecapacity" title="此标题的永久链接"></a></h3>
 <p>vector中的size指它已经保存的元素数量，capacity指的是在不分配新的内存空间条件下可以容纳的元素数量。</p>
 <p>vector和string类型提供了一些成员函数让我们可以参与它的内存分配：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="p">.</span><span class="n">shrink_to_fit</span><span class="p">();</span><span class="w">  </span><span class="c1">// 将capacity()减少到与size()相同大小</span>

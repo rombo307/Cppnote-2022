@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10.9 并行和并发 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>10.9 并行和并发 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -115,7 +116,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -135,9 +136,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>10.9 并行和并发<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>10.9 并行和并发<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>并行基础<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>并行基础<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">std::thread</span></code>用于创建一个执行的线程实例，它是一切并发编程的基础，使用时需要包含<code class="docutils literal notranslate"><span class="pre">&lt;thread&gt;</span></code>头文件，它提供了很多基本的线程操作，比如<code class="docutils literal notranslate"><span class="pre">get_id()</span></code>用于获取所创建线程的线程ID，使用<code class="docutils literal notranslate"><span class="pre">join()</span></code>来加入一个线程等。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
@@ -153,7 +154,7 @@
 </div>
 </section>
 <section id="id3">
-<h2>互斥量和临界区<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>互斥量和临界区<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <p>C++11引入了<code class="docutils literal notranslate"><span class="pre">mutex</span></code>相关的类，其所有相关的函数都放在<code class="docutils literal notranslate"><span class="pre">&lt;mutex&gt;</span></code>头文件中。<code class="docutils literal notranslate"><span class="pre">std::mutex</span></code>是C++11中最基本的<code class="docutils literal notranslate"><span class="pre">mutex</span></code>类，通过实例化<code class="docutils literal notranslate"><span class="pre">std::mutex</span></code>可以创建互斥量，而通过其成员函数<code class="docutils literal notranslate"><span class="pre">lock()</span></code>可以进行上锁，<code class="docutils literal notranslate"><span class="pre">unlock()</span></code>可以进行解锁。在实际编写代码的过程中，最好不要去直接调用成员函数，因为需要在每个临界区的出口处（以及任何可能抛出异常的地方）调用<code class="docutils literal notranslate"><span class="pre">unlock()</span></code>。C++11为互斥量提供了一个RAII语法的模板类<code class="docutils literal notranslate"><span class="pre">std::lock_guard</span></code>，可以在确保代码整洁性的同时保证代码的异常安全性。</p>
 <p>在RAII语法下，对于临界区的互斥量的创建只需要在作用域的开始部分，例如：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -227,7 +228,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </pre></div>
 </div>
 <section id="std-mutex">
-<h3>1. std::mutex<a class="headerlink" href="#std-mutex" title="永久链接至标题"></a></h3>
+<h3>1. std::mutex<a class="headerlink" href="#std-mutex" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>用<code class="docutils literal notranslate"><span class="pre">lock</span></code>和<code class="docutils literal notranslate"><span class="pre">unlock</span></code>进行独占，此时要保证锁被正确释放，如<code class="docutils literal notranslate"><span class="pre">lock</span></code>和<code class="docutils literal notranslate"><span class="pre">unlock</span></code>之间程序异常而退出，则会导致死锁等问题</p></li>
 <li><p>用<code class="docutils literal notranslate"><span class="pre">try_lock</span></code>可以尝试获得锁，返回<code class="docutils literal notranslate"><span class="pre">bool</span></code>值</p></li>
@@ -285,7 +286,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </div>
 </section>
 <section id="std-recursive-mutex">
-<h3>2. std::recursive_mutex<a class="headerlink" href="#std-recursive-mutex" title="永久链接至标题"></a></h3>
+<h3>2. std::recursive_mutex<a class="headerlink" href="#std-recursive-mutex" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>当同一个线程多次获取锁时，使用<code class="docutils literal notranslate"><span class="pre">mutex</span></code>会造成死锁，<code class="docutils literal notranslate"><span class="pre">std::recursive_mutex</span></code>允许同一个线程多次获取锁</p></li>
 <li><p>不建议使用递归互斥量，因为它的效率比较低，而且应用场景可以通过优化来避免。当获取达到一定的次数后会抛出<code class="docutils literal notranslate"><span class="pre">std::system</span></code>错误</p></li>
@@ -294,8 +295,8 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 <span class="cp">#include</span><span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="cpf">&lt;mutex&gt;</span><span class="cp"></span>
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">Test</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Test</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">//std::mutex mutex; //死锁 </span>
 <span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">mutex</span><span class="p">;</span><span class="w"> </span>
 <span class="w">    </span>
@@ -330,7 +331,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </div>
 </section>
 <section id="std-timed-mutexstd-recursive-timed-mutex">
-<h3>3. 带超时的互斥量<code class="docutils literal notranslate"><span class="pre">std::timed_mutex</span></code>和<code class="docutils literal notranslate"><span class="pre">std::recursive_timed_mutex</span></code><a class="headerlink" href="#std-timed-mutexstd-recursive-timed-mutex" title="永久链接至标题"></a></h3>
+<h3>3. 带超时的互斥量<code class="docutils literal notranslate"><span class="pre">std::timed_mutex</span></code>和<code class="docutils literal notranslate"><span class="pre">std::recursive_timed_mutex</span></code><a class="headerlink" href="#std-timed-mutexstd-recursive-timed-mutex" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">std::timed_mutex</span></code>是带超时的独占锁</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">std::recursive_timed_mutex</span></code>是带超时的递归锁</p></li>
@@ -373,7 +374,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </section>
 </section>
 <section id="future">
-<h2>期物Future<a class="headerlink" href="#future" title="永久链接至标题"></a></h2>
+<h2>期物Future<a class="headerlink" href="#future" title="此标题的永久链接"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">std::future</span></code>提供了一个访问异步操作结果的途径。</p>
 <p>举个例子：试想一下我们的主线程A希望开辟一个线程B去异步执行某个任务，并在某个特定的时间点获得B的结果。在C++11的<code class="docutils literal notranslate"><span class="pre">std::future</span></code>被引入之前，通常的做法是：创建一个线程A，在线程A里启动任务B，当准备完毕后发送一个事件并将结果保存在全局变量中。主线程A可以接着处理其他的事情，当需要结果的时候，调用一个线程等待函数来获得执行的结果。而C++11提供的<code class="docutils literal notranslate"><span class="pre">std::future</span></code>简化了这个流程，可以用来获取异步任务的结果：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -399,9 +400,9 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </div>
 </section>
 <section id="id4">
-<h2>条件变量<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<h2>条件变量<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
 <section id="id5">
-<h3>1. 简介<a class="headerlink" href="#id5" title="永久链接至标题"></a></h3>
+<h3>1. 简介<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
 <p>条件变量是并发编程的一种同步机制，并且几乎总是和互斥量一起使用的，它可以使得线程一直阻塞直到某个条件发生后再继续执行。条件变量是在多线程中实现“等待-&gt;唤醒”逻辑的常用方法，主要包含两个动作：</p>
 <ul class="simple">
 <li><p>一个线程等待条件变量的条件成立而挂起</p></li>
@@ -412,7 +413,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </div></blockquote>
 </section>
 <section id="id6">
-<h3>2. 有互斥锁后还需要条件变量的原因<a class="headerlink" href="#id6" title="永久链接至标题"></a></h3>
+<h3>2. 有互斥锁后还需要条件变量的原因<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
 <p>并发编程有两大需求，一是互斥（线程间存在共享数据），一是等待（线程间存在依赖）。互斥可以通过互斥量实现，等待则需要条件变量来实现。考虑一下生产者和消费者模型，其中生产者和消费者各是一个队列，消费者线程依赖生产者线程<code class="docutils literal notranslate"><span class="pre">push</span></code>元素进入任务队列。假设没有条件变量，那么消费者需要一直加锁轮询队列，在队列已经为空时是相当耗费性能的。有了条件变量后我们就可以用事件模式了：消费者线程发现队列为空后就告诉操作系统自己需要<code class="docutils literal notranslate"><span class="pre">wait</span></code>直到生产者线程发信号来唤醒自己。</p>
 <p>对比一下两种方式：</p>
 <ul class="simple">
@@ -421,7 +422,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </ul>
 </section>
 <section id="id7">
-<h3>3. 实例<a class="headerlink" href="#id7" title="永久链接至标题"></a></h3>
+<h3>3. 实例<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h3>
 <p>下面是一个生产者和消费者的例子：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;queue&gt;</span><span class="cp"></span>
@@ -484,7 +485,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </section>
 </section>
 <section id="id8">
-<h2>原子操作<a class="headerlink" href="#id8" title="永久链接至标题"></a></h2>
+<h2>原子操作<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h2>
 <p>现在CPU体系结构提供了CPU指令级的原子操作，因此提供了C++11中多线程并发读写共享变量另一个思路。<code class="docutils literal notranslate"><span class="pre">std::atomic</span></code>模板可以实例化一个原子类型，将一个原子类型读写操作从一组指令最小化到单个CPU指令，例如：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;atomic&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
@@ -511,7 +512,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;atomic&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">struct</span> <span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
@@ -530,27 +531,27 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </div>
 </section>
 <section id="id9">
-<h2>一致性模型<a class="headerlink" href="#id9" title="永久链接至标题"></a></h2>
+<h2>一致性模型<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h2>
 <p>如果我们强行将一个变量<code class="docutils literal notranslate"><span class="pre">v</span></code>在多个线程之间的操作设为原子操作（比如加锁），即任何一个线程在操作完<code class="docutils literal notranslate"><span class="pre">v</span></code>后其他线程均能同步感知到<code class="docutils literal notranslate"><span class="pre">v</span></code>的变化。则对于<code class="docutils literal notranslate"><span class="pre">v</span></code>而言表现为顺序执行的程序，它并没有由于引入多线程而得到任何效率上的收益。对此有什么办法可以适当地加速呢？答案便是削弱原子操作在进程间的同步条件。</p>
 <p>从原理上看，每个线程可以对应为一个集群节点，而线程间的通信也几乎等价于集群节点间的通信。削弱进程间的同步条件，通常会考虑四种不同的一致性模型：</p>
 <section id="id10">
-<h3>1. 线性一致性<a class="headerlink" href="#id10" title="永久链接至标题"></a></h3>
+<h3>1. 线性一致性<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h3>
 <p>线性一致性又称强一致性或原子一致性，它要求任何一次读操作都能读到某个数据的最近一次写的数据，并且所有线程的操作顺序与全局时钟下的顺序是一致的。</p>
 <img src="image/1-1967422.png" alt="线性一致性" style="zoom: 67%;" /><p>在这种情况下<code class="docutils literal notranslate"><span class="pre">T1</span></code>和<code class="docutils literal notranslate"><span class="pre">T2</span></code>对<code class="docutils literal notranslate"><span class="pre">x</span></code>的两次写操作时原子的，且<code class="docutils literal notranslate"><span class="pre">x.store(1)</span></code>是严格发生在<code class="docutils literal notranslate"><span class="pre">x.store(2)</span></code>之前，<code class="docutils literal notranslate"><span class="pre">x.store(2)</span></code>是严格发生在<code class="docutils literal notranslate"><span class="pre">x.load()</span></code>之前。值得一提的是，线性一致性对全局时钟的要求是难以实现的，这也是人们不断研究比这个一致性更弱条件下其他一致性算法的原因。</p>
 </section>
 <section id="id11">
-<h3>2. 顺序一致性<a class="headerlink" href="#id11" title="永久链接至标题"></a></h3>
+<h3>2. 顺序一致性<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
 <p>顺序一致性同样要求任何一次读操作都能读到数据最近一次写入的数据，但未要求与全局时钟的顺序一致。</p>
 <p><img alt="顺序一致性" src="../../_images/2-1967422.png" /></p>
 <p>在顺序一致性的要求下，<code class="docutils literal notranslate"><span class="pre">x.load()</span></code>必须读到最近一次写入的数据，因此<code class="docutils literal notranslate"><span class="pre">x.store(2)</span></code>与<code class="docutils literal notranslate"><span class="pre">x.store(1)</span></code>并无任何先后保障，即只要<code class="docutils literal notranslate"><span class="pre">T2</span></code>的<code class="docutils literal notranslate"><span class="pre">x.store(2)</span></code>发生在<code class="docutils literal notranslate"><span class="pre">x.store(3)</span></code>之前即可。</p>
 </section>
 <section id="id12">
-<h3>3. 因果一致性<a class="headerlink" href="#id12" title="永久链接至标题"></a></h3>
+<h3>3. 因果一致性<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h3>
 <p>因果一致性的要求进一步降低，只需要有因果关系的操作顺序得到保障，而非因果关系的操作顺序则不作要求。</p>
 <p><img alt="因果一致性" src="../../_images/3-1967422.png" />上面给出的三个例子都是属于因果一致性的，因为整个过程只有对和产生依赖，而和在此例子中表现为没有关系（虽然实际情况中我们需要更详细的信息才能确定和确实无关）。</p>
 </section>
 <section id="id13">
-<h3>4. 最终一致性<a class="headerlink" href="#id13" title="永久链接至标题"></a></h3>
+<h3>4. 最终一致性<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h3>
 <p>最终一致性是最弱的一致性要求，它只保障某个操作在未来的某个时间点上会被观察到，但并非要求被观察到的时间。因此我们甚至可以对此条件稍作加强，例如规定某个操作被观察到的时间总是有界的。</p>
 <p><img alt="最终一致性" src="../../_images/4-1967422.png" />在上面的情况中，如果我们假设<code class="docutils literal notranslate"><span class="pre">x</span></code>的初始值为<code class="docutils literal notranslate"><span class="pre">0</span></code>，则<code class="docutils literal notranslate"><span class="pre">T2</span></code>中四次<code class="docutils literal notranslate"><span class="pre">x.read()</span></code>结果可能但不限于以下情况：</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">3</span> <span class="m">4</span> <span class="m">4</span> <span class="m">4</span>  // x的写操作被很快观察到
@@ -562,9 +563,9 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </section>
 </section>
 <section id="id14">
-<h2>内存顺序<a class="headerlink" href="#id14" title="永久链接至标题"></a></h2>
+<h2>内存顺序<a class="headerlink" href="#id14" title="此标题的永久链接"></a></h2>
 <section id="id15">
-<h3>1. 简介<a class="headerlink" href="#id15" title="永久链接至标题"></a></h3>
+<h3>1. 简介<a class="headerlink" href="#id15" title="此标题的永久链接"></a></h3>
 <p>内存顺序描述了计算机CPU获取内存的顺序，内存排序极可能发生在编译器编译期间，也可能发生在CPU指令执行期间。为了尽可能提高程序性能，编译器和CPU会对指令重新排序，并且现代CPU拥有多级cache，这些都可能导致多个线程观察到的变量修改顺序不一致。比如下面这个例子：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -602,14 +603,14 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 <p>至于哪些操作会在多线程间同步，取决于我们指定的内存顺序。</p>
 </section>
 <section id="id16">
-<h3>2. 内存顺序<a class="headerlink" href="#id16" title="永久链接至标题"></a></h3>
+<h3>2. 内存顺序<a class="headerlink" href="#id16" title="此标题的永久链接"></a></h3>
 <p>C++的内存模型规定了6种内存顺序，每种内存顺序要求同步的操作都不一样（当然对性能的影响也不一样），并且有些内存顺序是可以/需要配合使用的。</p>
 <section id="memory-order-relaxed">
-<h4>2.1 memory_order_relaxed<a class="headerlink" href="#memory-order-relaxed" title="永久链接至标题"></a></h4>
+<h4>2.1 memory_order_relaxed<a class="headerlink" href="#memory-order-relaxed" title="此标题的永久链接"></a></h4>
 <p>只保证原子操作的原子性，不影响这个同步点前后的内存操作。这是原子操作中最宽松的内存顺序，无法解决上述例子的同步问题。</p>
 </section>
 <section id="memory-order-acquire">
-<h4>2.2 memory_order_acquire<a class="headerlink" href="#memory-order-acquire" title="永久链接至标题"></a></h4>
+<h4>2.2 memory_order_acquire<a class="headerlink" href="#memory-order-acquire" title="此标题的永久链接"></a></h4>
 <blockquote>
 <div><p>Tips：<code class="docutils literal notranslate"><span class="pre">memory_order_acquire</span></code>和<code class="docutils literal notranslate"><span class="pre">memory_order_release</span></code>往往配合使用。</p>
 </div></blockquote>
@@ -620,7 +621,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </div>
 </section>
 <section id="memory-order-release">
-<h4>2.3 memory_order_release<a class="headerlink" href="#memory-order-release" title="永久链接至标题"></a></h4>
+<h4>2.3 memory_order_release<a class="headerlink" href="#memory-order-release" title="此标题的永久链接"></a></h4>
 <p>提供<code class="docutils literal notranslate"><span class="pre">write</span> <span class="pre">release</span> </code>语义，适用于<code class="docutils literal notranslate"><span class="pre">atomic</span> <span class="pre">store</span></code>操作。从执行<code class="docutils literal notranslate"><span class="pre">write</span> <span class="pre">release</span></code>的线程来看，<code class="docutils literal notranslate"><span class="pre">write</span> <span class="pre">release</span></code>语意会阻止原子操作之前的所有读和写被重排到原子操作之后。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w">  </span><span class="c1">// 不可能被乱序到A.store(1, std::memory_order_release)之后</span>
 <span class="n">A</span><span class="p">.</span><span class="n">store</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_release</span><span class="p">);</span><span class="w"></span>
@@ -659,7 +660,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </div>
 </section>
 <section id="memory-order-consume">
-<h4>2.4 memory_order_consume<a class="headerlink" href="#memory-order-consume" title="永久链接至标题"></a></h4>
+<h4>2.4 memory_order_consume<a class="headerlink" href="#memory-order-consume" title="此标题的永久链接"></a></h4>
 <p>同样作用于<code class="docutils literal notranslate"><span class="pre">atomic</span> <span class="pre">load</span></code>操作，但是<code class="docutils literal notranslate"><span class="pre">memory_order_consume</span></code>语义弱于<code class="docutils literal notranslate"><span class="pre">memory_order_acquire</span></code>。从执行<code class="docutils literal notranslate"><span class="pre">read</span> <span class="pre">consume</span></code>的线程来看，<code class="docutils literal notranslate"><span class="pre">read</span> <span class="pre">consume</span></code>语义会阻止原子操作之后有依赖关系的读写操作被重排到原子操作之前。（对比一下，<code class="docutils literal notranslate"><span class="pre">read</span> <span class="pre">acquire</span></code>是阻止原子操作之后所有的读写操作被重排到原子操作之前）</p>
 <blockquote>
 <div><p>Tips：根据<code class="docutils literal notranslate"><span class="pre">cppreference</span></code>的文档说明，不鼓励使用<code class="docutils literal notranslate"><span class="pre">memory_order_consume</span></code>这个内存顺序：</p>
@@ -667,11 +668,11 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </div></blockquote>
 </section>
 <section id="memory-order-acq-rel">
-<h4>2.5 memory_order_acq_rel<a class="headerlink" href="#memory-order-acq-rel" title="永久链接至标题"></a></h4>
+<h4>2.5 memory_order_acq_rel<a class="headerlink" href="#memory-order-acq-rel" title="此标题的永久链接"></a></h4>
 <p>对一个<code class="docutils literal notranslate"><span class="pre">load-modify-store</span></code>的原子操作施加<code class="docutils literal notranslate"><span class="pre">read</span> <span class="pre">acquire</span></code>和<code class="docutils literal notranslate"><span class="pre">write</span> <span class="pre">release</span></code>的内存顺序限制，比如<code class="docutils literal notranslate"><span class="pre">fetch_add</span></code>。</p>
 </section>
 <section id="memory-order-seq-cst">
-<h4>2.6 memory_order_seq_cst<a class="headerlink" href="#memory-order-seq-cst" title="永久链接至标题"></a></h4>
+<h4>2.6 memory_order_seq_cst<a class="headerlink" href="#memory-order-seq-cst" title="此标题的永久链接"></a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">memory_order_seq_cst</span></code>是最严格的内存顺序：</p>
 <ul class="simple">
 <li><p>对于<code class="docutils literal notranslate"><span class="pre">atomic_load</span></code>会执行<code class="docutils literal notranslate"><span class="pre">acquire</span></code>语义</p></li>
@@ -683,14 +684,14 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </section>
 </section>
 <section id="id17">
-<h2>内存模型<a class="headerlink" href="#id17" title="永久链接至标题"></a></h2>
+<h2>内存模型<a class="headerlink" href="#id17" title="此标题的永久链接"></a></h2>
 <p>为了追求极致的性能，实现各种强度要求的一致性，C++11为原子操作定义了六种不同的内存顺序<code class="docutils literal notranslate"><span class="pre">std::memory_order</span></code>选项，表达了四种多线程间的同步模型。</p>
 <section id="id18">
-<h3>1. 宽松模型<a class="headerlink" href="#id18" title="永久链接至标题"></a></h3>
+<h3>1. 宽松模型<a class="headerlink" href="#id18" title="此标题的永久链接"></a></h3>
 <p>宽松模型通过<code class="docutils literal notranslate"><span class="pre">std::memory_order_relaxed</span></code>指定，在此模型下单个线程内的原子操作都是顺序执行的，不允许指令重排，但不同线程间原子操作的顺序是任意的。</p>
 </section>
 <section id="id19">
-<h3>2. 释放/消费模型<a class="headerlink" href="#id19" title="永久链接至标题"></a></h3>
+<h3>2. 释放/消费模型<a class="headerlink" href="#id19" title="此标题的永久链接"></a></h3>
 <p>在此模型中，我们开始限制进程间的操作顺序，如果某个线程需要修改某个值，但另一个线程会对该值的某次操作产生依赖，即后者依赖前者。具体而言，线程A完成了三次对<code class="docutils literal notranslate"><span class="pre">x</span></code>的写操作，线程B仅依赖其中第三次<code class="docutils literal notranslate"><span class="pre">x</span></code>的写操作，与<code class="docutils literal notranslate"><span class="pre">x</span></code>的前两次写行为无关，则当A主动执行释放<code class="docutils literal notranslate"><span class="pre">x</span></code>的时候（使用<code class="docutils literal notranslate"><span class="pre">std::memory_order_release</span></code>），选项<code class="docutils literal notranslate"><span class="pre">std::memory_order_consume</span></code>能够确保B在调用<code class="docutils literal notranslate"><span class="pre">x.load()</span></code>时候观察到A中第三次对<code class="docutils literal notranslate"><span class="pre">x</span></code>的写操作。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;atomic&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -721,7 +722,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </div>
 </section>
 <section id="id20">
-<h3>3. 释放/获取模型<a class="headerlink" href="#id20" title="永久链接至标题"></a></h3>
+<h3>3. 释放/获取模型<a class="headerlink" href="#id20" title="此标题的永久链接"></a></h3>
 <p>在此模型下，我们可以进一步加紧对不同线程间原子操作的顺序的限制，在释放<code class="docutils literal notranslate"><span class="pre">std::memory_order_release</span></code>和获取<code class="docutils literal notranslate"><span class="pre">std::memory_order_require</span></code>之间规定时序，即发生在释放操作之前的所有写操作，对其他线程的任何获取操作都是可见的。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;atomic&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
@@ -758,7 +759,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </div>
 </section>
 <section id="id21">
-<h3>4. 顺序一致模型<a class="headerlink" href="#id21" title="永久链接至标题"></a></h3>
+<h3>4. 顺序一致模型<a class="headerlink" href="#id21" title="此标题的永久链接"></a></h3>
 <p>顺序一致模型下原子操作满足顺序一致性，进而可能对性能产生损耗。可以显式通过<code class="docutils literal notranslate"><span class="pre">std::memory_order_seq_cst</span></code>进行指定：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;thread&gt;</span><span class="cp"></span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -773,7 +774,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 <span class="w">            </span><span class="n">counter</span><span class="p">.</span><span class="n">fetch_add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">memory_order_seq_cst</span><span class="p">);</span><span class="w"></span>
 <span class="w">        </span><span class="p">});</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="nl">t</span> <span class="p">:</span><span class="w"> </span><span class="n">vt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="n">t</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">vt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">();</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;current counter:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
@@ -783,7 +784,7 @@ std::recursive_timed_mutex  // 带超时的递归互斥量
 </section>
 </section>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="永久链接至标题"></a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="此标题的永久链接"></a></h2>
 <p>[1] https://www.jianshu.com/p/01ad36b91d39</p>
 <p>[2] https://punmy.cn/categories/Code/</p>
 <p>[3] https://www.zhihu.com/question/68017337/answer/796332672</p>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10.11 运行时类型识别 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>10.11 运行时类型识别 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -89,7 +90,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -109,9 +110,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>10.11 运行时类型识别<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>10.11 运行时类型识别<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>简介<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>运行时类型识别<code class="docutils literal notranslate"><span class="pre">run-time</span> <span class="pre">type</span> <span class="pre">identification,</span> <span class="pre">RTTI</span></code>的功能由两个运算符实现：</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">typeid</span></code>运算符：用于返回表达式的类型</p></li>
@@ -124,7 +125,7 @@
 </div></blockquote>
 </section>
 <section id="dynamic-cast">
-<h2>dynamic_cast运算符<a class="headerlink" href="#dynamic-cast" title="永久链接至标题"></a></h2>
+<h2>dynamic_cast运算符<a class="headerlink" href="#dynamic-cast" title="此标题的永久链接"></a></h2>
 <p>dynamic_cast运算符的使用形式如下所示：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">type</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w">   </span><span class="c1">// e必须是一个有效的指针</span>
 <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">type</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w">   </span><span class="c1">// e必须是一个左值</span>
@@ -139,7 +140,7 @@
 </ul>
 <p>如果符合则转换可以成功，否则转换失败。如果一条<code class="docutils literal notranslate"><span class="pre">dynamic_cast</span></code>的转换目标是指针类型并且失败了，则结果为0；如果转换目标是引用类型并且失败了，则抛出一个<code class="docutils literal notranslate"><span class="pre">bad_cast</span></code>异常。</p>
 <section id="id3">
-<h3>1. 指针类型的dynamic_cast<a class="headerlink" href="#id3" title="永久链接至标题"></a></h3>
+<h3>1. 指针类型的dynamic_cast<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h3>
 <p>假定<code class="docutils literal notranslate"><span class="pre">Base</span></code>类至少含有一个虚函数，<code class="docutils literal notranslate"><span class="pre">Derived</span></code>是<code class="docutils literal notranslate"><span class="pre">Base</span></code>的公有派生类。如果有一个指向<code class="docutils literal notranslate"><span class="pre">Base</span></code>的指针<code class="docutils literal notranslate"><span class="pre">bp</span></code>，则我们在运行时将它转换成指向<code class="docutils literal notranslate"><span class="pre">Derived</span></code>的指针：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Derived</span><span class="w"> </span><span class="o">*</span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">bp</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 使用dp指向的Derived对象</span>
@@ -150,7 +151,7 @@
 </div>
 </section>
 <section id="id4">
-<h3>2. 引用类型的dynamic_cast<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<h3>2. 引用类型的dynamic_cast<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">Derived</span><span class="w"> </span><span class="o">&amp;</span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Derived</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w"></span>
@@ -164,7 +165,7 @@
 </section>
 </section>
 <section id="typeid">
-<h2>typeid运算符<a class="headerlink" href="#typeid" title="永久链接至标题"></a></h2>
+<h2>typeid运算符<a class="headerlink" href="#typeid" title="此标题的永久链接"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">typeid</span></code>表达式的形式是<code class="docutils literal notranslate"><span class="pre">typeid(e)</span></code>，其中<code class="docutils literal notranslate"><span class="pre">e</span></code>可以是任意表达式或类型的名字。<code class="docutils literal notranslate"><span class="pre">typeid</span></code>操作的结果是一个常量对象的引用，该对象的类型是标准库类型<code class="docutils literal notranslate"><span class="pre">type_info</span></code>或者<code class="docutils literal notranslate"><span class="pre">type_info</span></code>的公有派生类型。</p>
 <p>和往常一样，顶层const被忽略，如果表达式是一个引用，则<code class="docutils literal notranslate"><span class="pre">typeid</span></code>返回该引用所引对象的类型。不过当<code class="docutils literal notranslate"><span class="pre">typeid</span></code>作用于数组或者函数时，并不会执行向指针的标准类型转换。比如我们对数组<code class="docutils literal notranslate"><span class="pre">a</span></code>执行<code class="docutils literal notranslate"><span class="pre">typeid(a)</span></code>。所得的结果是数组类型而非指针类型。</p>
 <blockquote>
@@ -197,10 +198,10 @@
 </div></blockquote>
 </section>
 <section id="rtti">
-<h2>使用RTTI<a class="headerlink" href="#rtti" title="永久链接至标题"></a></h2>
+<h2>使用RTTI<a class="headerlink" href="#rtti" title="此标题的永久链接"></a></h2>
 <p>在某些情况下<code class="docutils literal notranslate"><span class="pre">RTTI</span></code>非常有用，比如我们想为具有继承关系的类实现相等运算符时。对于两个对象来说，如果他们的类型相同并且对应的数据成员取值相同，则我们说这两个类是相等的。</p>
 <p>我们定义两个示例类：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Base</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Base</span><span class="o">&amp;</span><span class="p">);</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// Base的接口成员</span>
@@ -209,7 +210,7 @@
 <span class="w">    </span><span class="c1">// Base的数据成员和其他用于实现的成员</span>
 <span class="p">};</span><span class="w"></span>
 
-<span class="k">class</span> <span class="nc">Derived</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w">	</span>
 <span class="w">    </span><span class="c1">// Derived的其他接口成员</span>
 <span class="w"> </span><span class="k">protected</span><span class="o">:</span><span class="w"></span>
@@ -240,7 +241,7 @@
 </div>
 </section>
 <section id="type-info">
-<h2>type_info类<a class="headerlink" href="#type-info" title="永久链接至标题"></a></h2>
+<h2>type_info类<a class="headerlink" href="#type-info" title="此标题的永久链接"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">type_info</span></code>的操作包括：</p>
 <table border="1" class="docutils">
 <thead>

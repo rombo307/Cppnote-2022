@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>9.1 泛型算法 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>9.1 泛型算法 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -92,7 +93,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -112,9 +113,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>9.1 泛型算法<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>9.1 泛型算法<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>概述<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>概述<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>标准库没有为每个顺序容器都定义成员函数来实现诸如查找特定元素、替换或删除一个特定值、重排元素顺序等操作，而是定义了一组泛型算法<code class="docutils literal notranslate"><span class="pre">generic</span> <span class="pre">algrithm</span></code>，大多数算法都定义在头文件<code class="docutils literal notranslate"><span class="pre">algorithm</span></code>中，标准库还在头文件<code class="docutils literal notranslate"><span class="pre">numeric</span></code>中定义了一组数值泛型算法：</p>
 <ul class="simple">
 <li><p>算法：实现了一些经典算法的公共接口，如排序和搜索</p></li>
@@ -125,9 +126,9 @@
 </div></blockquote>
 </section>
 <section id="id3">
-<h2>泛型算法类型<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>泛型算法类型<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <section id="id4">
-<h3>1. 只读算法<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<h3>1. 只读算法<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <p>一些算法只会读取其输入范围内的元素而不会改变元素，比如<code class="docutils literal notranslate"><span class="pre">find</span></code>、<code class="docutils literal notranslate"><span class="pre">count</span></code>和<code class="docutils literal notranslate"><span class="pre">accumulate</span></code>。对于只读取而不改变元素的算法，通常最好使用<code class="docutils literal notranslate"><span class="pre">cbegin()</span></code>和<code class="docutils literal notranslate"><span class="pre">cend()</span></code>。<br />有一些算法比如<code class="docutils literal notranslate"><span class="pre">equal</span></code>可以用于确定两个序列是否保存相同的值，接收三个迭代器，前两个表示第一个序列中的元素范围，第三个参数表示第二个序列的首元素：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// roster2中的元素数目至少要和roster1一样多</span>
 <span class="n">equal</span><span class="p">(</span><span class="n">roster1</span><span class="p">.</span><span class="n">cbegin</span><span class="p">(),</span><span class="w"> </span><span class="n">roster1</span><span class="p">.</span><span class="n">cend</span><span class="p">(),</span><span class="w"> </span><span class="n">roster2</span><span class="p">.</span><span class="n">cbegin</span><span class="p">());</span><span class="w"></span>
@@ -138,7 +139,7 @@
 </div></blockquote>
 </section>
 <section id="id5">
-<h3>2. 写容器元素的算法<a class="headerlink" href="#id5" title="永久链接至标题"></a></h3>
+<h3>2. 写容器元素的算法<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
 <ul class="simple">
 <li><p>算法不执行写操作：一个初学者非常容易犯错的地方是在一个空容器上调用<code class="docutils literal notranslate"><span class="pre">fill_n</span></code>或其他类型的写算法，这种情况下是未定义的</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">back_inserter</span></code>：当我们通过一个插入迭代器赋值时，一个与赋值号右侧值相等的元素会被添加到容器中</p></li>
@@ -154,14 +155,14 @@
 </div>
 </section>
 <section id="id6">
-<h3>3. 重排容器元素的算法<a class="headerlink" href="#id6" title="永久链接至标题"></a></h3>
+<h3>3. 重排容器元素的算法<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
 <p>有些算法会重排容器中元素的顺序，一个明显的例子是<code class="docutils literal notranslate"><span class="pre">sort</span></code>，它是利用元素的<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>运算符来实现排序的。</p>
 </section>
 </section>
 <section id="id7">
-<h2>定制操作<a class="headerlink" href="#id7" title="永久链接至标题"></a></h2>
+<h2>定制操作<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h2>
 <section id="id8">
-<h3>1. 向算法传递函数<a class="headerlink" href="#id8" title="永久链接至标题"></a></h3>
+<h3>1. 向算法传递函数<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
 <p>为了让<code class="docutils literal notranslate"><span class="pre">vector</span></code>支持按长度排序，我们需要使用<code class="docutils literal notranslate"><span class="pre">sort</span></code>的第二个重载版本，它接收第三个参数，该参数是一个谓词<code class="docutils literal notranslate"><span class="pre">predicate</span></code>。</p>
 <blockquote>
 <div><p>谓词是一个可调用的表达式，其返回结果是一个能用做条件的值。</p>
@@ -177,7 +178,7 @@
 </div>
 </section>
 <section id="lambda">
-<h3>2. lambda表达式<a class="headerlink" href="#lambda" title="永久链接至标题"></a></h3>
+<h3>2. lambda表达式<a class="headerlink" href="#lambda" title="此标题的永久链接"></a></h3>
 <p>我们可以向一个算法传递任何类型的可调用对象<code class="docutils literal notranslate"><span class="pre">callable</span> <span class="pre">object</span></code>，到目前为止我们仅使用过两种可调用对象：函数和函数指针。还包括其他两种可调用对象：<code class="docutils literal notranslate"><span class="pre">14</span></code>章介绍的重载了函数调用运算符的类和<code class="docutils literal notranslate"><span class="pre">lambda</span></code>表达式。一个<code class="docutils literal notranslate"><span class="pre">lambda</span></code>表达式表示一个可调用的代码单元，我们将其理解为一个未命名的内联函数，具有返回类型、一个函数列表和一个函数体：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">capture</span><span class="w"> </span><span class="n">list</span><span class="p">](</span><span class="n">parameter</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </pre></div>
@@ -203,7 +204,7 @@
 </div>
 </section>
 <section id="for-each">
-<h3>3. for_each算法<a class="headerlink" href="#for-each" title="永久链接至标题"></a></h3>
+<h3>3. for_each算法<a class="headerlink" href="#for-each" title="此标题的永久链接"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">for_each</span></code>算法接受一个可调用对象，并对输入序列中每个元素调用此对象：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 获取一个迭代器, 指向第一个满足size() &gt;= sz的元素</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">wc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find</span><span class="p">(</span><span class="n">words</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">words</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span>
@@ -218,9 +219,9 @@
 </section>
 </section>
 <section id="id9">
-<h2>泛型算法结构<a class="headerlink" href="#id9" title="永久链接至标题"></a></h2>
+<h2>泛型算法结构<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h2>
 <section id="id10">
-<h3>1. 5类迭代器<a class="headerlink" href="#id10" title="永久链接至标题"></a></h3>
+<h3>1. 5类迭代器<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h3>
 <p>算法所要求的迭代器操作可以分为<code class="docutils literal notranslate"><span class="pre">5</span></code>个迭代器类别，每个算法都会对它的每个迭代器参数指明须提供哪类迭代器：</p>
 <ul class="simple">
 <li><p>输入迭代器：只读，不写；单遍扫描，只能递增</p></li>
@@ -231,7 +232,7 @@
 </ul>
 </section>
 <section id="id11">
-<h3>2. 算法形参模式<a class="headerlink" href="#id11" title="永久链接至标题"></a></h3>
+<h3>2. 算法形参模式<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
 <p>大多数算法具有如下<code class="docutils literal notranslate"><span class="pre">4</span></code>种形式之一：</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">alg(beg,</span> <span class="pre">end,</span> <span class="pre">other</span> <span class="pre">args)</span></code>;</p></li>
@@ -240,21 +241,21 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">alg(beg,</span> <span class="pre">end,</span> <span class="pre">beg2,</span> <span class="pre">end2,</span> <span class="pre">other</span> <span class="pre">args)</span></code>;</p></li>
 </ul>
 <section id="id12">
-<h4>2.1 接收单个目标迭代器的算法<a class="headerlink" href="#id12" title="永久链接至标题"></a></h4>
+<h4>2.1 接收单个目标迭代器的算法<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h4>
 <blockquote>
 <div><p>Tips：向输出迭代器写入数据的算法都假定目标空间足够容纳写入的数据，即不管写入多少个元素都是安全的。</p>
 </div></blockquote>
 <p>如果<code class="docutils literal notranslate"><span class="pre">dest</span></code>是一个直接指向容器的迭代器，那么算法将输出数据写到容器中已存在的元素内。更常见的是<code class="docutils literal notranslate"><span class="pre">dest</span></code>被绑定到一个插入迭代器或是一个<code class="docutils literal notranslate"><span class="pre">ostream_iterator</span></code>。插入迭代器会将新元素添加到元素中，因此保证空间足够，而后者会将数据写入到一个输入流，不管写入多少个元素都是没问题的。</p>
 </section>
 <section id="id13">
-<h4>2.2 接收第二个输入序列的算法<a class="headerlink" href="#id13" title="永久链接至标题"></a></h4>
+<h4>2.2 接收第二个输入序列的算法<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h4>
 <p>接收单独的<code class="docutils literal notranslate"><span class="pre">beg2</span></code>或是接收<code class="docutils literal notranslate"><span class="pre">beg2</span></code>和<code class="docutils literal notranslate"><span class="pre">end2</span></code>的算法用这些迭代器来表示第二个输入范围。接受单独<code class="docutils literal notranslate"><span class="pre">beg2</span></code>的算法假定从<code class="docutils literal notranslate"><span class="pre">beg2</span></code>开始的范围与<code class="docutils literal notranslate"><span class="pre">beg</span></code>和<code class="docutils literal notranslate"><span class="pre">end</span></code>所表示的范围至少一样大。</p>
 </section>
 </section>
 <section id="id14">
-<h3>3. 算法命名规范<a class="headerlink" href="#id14" title="永久链接至标题"></a></h3>
+<h3>3. 算法命名规范<a class="headerlink" href="#id14" title="此标题的永久链接"></a></h3>
 <section id="id15">
-<h4>3.1 使用重载形式传递一个谓词<a class="headerlink" href="#id15" title="永久链接至标题"></a></h4>
+<h4>3.1 使用重载形式传递一个谓词<a class="headerlink" href="#id15" title="此标题的永久链接"></a></h4>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">unique</span><span class="p">(</span><span class="n">beg</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">);</span><span class="w">        </span><span class="c1">// 使用==运算符比较元素</span>
 <span class="n">unique</span><span class="p">(</span><span class="n">beg</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">comp</span><span class="p">);</span><span class="w">  </span><span class="c1">// 使用comp比较元素</span>
 </pre></div>
@@ -262,7 +263,7 @@
 <p>这两个调用都会重整给定序列，将相邻的重复元素删除。两个版本的函数在参数个数上不相等，因此具体调用哪个版本不会产生歧义。</p>
 </section>
 <section id="if">
-<h4>3.2 _if版本<a class="headerlink" href="#if" title="永久链接至标题"></a></h4>
+<h4>3.2 _if版本<a class="headerlink" href="#if" title="此标题的永久链接"></a></h4>
 <p>接收一个元素值的算法通常有另一个不同名（非重载）版本呢，该版本接收一个谓词来代替元素值：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">find</span><span class="p">(</span><span class="n">beg</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span><span class="w"> </span><span class="c1">// 查找输入范围内val第一次出现的位置</span>
 <span class="n">find_if</span><span class="p">(</span><span class="n">beg</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">pred</span><span class="p">);</span><span class="w"> </span><span class="c1">// 查找第一个令pred为真的元素</span>
@@ -270,7 +271,7 @@
 </div>
 </section>
 <section id="id16">
-<h4>3.3 区分拷贝元素的版本和不拷贝元素的版本<a class="headerlink" href="#id16" title="永久链接至标题"></a></h4>
+<h4>3.3 区分拷贝元素的版本和不拷贝元素的版本<a class="headerlink" href="#id16" title="此标题的永久链接"></a></h4>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">reverse</span><span class="p">(</span><span class="n">beg</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">);</span><span class="w">             </span><span class="c1">// 反转输入与范围中元素的顺序</span>
 <span class="n">reverse_copy</span><span class="p">(</span><span class="n">beg</span><span class="p">,</span><span class="w"> </span><span class="n">end</span><span class="p">,</span><span class="w"> </span><span class="n">dest</span><span class="p">);</span><span class="w">  </span><span class="c1">// 将元素逆序拷贝到dest</span>
 </pre></div>
@@ -289,9 +290,9 @@
 </section>
 </section>
 <section id="id17">
-<h2>特定容器算法<a class="headerlink" href="#id17" title="永久链接至标题"></a></h2>
+<h2>特定容器算法<a class="headerlink" href="#id17" title="此标题的永久链接"></a></h2>
 <section id="id18">
-<h3>1. 链表提供的成员函数算法<a class="headerlink" href="#id18" title="永久链接至标题"></a></h3>
+<h3>1. 链表提供的成员函数算法<a class="headerlink" href="#id18" title="此标题的永久链接"></a></h3>
 <p>通用算法<code class="docutils literal notranslate"><span class="pre">sort</span></code>要求随机访问迭代器，但是<code class="docutils literal notranslate"><span class="pre">list</span></code>和<code class="docutils literal notranslate"><span class="pre">forward_list</span></code>分别提供双向迭代器和前向迭代器，因此无法使用。除了<code class="docutils literal notranslate"><span class="pre">sort</span></code>外的其他算法通用版本虽然可以应用于链表，但是性能不佳。因为这些算法需要交换输入序列中的元素，一个链表可以通过改变元素间的链接而不是真的交换它们的值来快速“交换元素”，因此：</p>
 <blockquote>
 <div><p>Tips：对于<code class="docutils literal notranslate"><span class="pre">list</span></code>和<code class="docutils literal notranslate"><span class="pre">forward_list</span></code>，应该优先使用成员内函数版本的算法而不是通用算法。</p>
@@ -319,9 +320,9 @@
 </div>
 </section>
 <section id="splice">
-<h3>2. splice成员<a class="headerlink" href="#splice" title="永久链接至标题"></a></h3>
+<h3>2. splice成员<a class="headerlink" href="#splice" title="此标题的永久链接"></a></h3>
 <p>链表定义了<code class="docutils literal notranslate"><span class="pre">splice</span></code>算法，是链表所特有的：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>lst.splice(args)或flst.splice_after(args)
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">lst</span><span class="p">.</span><span class="n">splice</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="n">或flst</span><span class="p">.</span><span class="n">splice_after</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 </div>
 <p>参数<code class="docutils literal notranslate"><span class="pre">args</span></code>包括：</p>
@@ -332,7 +333,7 @@
 </ul>
 </section>
 <section id="id19">
-<h3>3. 链表特有的操作会改变容器<a class="headerlink" href="#id19" title="永久链接至标题"></a></h3>
+<h3>3. 链表特有的操作会改变容器<a class="headerlink" href="#id19" title="此标题的永久链接"></a></h3>
 <p>多数链表特有的算法都与其通用版本很相似，但不完全相同。链表特有版本与通用版本间的一个至关重要的区别是链表版本会改变底层的容器：</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">remove</span></code>的链表版本会删除指定的元素</p></li>

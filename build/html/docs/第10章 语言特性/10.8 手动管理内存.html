@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10.8 手动管理内存 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>10.8 手动管理内存 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -125,7 +126,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -145,9 +146,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>10.8 手动管理内存<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>10.8 手动管理内存<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="c">
-<h2>C++内存<a class="headerlink" href="#c" title="永久链接至标题"></a></h2>
+<h2>C++内存<a class="headerlink" href="#c" title="此标题的永久链接"></a></h2>
 <p>我们的C++程序主要包含如下三种内存：</p>
 <ul class="simple">
 <li><p>静态内存：保存局部<code class="docutils literal notranslate"><span class="pre">static</span></code>对象、类<code class="docutils literal notranslate"><span class="pre">static</span></code>数据成员以及定义在任何函数之外的变量</p></li>
@@ -156,7 +157,7 @@
 </ul>
 </section>
 <section id="id2">
-<h2>管理动态内存的运算符<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>管理动态内存的运算符<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>C++语言定义了两个运算符来分配和释放动态内存：</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">new</span></code>：在动态内存中为对象分配空间并返回一个指向该对象的指针</p></li>
@@ -164,9 +165,9 @@
 </ul>
 </section>
 <section id="new">
-<h2>new：动态分配和初始化对象<a class="headerlink" href="#new" title="永久链接至标题"></a></h2>
+<h2>new：动态分配和初始化对象<a class="headerlink" href="#new" title="此标题的永久链接"></a></h2>
 <section id="id3">
-<h3>1. 简介<a class="headerlink" href="#id3" title="永久链接至标题"></a></h3>
+<h3>1. 简介<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h3>
 <p>在自由空间分配的内存是无名的，因此<code class="docutils literal notranslate"><span class="pre">new</span></code>无法为其分配的对象命名，而是返回一个指向该对象的指针：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// pi指向一个动态分配的、未初始化的无名对象</span>
 <span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span><span class="w"></span>
@@ -174,7 +175,7 @@
 </div>
 </section>
 <section id="id4">
-<h3>2. 动态分配对象初始化<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<h3>2. 动态分配对象初始化<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：最好对动态分配的对象进行初始化。</p>
 </div></blockquote>
@@ -200,7 +201,7 @@
 </div>
 </section>
 <section id="const">
-<h3>3. 动态分配的const对象<a class="headerlink" href="#const" title="永久链接至标题"></a></h3>
+<h3>3. 动态分配的const对象<a class="headerlink" href="#const" title="此标题的永久链接"></a></h3>
 <p>用<code class="docutils literal notranslate"><span class="pre">new</span></code>分配一个<code class="docutils literal notranslate"><span class="pre">const</span></code>对象是合法的，返回一个指向<code class="docutils literal notranslate"><span class="pre">const</span></code>的指针：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 动态分配的const对象必须进行初始化</span>
 <span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span><span class="w"></span>
@@ -210,7 +211,7 @@
 </div>
 </section>
 <section id="id5">
-<h3>4. 内存耗尽<a class="headerlink" href="#id5" title="永久链接至标题"></a></h3>
+<h3>4. 内存耗尽<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
 <p>一旦一个程序用光它所有可用的内存，那么<code class="docutils literal notranslate"><span class="pre">new</span></code>表达式就会失败，会抛出一个类型为<code class="docutils literal notranslate"><span class="pre">bad_alloc</span></code>的异常：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 如果分配失败, 抛出std:bad_alloc</span>
 <span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span><span class="w"></span>
@@ -221,7 +222,7 @@
 </section>
 </section>
 <section id="delete">
-<h2>delete：释放动态内存<a class="headerlink" href="#delete" title="永久链接至标题"></a></h2>
+<h2>delete：释放动态内存<a class="headerlink" href="#delete" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">delete</span></code>表达式执行两个动作：销毁给定的指针指向的对象；释放对应的内存。</p>
 </div></blockquote>
@@ -234,7 +235,7 @@
 </div></blockquote>
 </section>
 <section id="id6">
-<h2>手动管理内存的缺点<a class="headerlink" href="#id6" title="永久链接至标题"></a></h2>
+<h2>手动管理内存的缺点<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h2>
 <p>使用<code class="docutils literal notranslate"><span class="pre">new</span></code>和<code class="docutils literal notranslate"><span class="pre">delete</span></code>管理内存存在三个常见问题：</p>
 <ul class="simple">
 <li><p>忘记<code class="docutils literal notranslate"><span class="pre">delete</span></code>内存：忘记释放的内存即我们常说的“内存泄漏”问题，程序直到真正耗尽内存时才能检测到这种错误</p></li>
@@ -243,7 +244,7 @@
 </ul>
 </section>
 <section id="newdelete">
-<h2>重载new和delete<a class="headerlink" href="#newdelete" title="永久链接至标题"></a></h2>
+<h2>重载new和delete<a class="headerlink" href="#newdelete" title="此标题的永久链接"></a></h2>
 <p>重载这两个运算符与重载其他运算符的过程大不相同。想要真正重载<code class="docutils literal notranslate"><span class="pre">new</span></code>和<code class="docutils literal notranslate"><span class="pre">delete</span></code>的方法，首先要对<code class="docutils literal notranslate"><span class="pre">new</span></code>表达式和<code class="docutils literal notranslate"><span class="pre">delete</span></code>表达式的工作机制足够了解：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// new表达式</span>
 <span class="n">string</span><span class="w"> </span><span class="o">*</span><span class="n">sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">string</span><span class="p">(</span><span class="s">&quot;a value&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// 分配并初始化一个string对象</span>
@@ -276,7 +277,7 @@
 <p>我们可以使用作用域运算符使得<code class="docutils literal notranslate"><span class="pre">new</span></code>表达式或<code class="docutils literal notranslate"><span class="pre">delete</span></code>表达式忽略定义在类中的函数，直接执行全局作用域的版本。比如<code class="docutils literal notranslate"><span class="pre">::new</span></code>和<code class="docutils literal notranslate"><span class="pre">::delete</span></code>。</p>
 </section>
 <section id="operator-newoperator-delete">
-<h2>operator new接口和operator delete接口<a class="headerlink" href="#operator-newoperator-delete" title="永久链接至标题"></a></h2>
+<h2>operator new接口和operator delete接口<a class="headerlink" href="#operator-newoperator-delete" title="此标题的永久链接"></a></h2>
 <p>标准库定义了<code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">new</span></code>函数和<code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">delete</span></code>函数的8个重载版本。其中前4个可能抛出<code class="docutils literal notranslate"><span class="pre">bad_alloc</span></code>异常，后4个版本不会抛出异常：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 这些版本可能抛出异常</span>
 <span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="k">operator</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="kt">size_t</span><span class="p">);</span><span class="w">        </span><span class="c1">// 分配一个对象</span>
@@ -297,7 +298,7 @@
 </div></blockquote>
 </section>
 <section id="mallocfree">
-<h2>malloc函数和free函数<a class="headerlink" href="#mallocfree" title="永久链接至标题"></a></h2>
+<h2>malloc函数和free函数<a class="headerlink" href="#mallocfree" title="此标题的永久链接"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">malloc</span></code>函数接受一个表示待分配字节数的<code class="docutils literal notranslate"><span class="pre">size_t</span></code>，返回指向分配空间的指针或者返回0以表示分配失败。<code class="docutils literal notranslate"><span class="pre">free</span></code>函数接受一个<code class="docutils literal notranslate"><span class="pre">void*</span></code>，它是<code class="docutils literal notranslate"><span class="pre">malloc</span></code>返回的指针的副本，<code class="docutils literal notranslate"><span class="pre">free</span></code>将相关内存返回给系统。调用<code class="docutils literal notranslate"><span class="pre">free(0)</span></code>没有任何意义。</p>
 <p>下面给出了编写<code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">new</span></code>和<code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">delete</span></code>的简单方式：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="k">operator</span><span class="w"> </span><span class="k">new</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -311,7 +312,7 @@
 </div>
 </section>
 <section id="id7">
-<h2>定位new表达式<a class="headerlink" href="#id7" title="永久链接至标题"></a></h2>
+<h2>定位new表达式<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h2>
 <p>C++早期版本中，<code class="docutils literal notranslate"><span class="pre">allocator</span></code>类还不是标准库一部分。应用程序如果想把内存分配和初始化分离开的话，需要调用<code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">new</span></code>和<code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">delete</span></code>。这两个函数的行为与<code class="docutils literal notranslate"><span class="pre">allocator</span></code>的<code class="docutils literal notranslate"><span class="pre">allocate</span></code>成员和<code class="docutils literal notranslate"><span class="pre">deallocate</span></code>成员非常类似，<strong>它们负责分配或释放内存空间，但是不会构造或销毁对象</strong>。</p>
 <p>与<code class="docutils literal notranslate"><span class="pre">allocator</span></code>不同的是，对于<code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">new</span></code>分配的内存空间，我们不能使用<code class="docutils literal notranslate"><span class="pre">construct</span></code>函数构造对象。相反我们应该用<code class="docutils literal notranslate"><span class="pre">new</span></code>的定位<code class="docutils literal notranslate"><span class="pre">new</span></code>形式构造对象。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">new</span><span class="w"> </span><span class="p">(</span><span class="n">place_address</span><span class="p">)</span><span class="w"> </span><span class="n">type</span><span class="w"></span>
@@ -327,7 +328,7 @@
 <p>尽管定位<code class="docutils literal notranslate"><span class="pre">new</span></code>与<code class="docutils literal notranslate"><span class="pre">allocator</span></code>的<code class="docutils literal notranslate"><span class="pre">construct</span></code>成员非常相似，但是有一个重要的区别：我们传给<code class="docutils literal notranslate"><span class="pre">construct</span></code>的指针必须指向同一个<code class="docutils literal notranslate"><span class="pre">allocator</span></code>对象分配的空间，但是传给定位<code class="docutils literal notranslate"><span class="pre">new</span></code>的指针无须指向<code class="docutils literal notranslate"><span class="pre">operator</span> <span class="pre">new</span></code>分配的内存，甚至不需要指向动态内存。</p>
 </section>
 <section id="id8">
-<h2>显式的析构函数调用<a class="headerlink" href="#id8" title="永久链接至标题"></a></h2>
+<h2>显式的析构函数调用<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h2>
 <p>就像定位<code class="docutils literal notranslate"><span class="pre">new</span></code>与使用<code class="docutils literal notranslate"><span class="pre">allocate</span></code>类似一样，对析构函数的显式调用也与使用<code class="docutils literal notranslate"><span class="pre">destroy</span></code>很类似。我们既可以通过对象调用析构函数，也可以通过对象的指针或者引用调用析构函数，这与调用其他成员函数没什么区别：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="w"> </span><span class="o">*</span><span class="n">sp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">string</span><span class="p">(</span><span class="s">&quot;a value&quot;</span><span class="p">);</span><span class="w">   </span><span class="c1">// 分配并初始化一个string对象</span>
 <span class="n">sp</span><span class="o">-&gt;~</span><span class="n">string</span><span class="p">();</span><span class="w"></span>
@@ -339,9 +340,9 @@
 </div></blockquote>
 </section>
 <section id="id9">
-<h2>动态数组<a class="headerlink" href="#id9" title="永久链接至标题"></a></h2>
+<h2>动态数组<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h2>
 <section id="id10">
-<h3>1. 简介<a class="headerlink" href="#id10" title="永久链接至标题"></a></h3>
+<h3>1. 简介<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：当一个应用需要可变数量的对象时，我们总是采用更简单、更快速且更安全的方法——使用<code class="docutils literal notranslate"><span class="pre">vector</span></code>或者标准库其他容器。</p>
 </div></blockquote>
@@ -352,7 +353,7 @@
 </ul>
 </section>
 <section id="id11">
-<h3>2. new和数组<a class="headerlink" href="#id11" title="永久链接至标题"></a></h3>
+<h3>2. new和数组<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：由于分配的内存并不是一个数组类型，因此不能对动态数组调用<code class="docutils literal notranslate"><span class="pre">begin()</span></code>和<code class="docutils literal notranslate"><span class="pre">end()</span></code>函数，也不能使用范围<code class="docutils literal notranslate"><span class="pre">for</span></code>语句来处理动态数组中的元素。</p>
 </div></blockquote>
@@ -374,7 +375,7 @@
 </div>
 </section>
 <section id="id12">
-<h3>3. 动态分配空数组是合法的<a class="headerlink" href="#id12" title="永久链接至标题"></a></h3>
+<h3>3. 动态分配空数组是合法的<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h3>
 <p>当我们用<code class="docutils literal notranslate"><span class="pre">new</span></code>分配一个大小为0的数组时，<code class="docutils literal notranslate"><span class="pre">new</span></code>返回一个合法的非空指针，我们可以像使用尾后指针一样去使用这个指针。可以用这个指针进行比较操作，可以从此指针加上/减去0，可以从此指针减去自身等于0，但是不能解引用该指针（因为它不指向任何元素）。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="n">n</span><span class="p">];</span><span class="w">  </span><span class="c1">// 正确: 但是cp不能解引用</span>
@@ -387,7 +388,7 @@
 </div>
 </section>
 <section id="id13">
-<h3>4. 释放动态数组<a class="headerlink" href="#id13" title="永久链接至标题"></a></h3>
+<h3>4. 释放动态数组<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h3>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// pa必须指向一个动态分配的数组或者为空</span>
 <span class="c1">// 先销毁pa指向数组中的元素, 再释放对应的内存</span>
 <span class="k">delete</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="n">pa</span><span class="p">;</span><span class="w"></span>
@@ -395,7 +396,7 @@
 </div>
 </section>
 <section id="id14">
-<h3>5. 智能指针与动态数组<a class="headerlink" href="#id14" title="永久链接至标题"></a></h3>
+<h3>5. 智能指针与动态数组<a class="headerlink" href="#id14" title="此标题的永久链接"></a></h3>
 <p>标准库提供了一个可以管理<code class="docutils literal notranslate"><span class="pre">new</span></code>分配数组的<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>版本，对应的操作如下：</p>
 <blockquote>
 <div><p>Tips：指向动态数组的<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>不支持成员访问运算符（点和箭头运算符），其他<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>操作不变。</p>
@@ -446,9 +447,9 @@
 </section>
 </section>
 <section id="allocator">
-<h2>allocator类<a class="headerlink" href="#allocator" title="永久链接至标题"></a></h2>
+<h2>allocator类<a class="headerlink" href="#allocator" title="此标题的永久链接"></a></h2>
 <section id="id15">
-<h3>1. 分配大块内存时拆分内存分配与对象构造<a class="headerlink" href="#id15" title="永久链接至标题"></a></h3>
+<h3>1. 分配大块内存时拆分内存分配与对象构造<a class="headerlink" href="#id15" title="此标题的永久链接"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">new</span></code>把内存分配和对象构造组合在了一起，<code class="docutils literal notranslate"><span class="pre">delete</span></code>也将对象析构和内存释放组合在了一起。我们分配单个对象时通常希望将内存分配和对象构造分离开，因为这种情况下我们几乎肯定知道对象应该有什么值。但是当分配一大块内存时，我们希望将内存分配和对象构造分离开：这意味着我们可以分配大块内存，但只有在真正需要时才真正执行对象创建操作（付出一定开销）。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
 <span class="cm"> * 分配一大块内存时, 将内存分配和对象构造组合在一起可能导致不必要的浪费:</span>
@@ -475,7 +476,7 @@
 </div>
 </section>
 <section id="id16">
-<h3>2. allocator类<a class="headerlink" href="#id16" title="永久链接至标题"></a></h3>
+<h3>2. allocator类<a class="headerlink" href="#id16" title="此标题的永久链接"></a></h3>
 <p>标准库<code class="docutils literal notranslate"><span class="pre">allocator</span></code>类定义在头文件<code class="docutils literal notranslate"><span class="pre">memory</span></code>中，它帮助我们将内存分配与对象构造分隔开。它提供一种类型感知的内存分配方法，它分配的内存是原始的、未构造的。</p>
 <table border="1" class="docutils">
 <thead>
@@ -575,7 +576,7 @@
 </section>
 </section>
 <section id="id17">
-<h2>管理动态资源的类<a class="headerlink" href="#id17" title="永久链接至标题"></a></h2>
+<h2>管理动态资源的类<a class="headerlink" href="#id17" title="此标题的永久链接"></a></h2>
 <p>通常管理类外资源的类需要通过析构函数来释放对象所分配的资源，根据“三/五原则”它也必须自定义拷贝构造函数和拷贝赋值运算符（<code class="docutils literal notranslate"><span class="pre">delete</span></code>拷贝构造函数和拷贝赋值运算符也算自定义的一种）。</p>
 <p>对于管理类外资源的类，根据如何拷贝指针成员我们可以大致分为如下三类：</p>
 <ul class="simple">
@@ -584,14 +585,14 @@
 <li><p>行为像指针的类：<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code></p></li>
 </ul>
 <section id="id18">
-<h3>1. 行为像值的类<a class="headerlink" href="#id18" title="永久链接至标题"></a></h3>
+<h3>1. 行为像值的类<a class="headerlink" href="#id18" title="此标题的永久链接"></a></h3>
 <p>为了提供类值的行为，对于类管理的资源，每个对象都应该有自己的一份拷贝。以管理<code class="docutils literal notranslate"><span class="pre">string</span></code>资源的类<code class="docutils literal notranslate"><span class="pre">HasPtr</span></code>的类而言：</p>
 <ul class="simple">
 <li><p>拷贝构造函数：完成<code class="docutils literal notranslate"><span class="pre">string</span></code>的拷贝而不是拷贝指针</p></li>
 <li><p>析构函数：释放<code class="docutils literal notranslate"><span class="pre">string</span></code>对象</p></li>
 <li><p>拷贝赋值运算符：释放对象当前的<code class="docutils literal notranslate"><span class="pre">string</span></code>，并从右侧运算对象拷贝<code class="docutils literal notranslate"><span class="pre">string</span></code></p></li>
 </ul>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HasPtr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">HasPtr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 构造函数: 分配string动态内存</span>
 <span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">HasPtr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ps_</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
@@ -622,11 +623,11 @@
 </div>
 </section>
 <section id="id19">
-<h3>2. 行为像指针的类<a class="headerlink" href="#id19" title="永久链接至标题"></a></h3>
+<h3>2. 行为像指针的类<a class="headerlink" href="#id19" title="此标题的永久链接"></a></h3>
 <p>令一个类展现类似指针的行为的最好方法是使用<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>来管理类中的资源，拷贝（或赋值）一个<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>会拷贝（或赋值）<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>所指向的指针。<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>类会自己记录有多少用户共享它所指向的对象，当没有用户使用对象时，<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>类负责释放资源。</p>
 </section>
 <section id="swap">
-<h3>3. swap交换操作<a class="headerlink" href="#swap" title="永久链接至标题"></a></h3>
+<h3>3. swap交换操作<a class="headerlink" href="#swap" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：管理动态资源的类通常除了自定义拷贝控制成员外，还需要定义一个名为<code class="docutils literal notranslate"><span class="pre">swap</span></code>的函数。如果一个类定义了自己的<code class="docutils literal notranslate"><span class="pre">swap</span></code>成员函数，那么算法将使用类自定义版本，否则算法将使用标准库定义的<code class="docutils literal notranslate"><span class="pre">swap</span></code>。</p>
 </div></blockquote>
@@ -657,7 +658,7 @@
 </section>
 </section>
 <section id="copying">
-<h2>编码规范：在资源管理类中小心copying行为<a class="headerlink" href="#copying" title="永久链接至标题"></a></h2>
+<h2>编码规范：在资源管理类中小心copying行为<a class="headerlink" href="#copying" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Effective C++：Think carefully about copying behavior in resource-managing classes.</p>
 <ul class="simple">
@@ -675,9 +676,9 @@
 <p>每一个RAII类作者都要面对这个问题：当一个RAII对象被复制时会发生什么？</p>
 <p>大多数你会选择如下两种做法之一。</p>
 <section id="id20">
-<h3>1. 禁止拷贝<a class="headerlink" href="#id20" title="永久链接至标题"></a></h3>
+<h3>1. 禁止拷贝<a class="headerlink" href="#id20" title="此标题的永久链接"></a></h3>
 <p>许多时候允许RAII对象被复制并不合理。我们可以将其拷贝操作声明为private（C++11中设置为delete）。</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Lock</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Uncopyable</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 禁止拷贝</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Lock</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="n">Uncopyable</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 禁止拷贝</span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="p">...</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
@@ -685,10 +686,10 @@
 </div>
 </section>
 <section id="id21">
-<h3>2. 对底层资源使用“引用计数法”<a class="headerlink" href="#id21" title="永久链接至标题"></a></h3>
+<h3>2. 对底层资源使用“引用计数法”<a class="headerlink" href="#id21" title="此标题的永久链接"></a></h3>
 <p>这种情况下复制RAII对象应该将资源的“被引用数”递增。通常只需要包含一个<code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code>成员变量RAII类就可以实现reference-counting copying行为。</p>
 <p><code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code>的默认行为时“当引用计数为0时删除所指的对象”，这并不是Lock类想要的行为。幸运的是<code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code>允许指定所谓的删除器（deleter）。</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Lock</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Lock</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Lock</span><span class="p">(</span><span class="n">Mutex</span><span class="o">*</span><span class="w"> </span><span class="n">pm</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">mutex_ptr_</span><span class="p">(</span><span class="n">pm</span><span class="p">,</span><span class="w"> </span><span class="n">unlock</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="n">lock</span><span class="p">(</span><span class="n">mutex_ptr_</span><span class="p">.</span><span class="n">get</span><span class="p">());</span><span class="w"></span>
@@ -703,7 +704,7 @@
 </section>
 </section>
 <section id="id22">
-<h2>编码规范： 在资源管理类中提供对原始资源的访问<a class="headerlink" href="#id22" title="永久链接至标题"></a></h2>
+<h2>编码规范： 在资源管理类中提供对原始资源的访问<a class="headerlink" href="#id22" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Effective C++：Provide access to raw resources in resource-managing classes.</p>
 <ul class="simple">
@@ -717,7 +718,7 @@
 <span class="kt">void</span><span class="w"> </span><span class="nf">releaseFont</span><span class="p">(</span><span class="n">FontHandle</span><span class="w"> </span><span class="n">fh</span><span class="p">);</span><span class="w"></span>
 
 <span class="c1">// RAII class: 管理动态资源 FontHandle</span>
-<span class="k">class</span> <span class="nc">Font</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Font</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Font</span><span class="p">(</span><span class="n">FontHandle</span><span class="w"> </span><span class="n">fh</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
 <span class="w">    </span><span class="o">~</span><span class="n">Font</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">releaseFont</span><span class="p">(</span><span class="n">f</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
@@ -728,8 +729,8 @@
 </div>
 <p>假设有大量与FontHandle相关的C API，那么将Font对象转换为FontHandle会是比较频繁的需求。我们有显式转换函数和隐式转换函数两种方法。</p>
 <section id="id23">
-<h3>1. 显式转换函数<a class="headerlink" href="#id23" title="永久链接至标题"></a></h3>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Font</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<h3>1. 显式转换函数<a class="headerlink" href="#id23" title="此标题的永久链接"></a></h3>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Font</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="p">...</span><span class="w"></span>
 <span class="w">    </span><span class="n">FontHandle</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// 显式转换函数</span>
@@ -739,9 +740,9 @@
 </div>
 </section>
 <section id="id24">
-<h3>2. 隐式转换函数<a class="headerlink" href="#id24" title="永久链接至标题"></a></h3>
+<h3>2. 隐式转换函数<a class="headerlink" href="#id24" title="此标题的永久链接"></a></h3>
 <p>隐式转换函数可以让客户调用C API时更加轻松且自然：</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Font</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Font</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="p">...</span><span class="w"></span>
 <span class="w">    </span><span class="k">operator</span><span class="w"> </span><span class="n">FontHandle</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w">  </span><span class="c1">// 显式转换函数</span>

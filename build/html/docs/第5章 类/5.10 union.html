@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5.10 union &mdash; C++语法笔记 v1.0 文档</title>
+  <title>5.10 union &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -81,7 +82,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -101,19 +102,19 @@
            <div itemprop="articleBody">
              
   <section id="union">
-<h1>5.10 union<a class="headerlink" href="#union" title="永久链接至标题"></a></h1>
+<h1>5.10 union<a class="headerlink" href="#union" title="此标题的永久链接"></a></h1>
 <section id="id1">
-<h2>简介<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <p>联合<code class="docutils literal notranslate"><span class="pre">union</span></code>是一种特殊的类，一个<code class="docutils literal notranslate"><span class="pre">union</span></code>可以有多个数据成员，但是在任意时刻只有一个数据成员有值。当我们给<code class="docutils literal notranslate"><span class="pre">union</span></code>的某个成员赋值之后，该<code class="docutils literal notranslate"><span class="pre">union</span></code>的其他成员就变成未定义的状态了。</p>
 <blockquote>
 <div><p>Tips：分配给一个<code class="docutils literal notranslate"><span class="pre">union</span></code>对象的存储空间至少要能容纳它的最大的数据成员。</p>
 </div></blockquote>
 </section>
 <section id="id2">
-<h2>定义union<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>定义union<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">union</span></code>提供了一种有效的途径使得我们可以方便地表示一组类型不同的互斥值。举个例子，假设我们需要处理一些不同种类的数字数据和字符数据，则可以定义一个<code class="docutils literal notranslate"><span class="pre">union</span></code>来保存这些值：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Token类型的对象只有一个成员, 该成员的类型可能是下列类型中的任意一个</span>
-<span class="k">union</span> <span class="nc">Token</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">union</span><span class="w"> </span><span class="nc">Token</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 默认情况下成员是公有的</span>
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">cval</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ival</span><span class="p">;</span><span class="w"></span>
@@ -123,7 +124,7 @@
 </div>
 </section>
 <section id="id3">
-<h2>使用union类型<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>使用union类型<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <p>和其他内置类型一样，默认情况下<code class="docutils literal notranslate"><span class="pre">union</span></code>是未初始化的，我们可以像显式地初始化聚合类一样用一对花括号内的初始值显式地初始化一个<code class="docutils literal notranslate"><span class="pre">union</span></code>：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">Token</span><span class="w"> </span><span class="n">first_token</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;a&#39;</span><span class="p">};</span><span class="w">      </span><span class="c1">// 初始化cval成员, 如果提供初始值则用于初始化第一个成员</span>
 <span class="n">Token</span><span class="w"> </span><span class="n">last_token</span><span class="p">;</span><span class="w">               </span><span class="c1">// 未初始化的Token对象</span>
@@ -132,9 +133,9 @@
 </div>
 </section>
 <section id="id4">
-<h2>匿名union<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<h2>匿名union<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 定义一个匿名union, 我们可以直接访问它的成员</span>
-<span class="k">union</span> <span class="p">{</span><span class="w"></span>
+<span class="k">union</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">cval</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ival</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">dval</span><span class="p">;</span><span class="w"></span>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>C++11关键字：constexpr &mdash; C++语法笔记 v1.0 文档</title>
+  <title>C++11关键字：constexpr &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/translations.js"></script>
     <script src="../../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -81,7 +82,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">C++语法笔记</a>
+          <a href="../../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -102,9 +103,9 @@
            <div itemprop="articleBody">
              
   <section id="c-11-constexpr">
-<h1>C++11关键字：constexpr<a class="headerlink" href="#c-11-constexpr" title="永久链接至标题"></a></h1>
+<h1>C++11关键字：constexpr<a class="headerlink" href="#c-11-constexpr" title="此标题的永久链接"></a></h1>
 <section id="id1">
-<h2>简介<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <p>C++11引入了常量表达式constexpr的概念，指的是值不会改变并且在<strong>编译期间</strong>就能得到计算结果的表达式。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">          </span><span class="c1">// 常量表达式</span>
 <span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">       </span><span class="c1">// 常量表达式</span>
@@ -114,14 +115,14 @@
 <p>在一个复杂系统中，我们很难分辨一个初始值是否是常量表达式，通过constexpr关键字声明一个变量，我们可以让编译器来验证变量的值是否是一个常量表达式。</p>
 </section>
 <section id="id2">
-<h2>字面值是常量表达式<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>字面值是常量表达式<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>算术类型、引用和指针都属于字面值类型，自定义类则不属于字面值类型，因此也无法被定义为constexpr。</p>
 <blockquote>
 <div><p>Tips：尽管指针和引用都能被定义成constexpr，但它们的初始值却受到严格限制。一个constexpr指针的初始值必须是nullptr、0或者是存储于某个固定地址中的对象。</p>
 </div></blockquote>
 </section>
 <section id="constexpr">
-<h2>constexpr是对指针的限制<a class="headerlink" href="#constexpr" title="永久链接至标题"></a></h2>
+<h2>constexpr是对指针的限制<a class="headerlink" href="#constexpr" title="此标题的永久链接"></a></h2>
 <p>在constexpr声明中定义了一个指针，限定符constexpr仅对指针有效，与指针所指对象无关：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pi1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">      </span><span class="c1">// 底层const: pi1是指向整型常量的普通指针</span>
 <span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pi2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">  </span><span class="c1">// 顶层const: pi2是指向整型的常量指针</span>

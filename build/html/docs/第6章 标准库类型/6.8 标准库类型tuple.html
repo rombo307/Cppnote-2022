@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6.8 标准库类型：tuple &mdash; C++语法笔记 v1.0 文档</title>
+  <title>6.8 标准库类型：tuple &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -79,7 +80,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -99,16 +100,16 @@
            <div itemprop="articleBody">
              
   <section id="tuple">
-<h1>6.8 标准库类型：tuple<a class="headerlink" href="#tuple" title="永久链接至标题"></a></h1>
+<h1>6.8 标准库类型：tuple<a class="headerlink" href="#tuple" title="此标题的永久链接"></a></h1>
 <section id="id1">
-<h2>简介<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">tuple</span></code>是类似<code class="docutils literal notranslate"><span class="pre">pair</span></code>的模板，每个<code class="docutils literal notranslate"><span class="pre">pair</span></code>的成员类型都不相同，但是每个<code class="docutils literal notranslate"><span class="pre">pair</span></code>恰好有两个成员。我们希望将一些数据组合成单一对象，但又不想麻烦地定义一个新数据结构来表示这些数据，这时候就可以用到<code class="docutils literal notranslate"><span class="pre">tuple</span></code>。</p>
 <blockquote>
 <div><p>Tips：我们可以将<code class="docutils literal notranslate"><span class="pre">tuple</span></code>当做一个”快速而随意”的数据结构。</p>
 </div></blockquote>
 </section>
 <section id="id2">
-<h2>操作<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>操作<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>它支持的操作包括：</p>
 <table border="1" class="docutils">
 <thead>
@@ -153,7 +154,7 @@
 </tbody>
 </table></section>
 <section id="id3">
-<h2>定义和初始化tuple<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>定义和初始化tuple<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <p>使用构造函数：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 三个成员都值初始化为0</span>
 <span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">threeD</span><span class="p">;</span><span class="w"></span>
@@ -172,7 +173,7 @@
 </div>
 </section>
 <section id="id4">
-<h2>访问tuple的成员<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<h2>访问tuple的成员<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
 <p>使用<code class="docutils literal notranslate"><span class="pre">get&lt;i&gt;(t)</span></code>即可返回<code class="docutils literal notranslate"><span class="pre">tuple</span></code>第<code class="docutils literal notranslate"><span class="pre">i</span></code>个成员的引用，如果我们不知道<code class="docutils literal notranslate"><span class="pre">tuple</span></code>准备的类型细节，可以使用两个辅助类模板来查询<code class="docutils literal notranslate"><span class="pre">tuple</span></code>成员的数量和类型：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// trans类型是item的类型(某种tuple)</span>
 <span class="k">typedef</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="n">trans</span><span class="p">;</span><span class="w">          </span>
@@ -184,7 +185,7 @@
 </div>
 </section>
 <section id="id5">
-<h2>使用tuple返回多个值<a class="headerlink" href="#id5" title="永久链接至标题"></a></h2>
+<h2>使用tuple返回多个值<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">tuple</span></code>的一个常见用途就是从一个函数返回多个相关的值，如果函数返回两个值我们可以使用<code class="docutils literal notranslate"><span class="pre">pair</span></code>，返回三个值及以上我们就可以使用<code class="docutils literal notranslate"><span class="pre">tuple</span></code>了。</p>
 </section>
 </section>

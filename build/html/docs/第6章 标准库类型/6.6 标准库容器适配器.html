@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6.6 标准库类型：容器适配器 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>6.6 标准库类型：容器适配器 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -80,7 +81,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -100,13 +101,13 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>6.6 标准库类型：容器适配器<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>6.6 标准库类型：容器适配器<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="id2">
-<h2>简介<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>简介<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <p>除了顺序容器外，标准库还定义了三个顺序容器适配器：<code class="docutils literal notranslate"><span class="pre">stack</span></code>、<code class="docutils literal notranslate"><span class="pre">queue</span></code>和<code class="docutils literal notranslate"><span class="pre">priority_queue</span></code>。一个容器适配器接受一种已有的容器类型，使其行为看起来像是一种不同的类型。</p>
 </section>
 <section id="id3">
-<h2>容器适配器操作<a class="headerlink" href="#id3" title="永久链接至标题"></a></h2>
+<h2>容器适配器操作<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
 <p>所有容器适配器都支持的操作和类型如下：</p>
 <table border="1" class="docutils">
 <thead>
@@ -165,7 +166,7 @@
 </tbody>
 </table></section>
 <section id="id4">
-<h2>例子<a class="headerlink" href="#id4" title="永久链接至标题"></a></h2>
+<h2>例子<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Tips：默认情况下stack和queue是基于deque实现的，<code class="docutils literal notranslate"><span class="pre">priority_queue</span></code>是在<code class="docutils literal notranslate"><span class="pre">vector</span></code>之上实现的，我们可以在创建一个适配器时讲一个命名的顺序容器作为第二个类型参数来重载默认容器类型。</p>
 </div></blockquote>
@@ -180,7 +181,7 @@
 </div>
 </section>
 <section id="id5">
-<h2>适用范围<a class="headerlink" href="#id5" title="永久链接至标题"></a></h2>
+<h2>适用范围<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h2>
 <ul class="simple">
 <li><p>所有适配器都要求容器具有添加、删除以及访问尾元素的能力，因此容器不能构造在<code class="docutils literal notranslate"><span class="pre">array</span></code>和<code class="docutils literal notranslate"><span class="pre">forward_list</span></code>上构造适配器</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">stack</span></code>只要求<code class="docutils literal notranslate"><span class="pre">push_back</span></code>、<code class="docutils literal notranslate"><span class="pre">pop_back</span></code>和<code class="docutils literal notranslate"><span class="pre">back</span></code>操作，因此可以在除<code class="docutils literal notranslate"><span class="pre">array</span></code>和<code class="docutils literal notranslate"><span class="pre">forward_list</span></code>外的任何容器上构造</p></li>
@@ -189,7 +190,7 @@
 </ul>
 </section>
 <section id="id6">
-<h2>栈适配器<a class="headerlink" href="#id6" title="永久链接至标题"></a></h2>
+<h2>栈适配器<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Tips：栈默认基于deque实现，也可以在list或者vector</p>
 </div></blockquote>
@@ -226,7 +227,7 @@
 </tbody>
 </table></section>
 <section id="id7">
-<h2>队列适配器<a class="headerlink" href="#id7" title="永久链接至标题"></a></h2>
+<h2>队列适配器<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">queue</span></code>默认基于deque实现，<code class="docutils literal notranslate"><span class="pre">priority_queue</span></code>默认基于vector实现；<code class="docutils literal notranslate"><span class="pre">queue</span></code>也可以用<code class="docutils literal notranslate"><span class="pre">list</span></code>或者<code class="docutils literal notranslate"><span class="pre">vector</span></code>实现，<code class="docutils literal notranslate"><span class="pre">priority_queue</span></code>也可以用<code class="docutils literal notranslate"><span class="pre">deque</span></code>实现</p>
 </div></blockquote>

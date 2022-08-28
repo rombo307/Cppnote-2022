@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>11.3 智能指针 &mdash; C++语法笔记 v1.0 文档</title>
+  <title>11.3 智能指针 &mdash; C++ Note v1.0 文档</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,6 +14,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/translations.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -28,7 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> C++语法笔记
+            <a href="../../index.html" class="icon icon-home"> C++ Note
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -119,7 +120,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">C++语法笔记</a>
+          <a href="../../index.html">C++ Note</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -139,9 +140,9 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1>11.3 智能指针<a class="headerlink" href="#id1" title="永久链接至标题"></a></h1>
+<h1>11.3 智能指针<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
 <section id="c">
-<h2>C++内存<a class="headerlink" href="#c" title="永久链接至标题"></a></h2>
+<h2>C++内存<a class="headerlink" href="#c" title="此标题的永久链接"></a></h2>
 <p>我们的C++程序主要包含如下三种内存：</p>
 <ul class="simple">
 <li><p>静态内存：保存局部<code class="docutils literal notranslate"><span class="pre">static</span></code>对象、类<code class="docutils literal notranslate"><span class="pre">static</span></code>数据成员以及定义在任何函数之外的变量</p></li>
@@ -150,9 +151,9 @@
 </ul>
 </section>
 <section id="id2">
-<h2>从动态内存到智能指针<a class="headerlink" href="#id2" title="永久链接至标题"></a></h2>
+<h2>从动态内存到智能指针<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
 <section id="id3">
-<h3>1. 动态内存管理<a class="headerlink" href="#id3" title="永久链接至标题"></a></h3>
+<h3>1. 动态内存管理<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h3>
 <p>在C++中，动态内存的管理是通过一对运算符来完成的：</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">new</span></code>：在动态内存中为对象分配空间并返回一个指向该对象的指针</p></li>
@@ -160,7 +161,7 @@
 </ul>
 </section>
 <section id="id4">
-<h3>2. 手动管理动态内存的问题<a class="headerlink" href="#id4" title="永久链接至标题"></a></h3>
+<h3>2. 手动管理动态内存的问题<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <p>由于确保在正确的时间释放内存是极其困难的，动态内存的使用很容易出问题：</p>
 <ul class="simple">
 <li><p>忘记释放内存时会产生内存泄漏</p></li>
@@ -168,7 +169,7 @@
 </ul>
 </section>
 <section id="id5">
-<h3>3. 智能指针<a class="headerlink" href="#id5" title="永久链接至标题"></a></h3>
+<h3>3. 智能指针<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：下述三种智能指针都定义在<code class="docutils literal notranslate"><span class="pre">memory</span></code>头文件中。</p>
 </div></blockquote>
@@ -181,7 +182,7 @@
 </section>
 </section>
 <section id="id6">
-<h2>C++类使用动态生存期资源的原因<a class="headerlink" href="#id6" title="永久链接至标题"></a></h2>
+<h2>C++类使用动态生存期资源的原因<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h2>
 <p>在C++类外使用动态生存期资源可能是为了手动管理对象的生命周期或者是因为栈空间不足，而在C++类中使用动态生存期资源主要出于如下三种原因：</p>
 <ul class="simple">
 <li><p>程序不知道自己需要多少对象</p></li>
@@ -189,11 +190,11 @@
 <li><p>程序需要在多个对象间共享数据</p></li>
 </ul>
 <section id="id7">
-<h3>1. 程序不知道自己需要多少对象<a class="headerlink" href="#id7" title="永久链接至标题"></a></h3>
+<h3>1. 程序不知道自己需要多少对象<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h3>
 <p>某些类需要在运行时分配可变大小的内存空间，这些类通常可以（如果确实可以的话，一般应该）使用标准库容器来保存它们的数据。容器类就是出于第一种原因而使用动态内存的典型例子。</p>
 </section>
 <section id="id8">
-<h3>2. 程序不知道所需对象的准确类型<a class="headerlink" href="#id8" title="永久链接至标题"></a></h3>
+<h3>2. 程序不知道所需对象的准确类型<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
 <p>当我们希望在容器中存放具有继承关系的对象时，我们实际上存放的通常是基类的指针（更好的选择是智能指针），这些指针所指对象的动态类型可能是基类类型，也可能是派生类类型：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span>// 我们可以将一个派生类的(智能)指针转换为基类的(智能)指针, make_shared&lt;Bulk_quote&gt;返回shared_ptr&lt;Bulk_quote&gt;, 但是调用push_back时该对象被转换为shared_ptr&lt;Quote&gt;
 vector&lt;shared_ptr&lt;Quote&gt;&gt; basket;
@@ -207,7 +208,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 <p>因为<code class="docutils literal notranslate"><span class="pre">basket</span></code>存放着<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>，所以我们必须解引用<code class="docutils literal notranslate"><span class="pre">basket.back()</span></code>的返回值以获得运行<code class="docutils literal notranslate"><span class="pre">net_price</span></code>的对象，实际上调用的<code class="docutils literal notranslate"><span class="pre">net_price</span></code>版本取决于指针所指对象的动态类型。</p>
 </section>
 <section id="id9">
-<h3>3. 程序需要在多个对象间共享数据<a class="headerlink" href="#id9" title="永久链接至标题"></a></h3>
+<h3>3. 程序需要在多个对象间共享数据<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
 <p>到目前为止，我们使用的类分配的资源都与对应对象生存期一致。例如每个<code class="docutils literal notranslate"><span class="pre">vector</span></code>“拥有”自己的元素，当我们拷贝一个“vector”时，原<code class="docutils literal notranslate"><span class="pre">vector</span></code>和副本<code class="docutils literal notranslate"><span class="pre">vector</span></code>中的元素是相互分离的。但是某些类分配的资源具有与原对象相独立的生存期。</p>
 <p>例如假定我们希望定义一个名为<code class="docutils literal notranslate"><span class="pre">StrBlob</span></code>的类，保存一组<code class="docutils literal notranslate"><span class="pre">string</span></code>元素。与容器不同，我们希望<code class="docutils literal notranslate"><span class="pre">Blob</span></code>对象的不同拷贝之间共享相同的元素。即当我们拷贝一个<code class="docutils literal notranslate"><span class="pre">StrBlob</span></code>时，原<code class="docutils literal notranslate"><span class="pre">StrBlob</span></code>对象及其拷贝应该引用相同的底层元素。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -219,7 +220,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 <span class="k">using</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="p">;</span><span class="w"></span>
 
 <span class="c1">// StrBlob: 管理string的类, StrBlob对象的不同拷贝之间共享相同的底层数据</span>
-<span class="k">class</span> <span class="nc">StrBlob</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">StrBlob</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;::</span><span class="n">size_type</span><span class="w"> </span><span class="n">size_type</span><span class="p">;</span><span class="w"></span>
 
@@ -287,7 +288,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </section>
 </section>
 <section id="id10">
-<h2>C++类管理动态生存期资源的表现：行为像值或者指针<a class="headerlink" href="#id10" title="永久链接至标题"></a></h2>
+<h2>C++类管理动态生存期资源的表现：行为像值或者指针<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h2>
 <p>通常管理类外资源的类需要通过析构函数来释放对象所分配的资源，根据“三/五原则”它也必须自定义拷贝构造函数和拷贝赋值运算符（<code class="docutils literal notranslate"><span class="pre">delete</span></code>拷贝构造函数和拷贝赋值运算符也算自定义的一种）。</p>
 <p>对于管理类外资源的类，根据如何拷贝指针成员我们可以大致分为如下三类：</p>
 <ul class="simple">
@@ -296,14 +297,14 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 <li><p>行为像指针的类：<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code></p></li>
 </ul>
 <section id="id11">
-<h3>1. 行为像值的类<a class="headerlink" href="#id11" title="永久链接至标题"></a></h3>
+<h3>1. 行为像值的类<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h3>
 <p>为了提供类值的行为，对于类管理的资源，每个对象都应该有自己的一份拷贝。以管理<code class="docutils literal notranslate"><span class="pre">string</span></code>资源的类<code class="docutils literal notranslate"><span class="pre">HasPtr</span></code>的类而言：</p>
 <ul class="simple">
 <li><p>拷贝构造函数：完成<code class="docutils literal notranslate"><span class="pre">string</span></code>的拷贝而不是拷贝指针</p></li>
 <li><p>析构函数：释放<code class="docutils literal notranslate"><span class="pre">string</span></code>对象</p></li>
 <li><p>拷贝赋值运算符：释放对象当前的<code class="docutils literal notranslate"><span class="pre">string</span></code>，并从右侧运算对象拷贝<code class="docutils literal notranslate"><span class="pre">string</span></code></p></li>
 </ul>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HasPtr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">HasPtr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="c1">// 构造函数: 分配string动态内存</span>
 <span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">HasPtr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">ps_</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
@@ -334,11 +335,11 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </div>
 </section>
 <section id="id12">
-<h3>2. 行为像指针的类<a class="headerlink" href="#id12" title="永久链接至标题"></a></h3>
+<h3>2. 行为像指针的类<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h3>
 <p>令一个类展现类似指针的行为的最好方法是使用<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>来管理类中的资源，拷贝（或赋值）一个<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>会拷贝（或赋值）<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>所指向的指针。<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>类会自己记录有多少用户共享它所指向的对象，当没有用户使用对象时，<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>类负责释放资源。</p>
 </section>
 <section id="swap">
-<h3>3. swap交换操作<a class="headerlink" href="#swap" title="永久链接至标题"></a></h3>
+<h3>3. swap交换操作<a class="headerlink" href="#swap" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：管理动态资源的类通常除了自定义拷贝控制成员外，还需要定义一个名为<code class="docutils literal notranslate"><span class="pre">swap</span></code>的函数。如果一个类定义了自己的<code class="docutils literal notranslate"><span class="pre">swap</span></code>成员函数，那么算法将使用类自定义版本，否则算法将使用标准库定义的<code class="docutils literal notranslate"><span class="pre">swap</span></code>。</p>
 </div></blockquote>
@@ -369,9 +370,9 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </section>
 </section>
 <section id="shared-ptr">
-<h2>shared_ptr类<a class="headerlink" href="#shared-ptr" title="永久链接至标题"></a></h2>
+<h2>shared_ptr类<a class="headerlink" href="#shared-ptr" title="此标题的永久链接"></a></h2>
 <section id="id13">
-<h3>1. 简介<a class="headerlink" href="#id13" title="永久链接至标题"></a></h3>
+<h3>1. 简介<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h3>
 <p>类似于<code class="docutils literal notranslate"><span class="pre">vector</span></code>，<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>也是模板，因此当我们创建一个智能指针时必须提供额外的信息——指针可以指向的类型。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 默认初始化的智能指针中保存一个空指针</span>
 <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span><span class="w">     </span><span class="c1">// shared_ptr, 可以指向string</span>
@@ -385,7 +386,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </div>
 </section>
 <section id="id14">
-<h3>2. 提供的操作<a class="headerlink" href="#id14" title="永久链接至标题"></a></h3>
+<h3>2. 提供的操作<a class="headerlink" href="#id14" title="此标题的永久链接"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>和<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>都支持的操作：</p>
 <table border="1" class="docutils">
 <thead>
@@ -495,7 +496,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </tbody>
 </table></section>
 <section id="make-shared">
-<h3>3. make_shared函数<a class="headerlink" href="#make-shared" title="永久链接至标题"></a></h3>
+<h3>3. make_shared函数<a class="headerlink" href="#make-shared" title="此标题的永久链接"></a></h3>
 <p>最安全的分配和使用动态内存的方法是调用一个名为<code class="docutils literal notranslate"><span class="pre">make_shared</span></code>的标准库函数，此函数在动态内存中分配一个对象并初始化它，返回指向该对象的<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>。</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// p1指向一个值为42的int的shared_ptr</span>
 <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_shared</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><span class="w"></span>
@@ -510,7 +511,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </div></blockquote>
 </section>
 <section id="id15">
-<h3>4. shared_ptr的拷贝和赋值<a class="headerlink" href="#id15" title="永久链接至标题"></a></h3>
+<h3>4. shared_ptr的拷贝和赋值<a class="headerlink" href="#id15" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>当进行拷贝或者赋值时，每个<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>都会记录有多少个其他的<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>指向相同的对象：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">auto</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_shared</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><span class="w">  </span><span class="c1">// p指向的对象只有p一个引用者</span>
@@ -542,7 +543,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </div>
 </section>
 <section id="id16">
-<h3>5. shared_ptr自动销毁管理的对象<a class="headerlink" href="#id16" title="永久链接至标题"></a></h3>
+<h3>5. shared_ptr自动销毁管理的对象<a class="headerlink" href="#id16" title="此标题的永久链接"></a></h3>
 <p>当指向对象的最后一个<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>被销毁时，<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>类会自动销毁此对象。它是通过另一个特殊的成员函数——析构函数<code class="docutils literal notranslate"><span class="pre">destructor</span></code>完成销毁工作的。</p>
 <blockquote>
 <div><p>就像构造函数控制初始化一样，析构函数控制此类型的对象销毁时做什么操作。</p>
@@ -553,11 +554,11 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </div></blockquote>
 </section>
 <section id="id17">
-<h3>6. 智能指针忘记释放内存的场景<a class="headerlink" href="#id17" title="永久链接至标题"></a></h3>
+<h3>6. 智能指针忘记释放内存的场景<a class="headerlink" href="#id17" title="此标题的永久链接"></a></h3>
 <p>对于某个对象，由于在最后一个<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>被销毁前内存都不会释放，保证<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>在无用之后不再保留就非常重要了。<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>在无用之后仍然保留的一种可能情况是，你将<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>存放在一个容器中，随后重排了容器，从而不再需要某些元素，在这种情况下，你应该确保用<code class="docutils literal notranslate"><span class="pre">erase</span></code>删除那些不再需要的<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>元素。</p>
 </section>
 <section id="shared-ptrnew">
-<h3>7. shared_ptr和new结合使用<a class="headerlink" href="#shared-ptrnew" title="永久链接至标题"></a></h3>
+<h3>7. shared_ptr和new结合使用<a class="headerlink" href="#shared-ptrnew" title="此标题的永久链接"></a></h3>
 <p>我们可以用<code class="docutils literal notranslate"><span class="pre">new</span></code>返回的指针来初始化只能指针：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 接受指针参数的智能指针构造函数是explicit的, 我们无法将一个内置指针隐式地转换为一个智能指针</span>
 <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p1</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span><span class="w">     </span><span class="c1">// 正确</span>
@@ -567,7 +568,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </section>
 </section>
 <section id="id18">
-<h2>智能指针与异常<a class="headerlink" href="#id18" title="永久链接至标题"></a></h2>
+<h2>智能指针与异常<a class="headerlink" href="#id18" title="此标题的永久链接"></a></h2>
 <p>如果使用智能指针，那么即使程序块过早结束，那么智能指针类也能确保在内存不再需要时将其释放：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="n">shared_prt</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sp</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span><span class="w">  </span><span class="c1">// 分配一个新对象</span>
@@ -585,7 +586,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </div>
 </section>
 <section id="unique-ptr">
-<h2>unique_ptr<a class="headerlink" href="#unique-ptr" title="永久链接至标题"></a></h2>
+<h2>unique_ptr<a class="headerlink" href="#unique-ptr" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>编码规范：如果必须使用动态内存分配，那么更倾向于将所有权保存在分配者手中，如果其他地方要使用这个对象，最好用<code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code>来明确所有权传递，例如：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 分配动态内存</span>
@@ -596,11 +597,11 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </div>
 </div></blockquote>
 <section id="id19">
-<h3>1. 简介<a class="headerlink" href="#id19" title="永久链接至标题"></a></h3>
+<h3>1. 简介<a class="headerlink" href="#id19" title="此标题的永久链接"></a></h3>
 <p>一个<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>“拥有”它所指向的对象，与<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>不同，某个时刻只能有一个<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>指向一个给定对象。当<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>被销毁时，它所指向的对象也被销毁。</p>
 </section>
 <section id="id20">
-<h3>2. 提供的操作<a class="headerlink" href="#id20" title="永久链接至标题"></a></h3>
+<h3>2. 提供的操作<a class="headerlink" href="#id20" title="此标题的永久链接"></a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -643,7 +644,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </tbody>
 </table></section>
 <section id="id21">
-<h3>3. 转移unique_ptr指针的所有权<a class="headerlink" href="#id21" title="永久链接至标题"></a></h3>
+<h3>3. 转移unique_ptr指针的所有权<a class="headerlink" href="#id21" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：<code class="docutils literal notranslate"><span class="pre">reset()</span></code>方法接受一个可选的指针参数，令<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>重新指向给定的指针，如果<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>不为空，则它原来指向的对象将被释放。调用<code class="docutils literal notranslate"><span class="pre">release()</span></code>方法会切断<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>和它原来管理的对象之间的联系，<code class="docutils literal notranslate"><span class="pre">release()</span></code>方法返回的指针通常被用来初始化另一个智能指针或者给另一个智能指针赋值。如果我们不用另一个智能指针来保存<code class="docutils literal notranslate"><span class="pre">release()</span></code>返回的指针，那么我们的程序就必须负责资源的释放。</p>
 </div></blockquote>
@@ -674,16 +675,16 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </section>
 </section>
 <section id="weak-ptr">
-<h2>weak_ptr<a class="headerlink" href="#weak-ptr" title="永久链接至标题"></a></h2>
+<h2>weak_ptr<a class="headerlink" href="#weak-ptr" title="此标题的永久链接"></a></h2>
 <section id="id22">
-<h3>1. 简介<a class="headerlink" href="#id22" title="永久链接至标题"></a></h3>
+<h3>1. 简介<a class="headerlink" href="#id22" title="此标题的永久链接"></a></h3>
 <blockquote>
 <div><p>Tips：一旦最后一个指向对象的<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>被销毁，即使有<code class="docutils literal notranslate"><span class="pre">weak_ptr</span></code>指向对象，该对象也还是会被释放。</p>
 </div></blockquote>
 <p><code class="docutils literal notranslate"><span class="pre">weak_ptr</span></code>是一种不控制所指向对象生存期的智能指针，它指向一个<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>管理的对象，但是将一个<code class="docutils literal notranslate"><span class="pre">weak_ptr</span></code>绑定到一个<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>不会改变<code class="docutils literal notranslate"><span class="pre">shared_ptr</span></code>的引用计数。</p>
 </section>
 <section id="id23">
-<h3>2. 提供的操作<a class="headerlink" href="#id23" title="永久链接至标题"></a></h3>
+<h3>2. 提供的操作<a class="headerlink" href="#id23" title="此标题的永久链接"></a></h3>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -731,7 +732,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </tbody>
 </table></section>
 <section id="id24">
-<h3>3. 访问对象<a class="headerlink" href="#id24" title="永久链接至标题"></a></h3>
+<h3>3. 访问对象<a class="headerlink" href="#id24" title="此标题的永久链接"></a></h3>
 <p>由于对象可能不存在，因此我们不能直接使用<code class="docutils literal notranslate"><span class="pre">weak_ptr</span></code>访问对象，必须调用<code class="docutils literal notranslate"><span class="pre">lock</span></code>函数检查指向的对象是否仍存在：</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// 初始化一个weak_ptr</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_shared</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span><span class="w"></span>
@@ -746,7 +747,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </section>
 </section>
 <section id="id25">
-<h2>智能指针和哑类<a class="headerlink" href="#id25" title="永久链接至标题"></a></h2>
+<h2>智能指针和哑类<a class="headerlink" href="#id25" title="此标题的永久链接"></a></h2>
 <p>包括所有标准库在内的很多C++类都定义了析构函数，负责清理对象使用的资源。但是不是所有的类都是这么良好定义的，特别是哪些为C和C++两种语言设计的类，通常都要求用户显式地释放所使用的任何资源。</p>
 <blockquote>
 <div><p>Tips：那些分配了资源，但是又没有定义析构函数来释放这些资源的类，可能会遇到与使用动态内存相同的错误——程序员非常容易忘记释放内存。另外，如果在资源分配和释放之间发生了异常，程序也会发生资源泄漏。</p>
@@ -755,8 +756,8 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
 <span class="cm"> * 未使用shared_ptr时</span>
 <span class="cm"> */</span><span class="w"></span>
-<span class="k">struct</span> <span class="nc">destination</span><span class="p">;</span><span class="w">                 </span><span class="c1">// 表示我们正在连接什么</span>
-<span class="k">struct</span> <span class="nc">connection</span><span class="p">;</span><span class="w">                  </span><span class="c1">// 使用连接所需的信息</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">destination</span><span class="p">;</span><span class="w">                 </span><span class="c1">// 表示我们正在连接什么</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">connection</span><span class="p">;</span><span class="w">                  </span><span class="c1">// 使用连接所需的信息</span>
 <span class="n">connection</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="n">destination</span><span class="o">*</span><span class="p">);</span><span class="w">   </span><span class="c1">// 打开连接</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">disconnect</span><span class="p">(</span><span class="n">connection</span><span class="p">);</span><span class="w">        </span><span class="c1">// 关闭给定的连接</span>
 
@@ -783,7 +784,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </div>
 </section>
 <section id="id26">
-<h2>智能指针陷阱<a class="headerlink" href="#id26" title="永久链接至标题"></a></h2>
+<h2>智能指针陷阱<a class="headerlink" href="#id26" title="此标题的永久链接"></a></h2>
 <p>智能指针可以提供对动态分配的内存安全而又方便的管理，但这建立在正确使用的前提下。为了正确使用智能指针，我们必须坚持一些基本规范：</p>
 <ul class="simple">
 <li><p>不使用相同的内置指针值初始化（或<code class="docutils literal notranslate"><span class="pre">reset</span></code>）多个智能指针</p></li>
@@ -794,7 +795,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </ul>
 </section>
 <section id="id27">
-<h2>智能指针与动态数组<a class="headerlink" href="#id27" title="永久链接至标题"></a></h2>
+<h2>智能指针与动态数组<a class="headerlink" href="#id27" title="此标题的永久链接"></a></h2>
 <p>标准库提供了一个可以管理<code class="docutils literal notranslate"><span class="pre">new</span></code>分配数组的<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>版本，对应的操作如下：</p>
 <blockquote>
 <div><p>Tips：指向动态数组的<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>不支持成员访问运算符（点和箭头运算符），其他<code class="docutils literal notranslate"><span class="pre">unique_ptr</span></code>操作不变。</p>
@@ -844,7 +845,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </div>
 </section>
 <section id="newed">
-<h2>编码规范：以独立语句将newed对象置入智能指针<a class="headerlink" href="#newed" title="永久链接至标题"></a></h2>
+<h2>编码规范：以独立语句将newed对象置入智能指针<a class="headerlink" href="#newed" title="此标题的永久链接"></a></h2>
 <blockquote>
 <div><p>Effective C++：Store newed objects in smart pointers in standalone statements.</p>
 <ul class="simple">
@@ -882,7 +883,7 @@ cout &lt;&lt; basket.back()-&gt;net_price(15) &lt;&lt; endl;
 </div>
 </section>
 <section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="永久链接至标题"></a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="此标题的永久链接"></a></h2>
 <p>[1] https://www.cnblogs.com/tenosdoit/p/3456704.html</p>
 <p>[2] https://zhuanlan.zhihu.com/p/54078587</p>
 </section>
