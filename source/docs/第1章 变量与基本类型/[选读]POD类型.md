@@ -2,17 +2,17 @@
 
 ## 开发软件包
 
-采用IAR9.3或者e2 studio编译器；
+    采用IAR9.3或者e2 studio编译器；
 
-> 瑞萨编译器 e2 studio
+### 瑞萨编译器 e2 studio
 
-`setup_rznfsp_v1_0_0_e2s_v2022-07.exe`其中已经集成FSP代码生成配置工具；
+* `setup_rznfsp_v1_0_0_e2s_v2022-07.exe`其中已经集成FSP代码生成配置工具；
 
-> IAR编译器 IAR9.3
+### IAR编译器 IAR9.3
 
-`EWARM-9301-50054.exe`IAR9.3编译器；
-`IAR9.3破解.rar`IAR9.3破解工具;
-`setup_rznfsp_v1_0_0_rzsc_v2022-07.exe` 瑞萨FSP代码生成配置工具；
+* `EWARM-9301-50054.exe`IAR9.3编译器；
+* `IAR9.3破解.rar`IAR9.3破解工具;
+* `setup_rznfsp_v1_0_0_rzsc_v2022-07.exe` 瑞萨FSP代码生成配置工具；
 
 ## POD类型的优势
 
