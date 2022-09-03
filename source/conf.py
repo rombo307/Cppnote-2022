@@ -26,9 +26,9 @@ FilePath: \cpp_dictionary\source\conf.py
 
 # -- Project information -----------------------------------------------------
 
-project = 'C++ Note'
-copyright = '2021, TOMOCAT'
-author = 'TOMOCAT'
+project = 'EtherCAT应用开发实战指南'
+copyright = '2022, rombo307/www.mzc-tc.com'
+author = 'rombo307'
 
 # The full version, including alpha/beta/rc tags
 release = 'v1.0'
@@ -72,3 +72,9 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_context = {
+"display_github": False, # Add 'Edit on Github' link instead of 'View page source'
+"last_updated": True,
+"commit": False,
+}
