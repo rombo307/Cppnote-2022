@@ -49,7 +49,12 @@
 <li class="toctree-l2"><a class="reference internal" href="1.6%20%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.html">1.6 类型转换</a></li>
 <li class="toctree-l2"><a class="reference internal" href="1.7%20%E5%88%9D%E5%A7%8B%E5%8C%96.html">1.7 初始化</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">[选读] POD类型</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">背景</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">开发软件包</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#e2-studio">瑞萨编译器 e2 studio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#iar-iar9-3">IAR编译器 IAR9.3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#markmap">markmap常用方法</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">POD类型的优势</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#c">1. C内存布局兼容</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id3">2. 可以使用字节赋值</a></li>
@@ -110,11 +115,27 @@
   <section id="pod">
 <h1>[选读] POD类型<a class="headerlink" href="#pod" title="此标题的永久链接"></a></h1>
 <section id="id1">
-<h2>背景<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
-<blockquote>
-<div><p>POD（Plain Old Data）指的是C++定义的和C相兼容的数据结构。</p>
-</div></blockquote>
-<p>几乎所有的系统底层都是用C写的，当时定义的基本数据类型比如int、char、float、枚举、指针、数组和结构等通过二进制拷贝后还能保持数据不变，即编译器可以通过二进制数据将该类型正确解析出来。C++中的类类型引入了继承和派生等新概念，编译器无法解析这些复杂数据结构，因此C++提出POD数据结构的概念用于兼容C语言，由于C++中基本内置类型都是POD类型，因此我们一般讨论<code class="docutils literal notranslate"><span class="pre">class</span></code>、<code class="docutils literal notranslate"><span class="pre">struct</span></code>和<code class="docutils literal notranslate"><span class="pre">union</span></code>是否是POD类型的。</p>
+<h2>开发软件包<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>采用IAR9.3或者e2 studio编译器；
+</pre></div>
+</div>
+<section id="e2-studio">
+<h3>瑞萨编译器 e2 studio<a class="headerlink" href="#e2-studio" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">setup_rznfsp_v1_0_0_e2s_v2022-07.exe</span></code>其中已经集成FSP代码生成配置工具；</p></li>
+</ul>
+</section>
+<section id="iar-iar9-3">
+<h3>IAR编译器 IAR9.3<a class="headerlink" href="#iar-iar9-3" title="此标题的永久链接"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EWARM-9301-50054.exe</span></code>IAR9.3编译器；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">IAR9.3破解.rar</span></code>IAR9.3破解工具;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setup_rznfsp_v1_0_0_rzsc_v2022-07.exe</span></code> 瑞萨FSP代码生成配置工具；</p></li>
+</ul>
+</section>
+<section id="markmap">
+<h3>markmap常用方法<a class="headerlink" href="#markmap" title="此标题的永久链接"></a></h3>
+<img src="images/markmap.jpg"> </section>
 </section>
 <section id="id2">
 <h2>POD类型的优势<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>

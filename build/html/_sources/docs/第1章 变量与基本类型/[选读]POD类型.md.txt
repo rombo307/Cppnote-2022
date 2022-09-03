@@ -1,10 +1,21 @@
 # [选读] POD类型
 
-## 背景
+## 开发软件包
 
-> POD（Plain Old Data）指的是C++定义的和C相兼容的数据结构。
+    采用IAR9.3或者e2 studio编译器；
 
-几乎所有的系统底层都是用C写的，当时定义的基本数据类型比如int、char、float、枚举、指针、数组和结构等通过二进制拷贝后还能保持数据不变，即编译器可以通过二进制数据将该类型正确解析出来。C++中的类类型引入了继承和派生等新概念，编译器无法解析这些复杂数据结构，因此C++提出POD数据结构的概念用于兼容C语言，由于C++中基本内置类型都是POD类型，因此我们一般讨论`class`、`struct`和`union`是否是POD类型的。
+### 瑞萨编译器 e2 studio
+
+* `setup_rznfsp_v1_0_0_e2s_v2022-07.exe`其中已经集成FSP代码生成配置工具；
+
+### IAR编译器 IAR9.3
+
+* `EWARM-9301-50054.exe`IAR9.3编译器；
+* `IAR9.3破解.rar`IAR9.3破解工具;
+* `setup_rznfsp_v1_0_0_rzsc_v2022-07.exe` 瑞萨FSP代码生成配置工具；
+
+### markmap常用方法
+<img src="images/markmap.jpg"> 
 
 ## POD类型的优势
 
