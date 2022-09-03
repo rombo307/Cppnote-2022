@@ -15,7 +15,7 @@
 * `setup_rznfsp_v1_0_0_rzsc_v2022-07.exe` 瑞萨FSP代码生成配置工具；
 
 ### markmap常用方法
-<img src="images/markmap.jpg"> 
+## ![markmap](image/markmap.jpg)
 ## POD类型的优势
 
 > 编码规范：禁止定义静态存储周期非POD变量（`constexpr`变量除外），由于多编译单元中的静态变量执行时的构造和析构顺序的不确定性，它们会导致难以发现的`bug`。我们只允许POD类型的静态变量，即完全禁止`vector`（使用C数组替代）和`string`（使用`const char[]`）。
