@@ -1,4 +1,4 @@
-# [选读] POD类型
+# [选读] 搭建开发环境
 
 ## 开发软件包
 
@@ -13,6 +13,17 @@
 * `EWARM-9301-50054.exe`IAR9.3编译器；
 * `IAR9.3破解.rar`IAR9.3破解工具;
 * `setup_rznfsp_v1_0_0_rzsc_v2022-07.exe` 瑞萨FSP代码生成配置工具；
+
+##  RZ/N2L资源介绍
+ ![N2L](image/N2L.jpg)
+##  RZ/N2L快速选型
+ ![N2L-SC](image/N2L-SC.jpg)
+##  系列芯片应用场景
+ ![03](image/03.jpg)
+##  支持的工业协议
+ ![04](image/04.jpg)
+##  225PIN T2M和N2L系统框图
+ ![04](image/05.jpg)
 
 ### markmap常用方法
 ## ![markmap](image/markmap.jpg)
